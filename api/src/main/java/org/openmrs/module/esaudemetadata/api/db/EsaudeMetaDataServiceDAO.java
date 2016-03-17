@@ -11,9 +11,7 @@
  *
  * Copyright (C) OpenMRS, LLC.  All Rights Reserved.
  */
-package org.openmrs.module.eSaudeMetadata.api.db;
-
-import org.openmrs.module.eSaudeMetadata.api.EsaudeMetaDataServiceService;
+package org.openmrs.module.esaudemetadata.api.db;
 
 /**
  *  Database methods for {@link EsaudeMetaDataServiceService}.

@@ -11,7 +11,7 @@
  *
  * Copyright (C) OpenMRS, LLC.  All Rights Reserved.
  */
-package org.openmrs.module.eSaudeMetadata;
+package org.openmrs.module.esaudemetadata;
 
 import java.io.Serializable;
 import org.openmrs.BaseOpenmrsObject;

@@ -11,7 +11,7 @@
  *
  * Copyright (C) OpenMRS, LLC.  All Rights Reserved.
  */
-package org.openmrs.module.eSaudeMetadata.api;
+package org.openmrs.module.esaudemetadata.api;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
@@ -19,12 +19,12 @@ import org.openmrs.api.context.Context;
 import org.openmrs.test.BaseModuleContextSensitiveTest;
 
 /**
- * Tests {@link ${EsaudeMetaDataServiceService}}.
+ * Tests {@link ${EsaudeMetaDataService}}.
  */
-public class  EsaudeMetaDataServiceServiceTest extends BaseModuleContextSensitiveTest {
+public class EsaudeMetaDataServiceTest extends BaseModuleContextSensitiveTest {
 	
 	@Test
 	public void shouldSetupContext() {
-		assertNotNull(Context.getService(EsaudeMetaDataServiceService.class));
+		assertNotNull(Context.getService(EsaudeMetaDataService.class));
 	}
 }

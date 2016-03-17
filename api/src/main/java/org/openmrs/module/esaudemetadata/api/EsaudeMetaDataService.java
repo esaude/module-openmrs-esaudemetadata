@@ -11,7 +11,7 @@
  *
  * Copyright (C) OpenMRS, LLC.  All Rights Reserved.
  */
-package org.openmrs.module.eSaudeMetadata.api;
+package org.openmrs.module.esaudemetadata.api;
 
 import org.openmrs.api.OpenmrsService;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,13 +21,13 @@ import org.springframework.transaction.annotation.Transactional;
  * <p>
  * It can be accessed only via Context:<br>
  * <code>
- * Context.getService(EsaudeMetaDataServiceService.class).someMethod();
+ * Context.getService(EsaudeMetaDataService.class).someMethod();
  * </code>
  * 
  * @see org.openmrs.api.context.Context
  */
 @Transactional
-public interface EsaudeMetaDataServiceService extends OpenmrsService {
+public interface EsaudeMetaDataService extends OpenmrsService {
      
 	/*
 	 * Add service methods here

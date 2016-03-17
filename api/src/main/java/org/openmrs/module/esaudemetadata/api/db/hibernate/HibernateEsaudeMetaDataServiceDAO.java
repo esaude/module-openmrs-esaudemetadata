@@ -11,12 +11,12 @@
  *
  * Copyright (C) OpenMRS, LLC.  All Rights Reserved.
  */
-package org.openmrs.module.eSaudeMetadata.api.db.hibernate;
+package org.openmrs.module.esaudemetadata.api.db.hibernate;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.SessionFactory;
-import org.openmrs.module.eSaudeMetadata.api.db.EsaudeMetaDataServiceDAO;
+import org.openmrs.module.esaudemetadata.api.db.EsaudeMetaDataServiceDAO;
 
 /**
  * It is a default implementation of  {@link EsaudeMetaDataServiceDAO}.
