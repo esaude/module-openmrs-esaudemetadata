@@ -43,10 +43,6 @@
 															
 		</dependency>
 
-		<dependency>
-			<groupId>org.openmrs.module</groupId>
-			<artifactId>metadatadeploy-api</artifactId>
-		</dependency>
 				
 		<!-- End OpenMRS modules -->
 		
