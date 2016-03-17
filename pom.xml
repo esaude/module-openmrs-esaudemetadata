@@ -153,16 +153,16 @@
 				<directory>src/main/resources</directory>
 				<filtering>false</filtering>
 				<excludes>
-					<exclude>**/*.xml</exclude>
-					<exclude>**/*.properties</exclude>
+					<exclude>*/.xml</exclude>
+					<exclude>*/.properties</exclude>
 				</excludes>
 			</resource>
 			<resource>
 				<directory>src/main/resources</directory>
 				<filtering>true</filtering>
 				<includes>
-					<include>**/*.xml</include>
-					<include>**/*.properties</include>
+					<include>*/.xml</include>
+					<include>*/.properties</include>
 				</includes>
 			</resource>
 		</resources>
