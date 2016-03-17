@@ -14,6 +14,7 @@
 package org.openmrs.module.esaudemetadata;
 
 
+import org.apache.commons.lang.SystemUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.openmrs.api.context.Context;
@@ -100,6 +101,7 @@ public class ESaudeMetadataActivator implements ModuleActivator {
 		//NameWithNoSpaces-v1.zip
 		try {
 			Matcher matcher = Pattern.compile("\\w+-(\\d+).zip").matcher(filename);
+
 			if (!matcher.matches())
 				throw new RuntimeException("Filename must match PackageNameWithNoSpaces-1.zip");
 			Integer version = Integer.valueOf(matcher.group(1));
@@ -133,8 +135,8 @@ public class ESaudeMetadataActivator implements ModuleActivator {
 	 */
 	public boolean setupInitialData() throws Exception {
 		boolean anyChanges = false;
-		anyChanges |= installMetadataPackageIfNecessary("5b34396e-eb82-11e5-89eb-10c37b209c79", METADATA_FILENAME_FORMS);
-		anyChanges |= installMetadataPackageIfNecessary("65c7b888-eb82-11e5-a0d6-10c37b209c79", METADATA_FILENAME_REPORTS);
+		anyChanges |= installMetadataPackageIfNecessary("d686696a-42bb-4724-b924-8d39ffa67622", METADATA_FILENAME_FORMS);
+		anyChanges |= installMetadataPackageIfNecessary("9a6ce9a3-1758-474d-9b01-3f2023bfc795", METADATA_FILENAME_REPORTS);
 		return anyChanges;
 	}
 		
