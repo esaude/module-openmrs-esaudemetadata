@@ -36,9 +36,6 @@ import java.util.regex.Pattern;
 public class ESaudeMetadataActivator implements ModuleActivator {
 	
 	protected Log log = LogFactory.getLog(getClass());
-
-	private static final String METADATA_FILENAME_FORMS = "MCH_Forms-1.zip";
-	private static final String METADATA_FILENAME_REPORTS = "MCH_Reports-1.zip";
 		
 	/**
 	 * @see ModuleActivator#willRefreshContext()
@@ -117,7 +114,7 @@ public class ESaudeMetadataActivator implements ModuleActivator {
 			}
 
 			PackageImporter metadataImporter = MetadataSharing.getInstance().newPackageImporter();
-			metadataImporter.setImportConfig(ImportConfig.valueOf(ImportMode.PARENT_AND_CHILD));
+			metadataImporter.setImportConfig(ImportConfig.valueOf(ImportMode.MIRROR));
 			metadataImporter.loadSerializedPackageStream(getClass().getClassLoader().getResourceAsStream(filename));
 			metadataImporter.importPackage();
 			return true;
@@ -135,8 +132,8 @@ public class ESaudeMetadataActivator implements ModuleActivator {
 	 */
 	public boolean setupInitialData() throws Exception {
 		boolean anyChanges = false;
-		anyChanges |= installMetadataPackageIfNecessary("d686696a-42bb-4724-b924-8d39ffa67622", METADATA_FILENAME_FORMS);
-		anyChanges |= installMetadataPackageIfNecessary("9a6ce9a3-1758-474d-9b01-3f2023bfc795", METADATA_FILENAME_REPORTS);
+		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_FORMS_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_FILENAME_FORMS);
+		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_REPORTS_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_FILENAME_REPORTS);
 		return anyChanges;
 	}
 		
