@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
- 
-<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
@@ -8,5 +9,21 @@
         See http://www.liquibase.org/manual/home#available_database_refactorings
         for a list of supported elements and attributes
     -->
-    
+
+    <!--
+        Ensure the selected default location actually exists. If it doesn't, set
+        the value to the unknown location.
+    -->
+    <changeSet id="esaude-metadata-1" author="psbrandt">
+        <preConditions onFail="MARK_RAN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="1">
+                select count(*) from location as l, global_property as gp where l.name=gp.property_value and gp.property='default_location';
+            </sqlCheck>
+        </preConditions>
+        <sql>
+            update global_property as gp, location as l set gp.property_value=l.name where l.location_id=1 and gp.property='default_location';
+        </sql>
+    </changeSet>
+
 </databaseChangeLog>
