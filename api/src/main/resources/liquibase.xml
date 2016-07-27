@@ -29,6 +29,50 @@
     <changeSet id="esaude-metadata-2" author="ningosi">
         <preConditions onFail="MARK_RAN" onError="WARN">
             <dbms type="mysql"/>
+            <foreignKeyConstraintExists foreignKeyName="reporting_report_design_ibfk_1" />
+        </preConditions>
+        <comment>Droping 'reporting_report_design_ibfk_1' and creating a new one  'changed_by for reporting_report_design'</comment>
+        <dropForeignKeyConstraint baseTableName="reporting_report_design" constraintName="reporting_report_design_ibfk_1" />
+        <addForeignKeyConstraint baseTableName="reporting_report_design" baseColumnNames="changed_by" constraintName="changed_by for reporting_report_design" referencedTableName="users"
+                                 referencedColumnNames="user_id" deferrable="false" initiallyDeferred="false" />
+    </changeSet>
+
+    <changeSet id="esaude-metadata-3" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <foreignKeyConstraintExists foreignKeyName="reporting_report_design_ibfk_2" />
+        </preConditions>
+        <comment>Droping 'reporting_report_design_ibfk_2' and creating a new one  'creator for reporting_report_design'</comment>
+        <dropForeignKeyConstraint baseTableName="reporting_report_design" constraintName="reporting_report_design_ibfk_2" />
+        <addForeignKeyConstraint baseTableName="reporting_report_design" baseColumnNames="creator" constraintName="creator for reporting_report_design" referencedTableName="users"
+                                 referencedColumnNames="user_id" deferrable="false" initiallyDeferred="false" />
+    </changeSet>
+
+    <changeSet id="esaude-metadata-4" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <foreignKeyConstraintExists foreignKeyName="reporting_report_design_ibfk_3" />
+        </preConditions>
+        <comment>Droping 'reporting_report_design_ibfk_3' and creating a new one  'retired_by for reporting_report_design'</comment>
+        <dropForeignKeyConstraint baseTableName="reporting_report_design" constraintName="reporting_report_design_ibfk_3" />
+        <addForeignKeyConstraint baseTableName="reporting_report_design" baseColumnNames="report_definition_id" constraintName="report_definition_id for reporting_report_design" referencedTableName="serialized_object"
+                                 referencedColumnNames="serialized_object_id" deferrable="false" initiallyDeferred="false" />
+    </changeSet>
+
+    <changeSet id="esaude-metadata-5" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <foreignKeyConstraintExists foreignKeyName="reporting_report_design_ibfk_4" />
+        </preConditions>
+        <comment>Droping 'reporting_report_design_ibfk_4' and creating a new one  'retired_by for reporting_report_design'</comment>
+        <dropForeignKeyConstraint baseTableName="reporting_report_design" constraintName="reporting_report_design_ibfk_4" />
+        <addForeignKeyConstraint baseTableName="reporting_report_design" baseColumnNames="retired_by" constraintName="retired_by for reporting_report_design" referencedTableName="users"
+                                 referencedColumnNames="user_id" deferrable="false" initiallyDeferred="false" />
+    </changeSet>
+
+    <changeSet id="esaude-metadata-6" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
         </preConditions>
         <comment>Clearing all reporting changesets for recreation</comment>
         <sql>
