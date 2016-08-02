@@ -33,4 +33,5 @@ public interface EsaudeMetaDataService extends OpenmrsService {
 	 * Add service methods here
 	 * 
 	 */
+   public void setDefaultMetadataUser();
 }

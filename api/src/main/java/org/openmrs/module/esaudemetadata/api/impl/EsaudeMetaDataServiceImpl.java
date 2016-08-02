@@ -13,14 +13,23 @@
  */
 package org.openmrs.module.esaudemetadata.api.impl;
 
+import org.openmrs.Person;
+import org.openmrs.PersonName;
+import org.openmrs.Role;
+import org.openmrs.User;
+import org.openmrs.api.PersonService;
+import org.openmrs.api.UserService;
+import org.openmrs.api.context.Context;
 import org.openmrs.api.impl.BaseOpenmrsService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.openmrs.module.esaudemetadata.api.EsaudeMetaDataService;
 import org.openmrs.module.esaudemetadata.api.db.EsaudeMetaDataServiceDAO;
 
+import java.util.Date;
+
 /**
- * It is a default implementation of {@link EsaudeMetaDataServiceService}.
+ * It is a default implementation of {@link EsaudeMetaDataService}.
  */
 public class EsaudeMetaDataServiceImpl extends BaseOpenmrsService implements EsaudeMetaDataService {
 	
@@ -40,5 +49,14 @@ public class EsaudeMetaDataServiceImpl extends BaseOpenmrsService implements Esa
      */
     public EsaudeMetaDataServiceDAO getDao() {
 	    return dao;
+    }
+
+    @Override
+    public void setDefaultMetadataUser() {
+        UserService userService = Context.getUserService();
+        if(userService.getUserByUsername("esaude.metadata") != null) {
+            log.info("The user `esaude.metadata` exists! with role "+userService.getAllRoles().get(0)+" Use this user for all metadata creation. ");
+        }
+
     }
 }

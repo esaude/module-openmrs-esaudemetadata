@@ -215,6 +215,29 @@
                                  referencedColumnNames="user_id" deferrable="false" initiallyDeferred="false" />
     </changeSet>
 
+    <!--supply default user for all metadata-->
+    <changeSet id="esaude-metadata-19" author="ningosi">
+        <comment>Creating person object for user for the metadata creation</comment>
+        <sql>
+            INSERT INTO person(`gender`, `birthdate`, `birthdate_estimated`, `dead`, `death_date`, `cause_of_death`, `creator`, `date_created`, `changed_by`, `date_changed`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid` ,`deathdate_estimated`, `birthtime`)
+            VALUES('M', '2000-12-01', 1, 0, NULL, NULL, 1, current_date, NULL, NULL, 0, NULL, NULL, NULL, 'aa81a280-57e9-11e6-bc5b-507b9dc4c741', 0, NULL);
+        </sql>
+    </changeSet>
+    
+    <changeSet id="esaude-metadata-20" author="ningosi">
+        <comment>Creating person name and user objects</comment>
+        <sqlFile path="sql/metadataUser.sql" />
+    </changeSet>
+
+    <changeSet id="esaude-metadata-21" author="ningosi">
+        <comment>Granting relevant roles to the 'esaude.metadata' user</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            INSERT INTO user_role(`user_id`,`role`) VALUES(@user_id, 'Privilege Level: Full');
+
+        </sql>
+    </changeSet>
+
 
 
 </databaseChangeLog>

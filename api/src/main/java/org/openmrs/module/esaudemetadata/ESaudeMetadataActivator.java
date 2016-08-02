@@ -19,6 +19,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.openmrs.api.context.Context;
 import org.openmrs.module.ModuleActivator;
+import org.openmrs.module.esaudemetadata.api.EsaudeMetaDataService;
 import org.openmrs.module.metadatasharing.ImportConfig;
 import org.openmrs.module.metadatasharing.ImportMode;
 import org.openmrs.module.metadatasharing.ImportedPackage;
@@ -62,8 +63,10 @@ public class ESaudeMetadataActivator implements ModuleActivator {
 	 * @see ModuleActivator#started()
 	 */
 	public void started() {
+		//check if the deafualt user responsible for setting up metadata is set
 		try {
-
+			EsaudeMetaDataService service = Context.getService(EsaudeMetaDataService.class);
+			service.setDefaultMetadataUser();
 			setupInitialData();
 
 		} catch (Exception ex) {
