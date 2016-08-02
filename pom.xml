@@ -22,9 +22,10 @@
 	</organization>
 
 	<scm>
-		<connection>scm:svn:https://svn.openmrs.org/openmrs-modules/esaudeMetadata/trunk/</connection>
-		<developerConnection>scm:svn:https://svn.openmrs.org/openmrs-modules/esaudeMetadata/trunk/</developerConnection>
-		<url>https://svn.openmrs.org/openmrs-modules/eSaudeMetadata/trunk/</url>
+		<connection>scm:git:https://github.com/esaude/openmrs-module-esaudemetadata.git</connection>
+		<developerConnection>scm:git:https://github.com/esaude/openmrs-module-esaudemetadata.git</developerConnection>
+		<url>https://github.com/esaude/openmrs-module-esaudemetadata</url>
+		<tag>HEAD</tag>
 	</scm>
 
 	<modules>
