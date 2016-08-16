@@ -238,6 +238,20 @@
         </sql>
     </changeSet>
 
+    <!--flags required for poc work-->
+    <!--The precondition should check that the patient flags table exists, and that the flag does not already exist-->
+    <changeSet id="esaude-metadata-22" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <tableExists tableName="patientflags_flag" schemaName="openmrs" />
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM patientflags_flag WHERE name='ELIGIBLES';
+            </sqlCheck>
+        </preConditions>
+        <comment>Creating the 'eligibles' patient flag</comment>
+        <sqlFile path="sql/eligibles.sql" />
+    </changeSet>
+
 
 
 </databaseChangeLog>
