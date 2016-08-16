@@ -252,6 +252,52 @@
         <sqlFile path="sql/eligibles.sql" />
     </changeSet>
 
+    <changeSet id="esaude-metadata-23" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <tableExists tableName="patientflags_flag" schemaName="openmrs" />
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM patientflags_flag WHERE name='DRUG START DATE';
+            </sqlCheck>
+        </preConditions>
+        <comment>Creating the 'DRUG START DATE' patient flag</comment>
+        <sqlFile path="sql/drug_start_date.sql" />
+    </changeSet>
 
+    <changeSet id="esaude-metadata-24" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <tableExists tableName="patientflags_flag" schemaName="openmrs" />
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM patientflags_flag WHERE name='CTZ_PROPHILAXIS';
+            </sqlCheck>
+        </preConditions>
+        <comment>Creating the 'CTZ_PROPHILAXIS' patient flag</comment>
+        <sqlFile path="sql/ctz_prophilaxis.sql" />
+    </changeSet>
+
+    <changeSet id="esaude-metadata-25" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <tableExists tableName="patientflags_flag" schemaName="openmrs" />
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM patientflags_flag WHERE name='CD4 FIRST CONSULTATION';
+            </sqlCheck>
+        </preConditions>
+        <comment>Creating the 'CD4 FIRST CONSULTATION' patient flag</comment>
+        <sqlFile path="sql/cd4_first_consultation.sql" />
+    </changeSet>
+
+    <changeSet id="esaude-metadata-26" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <tableExists tableName="patientflags_flag" schemaName="openmrs" />
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM patientflags_flag WHERE name='CD4 6 MONTHS LATER';
+            </sqlCheck>
+        </preConditions>
+        <comment>Creating the 'CD4 6 MONTHS LATER' patient flag</comment>
+        <sqlFile path="sql/cd4_6_months_later.sql" />
+    </changeSet>
 
 </databaseChangeLog>
