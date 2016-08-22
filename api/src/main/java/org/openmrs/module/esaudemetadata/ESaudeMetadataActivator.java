@@ -135,7 +135,7 @@ public class ESaudeMetadataActivator implements ModuleActivator {
 	 */
 	public boolean setupInitialData() throws Exception {
 		boolean anyChanges = false;
-		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_FORMS_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_FILENAME_FORMS);
+		//anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_FORMS_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_FILENAME_FORMS);
 		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_REPORTS_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_FILENAME_REPORTS);
 		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_CONSULTATION_COHORTS_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_CONSULTATION_COHORTS);
 		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_CONSULTATION_CURRENT_STORY_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_CONSULTATION_CURRENT_STORY);
