@@ -315,4 +315,9 @@
         </sql>
     </changeSet>
 
+    <!--updating form schemas-->
+    <changeSet id="esaude-metadata-28" author="ningosi">
+        <sqlFile path="sql/update_forms_updated-1.sql" />
+    </changeSet>
+
 </databaseChangeLog>
