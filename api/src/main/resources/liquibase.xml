@@ -233,7 +233,7 @@
         <comment>Granting relevant roles to the 'esaude.metadata' user</comment>
         <sql>
             SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
-            INSERT INTO user_role(`user_id`,`role`) VALUES(@user_id, 'Privilege Level: Full');
+            INSERT INTO user_role(`user_id`,`role`) VALUES(@user_id, 'System Developer');
 
         </sql>
     </changeSet>
