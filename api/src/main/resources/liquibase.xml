@@ -320,4 +320,144 @@
         <sqlFile path="sql/update_forms_updated-1.sql" />
     </changeSet>
 
+    <!--correcting the OBITOU concept in the pt locale-->
+    <!--<changeSet id="esaude-metadata-29" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="1">
+                SELECT COUNT(*) FROM concept_name where concept_id=2027 and locale='pt';
+            </sqlCheck>
+        </preConditions>
+        <comment>Droping concept id 2027 in pt locale to match the changes made in metadata server</comment>
+        <sql>
+            SET SQL_SAFE_UPDATES = 0;
+            SET FOREIGN_KEY_CHECKS=0;
+            DELETE FROM concept_name WHERE concept_id=2027 and locale='pt';
+            DELETE FROM concept WHERE concept_id=2027;
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-30" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="1">
+                SELECT COUNT(*) FROM concept_name where concept_id=159 and locale='pt';
+            </sqlCheck>
+        </preConditions>
+        <comment>Renaming concept 159 in the pt locale</comment>
+        <sql>
+            SET SQL_SAFE_UPDATES = 0;
+            SET FOREIGN_KEY_CHECKS=0;
+            UPDATE concept_name SET name='OBITOU, DIAGNOSTICO' WHERE concept_id=159 AND locale='pt';
+        </sql>
+    </changeSet>
+    <changeSet id="esaude-metadata-31" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="2">
+                SELECT COUNT(*) FROM concept_name where name ='stillborn' and locale='en';
+            </sqlCheck>
+        </preConditions>
+        <comment>Voiding concept 1819 in the en locale</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            UPDATE concept_name SET voided=1, voided_by=@user_id, date_voided=current_date, void_reason='duplicate concept in locale en' WHERE concept_id=1819 AND locale='en';
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-32" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="1">
+                SELECT COUNT(*) FROM concept_name where concept_id =924 and locale='en' and name='SULFADOXINE AND PYRIMETHAMINE';
+            </sqlCheck>
+        </preConditions>
+        <comment>Voiding concept 924 in the en locale</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            UPDATE concept_name SET voided=1, voided_by=@user_id, date_voided=current_date, void_reason='duplicate concept in locale en' WHERE concept_id=924 AND locale='en';
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-33" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="1">
+                SELECT COUNT(*) FROM concept_name where concept_id =1883 and locale='en' and name='MULTIVITAMIN';
+            </sqlCheck>
+        </preConditions>
+        <comment>Voiding concept 1883 in the en locale</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            UPDATE concept_name SET voided=1, voided_by=@user_id, date_voided=current_date, void_reason='duplicate concept in locale en' WHERE concept_id=1883 AND locale='en';
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-34" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="1">
+                SELECT COUNT(*) FROM concept_name where concept_id =1883 and locale='pt' and name='MULTIVITAMINA';
+            </sqlCheck>
+        </preConditions>
+        <comment>Voiding concept 1883 in the pt locale</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            UPDATE concept_name SET voided=1, voided_by=@user_id, date_voided=current_date, void_reason='duplicate concept in locale pt' WHERE concept_id=1883 AND locale='pt';
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-35" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="1">
+                SELECT COUNT(*) FROM concept_name where concept_id =1445 and locale='pt' and name='NENHUM';
+            </sqlCheck>
+        </preConditions>
+        <comment>Voiding concept 1445 in the pt locale</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            UPDATE concept_name SET voided=1, voided_by=@user_id, date_voided=current_date, void_reason='duplicate concept in locale pt' WHERE concept_id=1445 AND locale='pt';
+
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-36" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="1">
+                SELECT COUNT(*) FROM concept_name where concept_id =891 and locale='pt' and name='tosse';
+            </sqlCheck>
+        </preConditions>
+        <comment>Voiding concept 891 in the pt locale</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            UPDATE concept_name SET voided=1, voided_by=@user_id, date_voided=current_date, void_reason='duplicate concept in locale pt' WHERE concept_id=891 AND locale='pt';
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-37" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="1">
+                SELECT COUNT(*) FROM concept_name where concept_id =1841 and locale='pt' and name='TIPO DE ALEITAMENTO';
+            </sqlCheck>
+        </preConditions>
+        <comment>Voiding concept 1841 in the pt locale</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            UPDATE concept_name SET voided=1, voided_by=@user_id, date_voided=current_date, void_reason='duplicate concept in locale pt' WHERE concept_id=1841 AND locale='pt';
+            SET SQL_SAFE_UPDATES = 1;
+            SET FOREIGN_KEY_CHECKS=1;
+        </sql>
+    </changeSet>
+-->
+    <changeSet id="esaude-metadata-38" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+        </preConditions>
+        <comment>Updating form fileds for vitals</comment>
+        <sqlFile path="sql/vitals-a-formfields-dump.sql" />
+    </changeSet>
+
 </databaseChangeLog>
