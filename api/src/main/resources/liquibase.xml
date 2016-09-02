@@ -217,6 +217,12 @@
 
     <!--supply default user for all metadata-->
     <changeSet id="esaude-metadata-19" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM person where uuid='aa81a280-57e9-11e6-bc5b-507b9dc4c741';
+            </sqlCheck>
+        </preConditions>
         <comment>Creating person object for user for the metadata creation</comment>
         <sql>
             INSERT INTO person(`gender`, `birthdate`, `birthdate_estimated`, `dead`, `death_date`, `cause_of_death`, `creator`, `date_created`, `changed_by`, `date_changed`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid` ,`deathdate_estimated`, `birthtime`)
@@ -225,11 +231,20 @@
     </changeSet>
     
     <changeSet id="esaude-metadata-20" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM person_name where uuid='2a1b5f8a-57eb-11e6-9c63-507b9dc4c741';
+            </sqlCheck>
+        </preConditions>
         <comment>Creating person name and user objects</comment>
         <sqlFile path="sql/metadataUser.sql" />
     </changeSet>
 
     <changeSet id="esaude-metadata-21" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+        </preConditions>
         <comment>Granting relevant roles to the 'esaude.metadata' user</comment>
         <sql>
             SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
@@ -452,12 +467,622 @@
         </sql>
     </changeSet>
 -->
+    <!--strat of form field settings-->
     <changeSet id="esaude-metadata-38" author="ningosi">
         <preConditions onFail="MARK_RAN" onError="WARN">
             <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid='83cec426-ddce-4c01-a366-9a60bbcc371b';
+            </sqlCheck>
         </preConditions>
         <comment>Updating form fileds for vitals</comment>
-        <sqlFile path="sql/vitals-a-formfields-dump.sql" />
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES (37, 765, NULL, NULL, NULL, 2731, NULL, NULL, 0, NULL, NULL , @user_id, '2016-08-25 06:55:35', 250.00000, '83cec426-ddce-4c01-a366-9a60bbcc371b');
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-39" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid='5d0d0957-bf98-4508-9499-3047b67a9c3a';
+            </sqlCheck>
+        </preConditions>
+        <comment>Updating form fileds for vitals</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES (37, 397, NULL, NULL, NULL, 2731, NULL, NULL, 0, NULL, NULL , @user_id, '2016-08-25 06:55:35', 250.00000, '5d0d0957-bf98-4508-9499-3047b67a9c3a');
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-40" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid = 'b65ca6a2-0a62-4499-b32c-e5c1578f4dee';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding form fields for diagnosis children</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES(44, 205, NULL, NULL, NULL, 3204, NULL, NULL, 0, NULL, NULL, @user_id, '2016-08-11 19:23:13', 1625.00000, 'b65ca6a2-0a62-4499-b32c-e5c1578f4dee');
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-41" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid = 'c803c131-b56a-4876-8511-0bffb1c1162c';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding form fields for diagnosis children</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES(44, 776, NULL, NULL, NULL, 3204, NULL, NULL, 0, NULL, NULL, @user_id, '2016-08-11 19:22:39', 1687.50000, 'c803c131-b56a-4876-8511-0bffb1c1162c');
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-42" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid = '39ce7671-574e-4448-90c8-d3e251d4af56';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding form fields for diagnosis children</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES(44, 769, NULL, NULL, NULL, 3204, NULL, NULL, 0, NULL, NULL, @user_id, '2016-08-11 19:14:55', 1675.00000, '39ce7671-574e-4448-90c8-d3e251d4af56');
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-43" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid = '8cfe4be4-f4a4-42aa-ab19-725d330138cf';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding form fields for diagnosis children</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES(44, 781, NULL, NULL, NULL, 3204, NULL, NULL, 0, NULL, NULL, @user_id, '2016-08-11 19:14:07', 1875.00000, '8cfe4be4-f4a4-42aa-ab19-725d330138cf');
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-44" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid = '3be36552-5a5f-4f89-9488-df8e3890e9b9';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding form fields for diagnosis children</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES(44, 779, NULL, NULL, NULL, 3204, NULL, NULL, 0, NULL, NULL, @user_id, '2016-08-11 19:13:42', 1925.00000, '3be36552-5a5f-4f89-9488-df8e3890e9b9');
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-45" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid = 'a69d5cde-e92b-4ba3-8a6a-c123dfd8e100';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding form fields for diagnosis children</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES(44, 775, NULL, NULL, NULL, 3204, NULL, NULL, 0, NULL, NULL, @user_id, '2016-08-11 19:09:59', 1432.81250, 'a69d5cde-e92b-4ba3-8a6a-c123dfd8e100');
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-46" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid = 'ed354e72-2f96-43a6-ab28-45c21bd34785';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding form fields for diagnosis children</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES(44, 768, NULL, NULL, NULL, 3204, NULL, NULL ,0, NULL, NULL, @user_id, '2016-08-11 19:07:52', 1428.12500, 'ed354e72-2f96-43a6-ab28-45c21bd34785');
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-47" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid = '3aafaae2-c619-404c-b9a1-82e621881b1d';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding form fields for diagnosis children</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES(44, 770, NULL, NULL, NULL, 3204, NULL, NULL, 0, NULL, NULL, @user_id, '2016-08-11 19:07:34', 1418.75000, '3aafaae2-c619-404c-b9a1-82e621881b1d');
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-48" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid = '54d3f623-da08-414b-8841-031f41da7a88';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding form fields for diagnosis children</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES(44, 773, NULL, NULL, NULL, 3204, NULL, NULL, 0, NULL, NULL, @user_id, '2016-08-11 17:32:05', 1587.50000, '54d3f623-da08-414b-8841-031f41da7a88');
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-49" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid = '8478aa22-8998-4c28-b1fc-f04efae5fae2';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding form fields for diagnosis children</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES(44, 774, NULL, NULL, NULL, 3204, NULL, NULL, 0, NULL, NULL, @user_id, '2016-08-11 17:31:49', 1575.00000, '8478aa22-8998-4c28-b1fc-f04efae5fae2');
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-50" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid = 'c1dd8b69-1ce6-47f6-9c07-e38ce38f0762';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding form fields for diagnosis children</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES(44, 772, NULL, NULL, NULL, 3204, NULL, NULL, 0, NULL, NULL, @user_id, '2016-08-11 17:30:29', 1443.75000, 'c1dd8b69-1ce6-47f6-9c07-e38ce38f0762');
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-51" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid = '5911800b-bee2-4c96-b119-01d80faa8761';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding form fields for diagnosis children</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES(44, 780, NULL, NULL, NULL, 3204, NULL, NULL, 0, NULL, NULL, @user_id, '2016-08-11 17:30:13', 1437.50000, '5911800b-bee2-4c96-b119-01d80faa8761');
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-52" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid = '1d5ec357-0b4d-48d5-b5b5-89c1ade70e61';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding form fields for diagnosis children</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES(44, 777, NULL, NULL, NULL, 3204, NULL, NULL, 0, NULL, NULL, @user_id, '2016-08-11 17:28:08', 2000.00000, '1d5ec357-0b4d-48d5-b5b5-89c1ade70e61');
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-53" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid = 'd88e821d-bae9-4bae-b6a8-b8c047fb9890';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding form fields for diagnosis children</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES(44, 766, NULL, NULL, NULL, 3204, NULL, NULL, 0, NULL, NULL, @user_id, '2016-08-11 17:27:50', 1950.00000, 'd88e821d-bae9-4bae-b6a8-b8c047fb9890');
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-54" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid = '67ef8b0f-5de1-4b70-add8-4510a2accaa9';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding form fields for diagnosis children</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES(44, 759, NULL, NULL, NULL, 3204, NULL, NULL, 0, NULL, NULL, @user_id, '2016-08-11 17:27:09', 1900.00000, '67ef8b0f-5de1-4b70-add8-4510a2accaa9');
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-55" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid = '6c0d2b75-b929-4beb-b1a7-5bb714d6f6d5';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding form fields for diagnosis children</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES(44, 500, NULL, NULL, NULL, 3204, NULL, NULL, 0, NULL, NULL, @user_id, '2016-08-11 17:26:14', 1850.00000, '6c0d2b75-b929-4beb-b1a7-5bb714d6f6d5');
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-56" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid = '86a29cf1-6fd2-4bae-a239-a282a5edd11b';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding form fields for diagnosis children</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES(44, 767, NULL, NULL, NULL, 3204, NULL, NULL, 0, NULL, NULL, @user_id, '2016-08-11 17:25:47', 1800.00000, '86a29cf1-6fd2-4bae-a239-a282a5edd11b');
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-57" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid = 'c0d9974a-4a1c-4b95-97fc-4c39e658502f';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding form fields for diagnosis children</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES(44, 778, NULL, NULL, NULL, 3204, NULL, NULL, 0, NULL, NULL, @user_id, '2016-08-11 17:24:51', 1750.00000, 'c0d9974a-4a1c-4b95-97fc-4c39e658502f');
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-58" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid = '418a1f61-35ee-464a-b4f0-66240f18fc85';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding form fields for diagnosis children</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES(44, 319, NULL, NULL, NULL, 3204, NULL, NULL, 0, NULL, NULL, @user_id, '2011-01-26 18:15:05', 1700.00000, '418a1f61-35ee-464a-b4f0-66240f18fc85');
+        </sql>
+    </changeSet>
+
+    <!--start form fields for the adults-->
+
+    <changeSet id="esaude-metadata-59" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid = 'fce0e153-215d-422d-985b-d36a3fed687b';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding form fields for diagnosis adults</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES(37, 775, NULL, NULL, NULL, 2731, NULL, NULL, 0, NULL, NULL, @user_id, '2016-08-03 15:11:36', 2171.87500, 'fce0e153-215d-422d-985b-d36a3fed687b');
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-60" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid = 'e6551ba8-7bb8-4b69-8f17-cca5048621b7';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding form fields for diagnosis adults</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES(37, 768, NULL, NULL, NULL, 2731, NULL, NULL, 0, NULL, NULL, @user_id, '2016-08-03 15:11:13', 2168.75000, 'e6551ba8-7bb8-4b69-8f17-cca5048621b7');
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-61" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid = '01b783f3-e972-411f-8d8b-980d8aad7f4e';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding form fields for diagnosis adults</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES(37, 770, NULL, NULL, NULL, 2731, NULL, NULL, 0, NULL, NULL, @user_id, '2016-08-03 15:10:53', 2162.50000, '01b783f3-e972-411f-8d8b-980d8aad7f4e');
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-62" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid = '3634395b-4802-4e42-aa48-8335baecf76e';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding form fields for diagnosis adults</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES(37, 781, NULL, NULL, NULL, 2731, NULL, NULL, 0, NULL, NULL, @user_id, '2016-08-03 15:09:13', 2550.00000, '3634395b-4802-4e42-aa48-8335baecf76e');
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-63" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid = 'f63aff74-c5b6-49a5-b883-094100a137bb';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding form fields for diagnosis adults</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES(37, 769, NULL, NULL, NULL, 2731, NULL, NULL, 0, NULL, NULL, @user_id, '2016-08-03 15:08:29', 2450.00000, 'f63aff74-c5b6-49a5-b883-094100a137bb');
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-64" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid = 'd6b742a0-e8a5-493f-8b7b-4f7e32464574';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding form fields for diagnosis adults</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES(37, 776, NULL, NULL, NULL, 2731, NULL, NULL, 0, NULL, NULL, @user_id, '2016-08-03 15:08:15', 2400.00000, 'd6b742a0-e8a5-493f-8b7b-4f7e32464574');
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-65" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid = '6d2fb060-e530-45ca-82ce-7b9cf2afda69';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding form fields for diagnosis adults</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES(37, 779, NULL, NULL, NULL, 2731, NULL, NULL, 0, NULL, NULL, @user_id, '2016-08-03 15:07:07', 2300.00000, '6d2fb060-e530-45ca-82ce-7b9cf2afda69');
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-66" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid = '95c5a7ad-c43e-4a0f-8886-ee3cba1b863d';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding form fields for diagnosis adults</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES(37, 402, NULL, NULL, NULL, 2731, NULL, NULL, 0, NULL, NULL, @user_id, '2016-08-02 11:29:27', 2250.00000, '95c5a7ad-c43e-4a0f-8886-ee3cba1b863d');
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-67" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid = '3d3f50c8-ae49-4f5d-a64a-c957e734662a';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding form fields for diagnosis adults</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES(37, 397, NULL, NULL, NULL, 2731, NULL, NULL, 0, NULL, NULL, @user_id, '2016-08-02 11:28:34', 2175.00000, '3d3f50c8-ae49-4f5d-a64a-c957e734662a');
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-68" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid = 'fc046c9b-6399-4d43-a1b1-d46117985ef1';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding form fields for diagnosis adults</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES(37, 773, NULL, NULL, NULL, 2731, NULL, NULL, 0, NULL, NULL, @user_id, '2016-07-29 13:28:10', 2200.00000, 'fc046c9b-6399-4d43-a1b1-d46117985ef1');
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-69" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid = '5fc349f2-a694-4a0c-803e-ccbb5402bd53';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding form fields for diagnosis adults</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES(37, 774, NULL ,NULL, NULL, 2731, NULL, NULL, 0, NULL, NULL, @user_id, '2016-07-29 13:27:48', 2150.00000, '5fc349f2-a694-4a0c-803e-ccbb5402bd53');
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-70" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid = '93302556-6113-4bf6-967f-ac2f266a35be';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding form fields for diagnosis adults</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES(37, 772, NULL, NULL, NULL, 2731, NULL, NULL, 0, NULL, NULL, @user_id,'2016-07-29 13:27:26',2100.00000,'93302556-6113-4bf6-967f-ac2f266a35be');
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-71" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid = '2b71e477-ce1f-4563-b577-1dd6f98c3097';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding form fields for diagnosis adults</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES(37, 780, NULL, NULL, NULL, 2731, NULL, NULL, 0, NULL, NULL, @user_id, '2016-07-29 13:27:08', 2050.00000, '2b71e477-ce1f-4563-b577-1dd6f98c3097');
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-72" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid = '5a911892-b162-4569-89d9-9369fd2373db';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding form fields for diagnosis adults</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES(37, 777, NULL, NULL, NULL, 2731, NULL, NULL, 0, NULL, NULL, @user_id, '2016-07-29 13:25:56', 2000.00000, '5a911892-b162-4569-89d9-9369fd2373db');
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-73" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid = '2393db1e-6af3-42a2-ba64-6310b3081041';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding form fields for diagnosis adults</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES(37, 766, NULL, NULL, NULL, 2731, NULL, NULL, 0, NULL, NULL, @user_id, '2016-07-29 13:25:35', 1950.00000, '2393db1e-6af3-42a2-ba64-6310b3081041');
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-74" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid = '0fcf9f12-2f0c-462f-81ad-b9f0bc65bfea';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding form fields for diagnosis adults</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES(37, 759, NULL, NULL, NULL, 2731, NULL, NULL, 0, NULL, NULL, @user_id, '2016-07-29 13:25:11', 1900.00000, '0fcf9f12-2f0c-462f-81ad-b9f0bc65bfea');
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-75" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid = 'a2fda180-923d-426b-999a-27053b239c2a';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding form fields for diagnosis adults</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES(37, 500, NULL, NULL, NULL, 2731, NULL, NULL, 0, NULL, NULL, @user_id, '2016-07-29 13:24:34', 1850.00000, 'a2fda180-923d-426b-999a-27053b239c2a');
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-76" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid = 'd68d9fbe-d0db-4350-b717-5fd4112752c7';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding form fields for diagnosis adults</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES(37, 767, NULL, NULL, NULL, 2731, NULL, NULL, 0, NULL, NULL, @user_id, '2016-07-29 13:23:19', 1800.00000, 'd68d9fbe-d0db-4350-b717-5fd4112752c7');
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-77" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid = 'c3fa62c3-61ef-4cc5-a46b-8d96a345f48c';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding form fields for diagnosis adults</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES(37, 778, NULL, NULL, NULL, 2731, NULL, NULL, 0, NULL, NULL,@user_id, '2016-07-29 13:22:46', 1750.00000, 'c3fa62c3-61ef-4cc5-a46b-8d96a345f48c');
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-78" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid = '824a6cdb-2a64-4b04-9589-fe84ea4168db';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding form fields for diagnosis adults</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES(37, 771, NULL, NULL, NULL, 2731, NULL, NULL, 0, NULL, NULL, @user_id, '2016-07-29 13:21:37', 1700.00000, '824a6cdb-2a64-4b04-9589-fe84ea4168db');
+        </sql>
     </changeSet>
 
 </databaseChangeLog>

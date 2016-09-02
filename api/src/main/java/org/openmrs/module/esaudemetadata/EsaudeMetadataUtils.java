@@ -13,10 +13,11 @@ public class EsaudeMetadataUtils {
         public static final String METADATA_CONSULTATION_COHORTS = "consultation_schedule_cohort-3.zip";
         public static final String METADATA_CONSULTATION_CURRENT_STORY = "consultation_current_story-1.zip";
         public static final String METADATA_DIAGNOSIS_CONCEPTS = "Diagnosis_Concepts-1.zip";
-        public static final String METADATA_DIAGNOSIS_ADULT_SCHEMA = "Diagnosis_Adult_Schema-1.zip";
+        public static final String METADATA_DIAGNOSIS_FORM_FIELDS_ADULT = "Diagnosis_Adult_Schema-1.zip";
         public static final String METADATA_PERSON_ATTRIBUTE_TYPE = "person_attributes-1.zip";
         public static final String METADATA_PATIENT_IDENTIFIER_TYPES = "patient_identifiers-1.zip";
         public static final String METADATA_FORM_FIELDS = "form_fields-1.zip";
+        public static final String METADATA_DIAGNOSIS_FORM_FIELDS_CHILD = "Diagnosis_Child_Schema-1.zip";
     }
 
     public static final class _PackageUuids {
@@ -25,9 +26,10 @@ public class EsaudeMetadataUtils {
         public static final String METADATA_CONSULTATION_COHORTS_GROUP_UUID = "c8e7a6ab-c061-4afd-a5ee-79247ba1c9c3";
         public static final String METADATA_CONSULTATION_CURRENT_STORY_GROUP_UUID = "e9b78422-3092-4ecb-ab9b-2b9e60c767d7";
         public static final String METADATA_DIAGNOSIS_CONCEPTS_UUID = "75aaf4eb-8e4d-4e0a-a1a6-c2496eca2e58";
-        public static final String METADATA_DIAGNOSIS_ADULT_SCHEMA_GROUP_UUID = "fc94ac84-7ca2-4acd-8bfd-17f70b9d17aa";
+        public static final String METADATA_DIAGNOSIS_FORM_FIELDS_ADULT_GROUP_UUID = "fc94ac84-7ca2-4acd-8bfd-17f70b9d17aa";
         public static final String METADATA_PERSON_ATTRIBUTE_TYPE_GROUP_UUID = "a38b6cd7-2177-4549-8660-30def2bf4a56";
         public static final String METADATA_PATIENT_IDENTIFIER_TYPES_GROUP_UUID = "e2ad2438-6a7c-45ec-a13a-32550c8560e2";
         public static final String METADATA_FORM_FIELDS_GROUP_UUID = "b51c174d-6a78-4ab6-839d-44c75b0bfb30";
+        public static final String METADATA_DIAGNOSIS_FORM_FIELDS_CHILD_GORUP_UUID = "a8641598-613d-4da0-a0f6-07866bc8c31d";
     }
 }
