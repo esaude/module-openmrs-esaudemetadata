@@ -477,6 +477,7 @@
         </preConditions>
         <comment>Updating form fileds for vitals</comment>
         <sql>
+            SET FOREIGN_KEY_CHECKS = 0;
             SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
             INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
             VALUES (37, 765, NULL, NULL, NULL, 2731, NULL, NULL, 0, NULL, NULL , @user_id, '2016-08-25 06:55:35', 250.00000, '83cec426-ddce-4c01-a366-9a60bbcc371b');
@@ -1112,6 +1113,7 @@
             SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
             INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
             VALUES (44, 397, NULL, NULL, NULL, 2731, NULL, NULL, 0, NULL, NULL , @user_id, '2016-08-25 06:55:35', 250.00000, '69ae6e37-586a-482c-bbff-02a7bfaacb5e');
+        SET FOREIGN_KEY_CHECKS = 1;
         </sql>
     </changeSet>
 
