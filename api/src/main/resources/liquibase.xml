@@ -1085,4 +1085,34 @@
         </sql>
     </changeSet>
 
+    <changeSet id="esaude-metadata-79" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid = '1abdb9ec-acad-4a7c-820f-5de3642a02aa';
+            </sqlCheck>
+        </preConditions>
+        <comment>Updating form fileds for vitals for children</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES (44, 765, NULL, NULL, NULL, 2731, NULL, NULL, 0, NULL, NULL , @user_id, '2016-08-25 06:55:35', 250.00000, '1abdb9ec-acad-4a7c-820f-5de3642a02aa');
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-80" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid = '69ae6e37-586a-482c-bbff-02a7bfaacb5e';
+            </sqlCheck>
+        </preConditions>
+        <comment>Updating form fileds for vitals for children</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES (44, 397, NULL, NULL, NULL, 2731, NULL, NULL, 0, NULL, NULL , @user_id, '2016-08-25 06:55:35', 250.00000, '69ae6e37-586a-482c-bbff-02a7bfaacb5e');
+        </sql>
+    </changeSet>
+
 </databaseChangeLog>
