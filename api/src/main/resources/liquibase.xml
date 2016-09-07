@@ -1117,4 +1117,16 @@
         </sql>
     </changeSet>
 
+    <changeSet id="esaude-metadata-81" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <tableExists tableName="patientflags_flag" schemaName="openmrs" />
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM patientflags_flag WHERE name='VIRALOGICAL FAILURE';
+            </sqlCheck>
+        </preConditions>
+        <comment>Creating the 'VIRALOGICAL FAILURE' patient flag</comment>
+        <sqlFile path="sql/alerts/viralogical_failure.sql" />
+    </changeSet>
+
 </databaseChangeLog>
