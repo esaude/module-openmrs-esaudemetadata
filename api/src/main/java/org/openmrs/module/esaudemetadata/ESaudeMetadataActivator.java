@@ -135,7 +135,6 @@ public class ESaudeMetadataActivator implements ModuleActivator {
 	 */
 	public boolean setupInitialData() throws Exception {
 		boolean anyChanges = false;
-		//anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_CCR_CPN_MCH_FORMS_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_CCR_CPN_MCH_FORMS);
 		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_REPORTS_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_FILENAME_REPORTS);
 		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_CONSULTATION_COHORTS_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_CONSULTATION_COHORTS);
 		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_CONSULTATION_CURRENT_STORY_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_CONSULTATION_CURRENT_STORY);
@@ -145,6 +144,7 @@ public class ESaudeMetadataActivator implements ModuleActivator {
 		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_FORM_FIELDS_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_FORM_FIELDS);
 		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_DIAGNOSIS_FORM_FIELDS_ADULT_GROUP_UUID , EsaudeMetadataUtils._PackageNames.METADATA_DIAGNOSIS_FORM_FIELDS_ADULT);
 		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_DIAGNOSIS_FORM_FIELDS_CHILD_GORUP_UUID , EsaudeMetadataUtils._PackageNames.METADATA_DIAGNOSIS_FORM_FIELDS_CHILD);
+		//anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_CCR_CPN_MCH_FORMS_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_CCR_CPN_MCH_FORMS);
 		return anyChanges;
 	}
 		

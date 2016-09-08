@@ -8,8 +8,8 @@ public class EsaudeMetadataUtils {
 
     public static final class _PackageNames {
 
-        public static final String METADATA_CCR_CPN_MCH_FORMS = "CPN_CCR_MCH_Forms-3.zip";
-        public static final String METADATA_FILENAME_REPORTS = "MCH_Reports-1.zip";
+        //public static final String METADATA_CCR_CPN_MCH_FORMS = "CPN_CCR_MCH_Forms-3.zip";
+        public static final String METADATA_FILENAME_REPORTS = "MCH_Reports_CPN_CCR-6.zip";
         public static final String METADATA_CONSULTATION_COHORTS = "consultation_schedule_cohort-3.zip";
         public static final String METADATA_CONSULTATION_CURRENT_STORY = "consultation_current_story-1.zip";
         public static final String METADATA_DIAGNOSIS_CONCEPTS = "Diagnosis_Concepts-1.zip";
@@ -21,8 +21,8 @@ public class EsaudeMetadataUtils {
     }
 
     public static final class _PackageUuids {
-        public static final String METADATA_CCR_CPN_MCH_FORMS_GROUP_UUID = "7fc45f1e-148b-44b0-aea9-5ab459aee534";
-        public static final String METADATA_REPORTS_GROUP_UUID = "9a6ce9a3-1758-474d-9b01-3f2023bfc795";
+        //public static final String METADATA_CCR_CPN_MCH_FORMS_GROUP_UUID = "7fc45f1e-148b-44b0-aea9-5ab459aee534";
+        public static final String METADATA_REPORTS_GROUP_UUID = "225f8b0a-ce6c-43a2-97e6-42daa963b04e";
         public static final String METADATA_CONSULTATION_COHORTS_GROUP_UUID = "c8e7a6ab-c061-4afd-a5ee-79247ba1c9c3";
         public static final String METADATA_CONSULTATION_CURRENT_STORY_GROUP_UUID = "e9b78422-3092-4ecb-ab9b-2b9e60c767d7";
         public static final String METADATA_DIAGNOSIS_CONCEPTS_UUID = "75aaf4eb-8e4d-4e0a-a1a6-c2496eca2e58";
