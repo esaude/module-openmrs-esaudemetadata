@@ -1130,5 +1130,66 @@
        </sql>
    </changeSet>
 
+    <!--Field for who staging starts here-->
+    <changeSet id="esaude-metadata-91" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid = 'd7870f17-c91e-4e0f-b0db-eca7df93d128';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding form fields for who</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES(37, 784, NULL, NULL, NULL, 2731, NULL, NULL, 0, NULL, NULL, @user_id, '2016-07-13 23:53:13', 1700.00000, 'd7870f17-c91e-4e0f-b0db-eca7df93d128');
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-92" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid = '904c92e8-8f32-44a1-9126-d4173fc65ab6';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding form fields for who</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES(37, 785, NULL, NULL, NULL, 2731, NULL, NULL, 0, NULL, NULL, @user_id, '2016-07-14 00:53:38', 1750.00000, '904c92e8-8f32-44a1-9126-d4173fc65ab6');
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-93" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid = 'bd03f34d-c438-4052-b83a-b530ee8c7c0a';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding form fields for who</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES(37, 783, NULL, NULL, NULL, 2731, NULL, NULL, 0, NULL, NULL, @user_id, '2016-07-14 01:02:45', 1800.00000, 'bd03f34d-c438-4052-b83a-b530ee8c7c0a');
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-94" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid = 'b23769cb-f6c7-4fe0-b1b2-5187f283a40b';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding form fields for who</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES(37, 782, NULL, NULL, NULL, 2731, NULL, NULL, 0, NULL, NULL, @user_id, '2016-07-14 01:10:52', 1850.00000, 'b23769cb-f6c7-4fe0-b1b2-5187f283a40b');
+        </sql>
+    </changeSet>
+
 
 </databaseChangeLog>
