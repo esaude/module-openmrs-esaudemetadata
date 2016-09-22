@@ -1199,5 +1199,17 @@
         </sql>
     </changeSet>
 
+    <changeSet id="esaude-metadata-95" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <tableExists tableName="patientflags_flag" schemaName="openmrs" />
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM patientflags_flag WHERE name='LOW HEMOGLOBIN LEVEL';
+            </sqlCheck>
+        </preConditions>
+        <comment>Creating the 'LOW HEMOGLOBIN LEVEL' patient flag</comment>
+        <sqlFile path="sql/alerts/hemoglobin_below_8.sql" />
+    </changeSet>
+
 
 </databaseChangeLog>
