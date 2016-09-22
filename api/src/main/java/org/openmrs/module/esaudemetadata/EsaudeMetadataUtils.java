@@ -19,6 +19,7 @@ public class EsaudeMetadataUtils {
         public static final String METADATA_FORM_FIELDS = "form_fields-1.zip";
         public static final String METADATA_DIAGNOSIS_FORM_FIELDS_CHILD = "Diagnosis_Child_Schema-1.zip";
         public static final String METADATA_WHO_FIELDS = "WHO_FIELDS-1.zip";
+        public static final String METADATA_RELATIONSHIP_TYPE = "Relationship_type-1.zip";
     }
 
     public static final class _PackageUuids {
@@ -33,5 +34,6 @@ public class EsaudeMetadataUtils {
         public static final String METADATA_FORM_FIELDS_GROUP_UUID = "b51c174d-6a78-4ab6-839d-44c75b0bfb30";
         public static final String METADATA_DIAGNOSIS_FORM_FIELDS_CHILD_GORUP_UUID = "a8641598-613d-4da0-a0f6-07866bc8c31d";
         public static final String METADATA_WHO_FIELDS_GROUP_UUID = "69071fe7-0425-4299-9f9c-addf07c2ba42";
+        public static final String METADATA_RELATIONSHIP_TYPE_GROUP_UUID = "dabdade7-2fe4-49c1-a7a3-34104f7e2822";
     }
 }

@@ -144,7 +144,7 @@ public class ESaudeMetadataActivator implements ModuleActivator {
 		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_FORM_FIELDS_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_FORM_FIELDS);
 		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_DIAGNOSIS_FORM_FIELDS_ADULT_GROUP_UUID , EsaudeMetadataUtils._PackageNames.METADATA_DIAGNOSIS_FORM_FIELDS_ADULT);
 		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_DIAGNOSIS_FORM_FIELDS_CHILD_GORUP_UUID , EsaudeMetadataUtils._PackageNames.METADATA_DIAGNOSIS_FORM_FIELDS_CHILD);
-		//anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_CCR_CPN_MCH_FORMS_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_CCR_CPN_MCH_FORMS);
+		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_RELATIONSHIP_TYPE_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_RELATIONSHIP_TYPE);
 		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_WHO_FIELDS_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_WHO_FIELDS);
 
 		return anyChanges;
