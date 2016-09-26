@@ -1211,5 +1211,110 @@
         <sqlFile path="sql/alerts/hemoglobin_below_8.sql" />
     </changeSet>
 
+<!--correcting the duplication of the Day(s) concept so as to appear as in metadata server-->
+    <changeSet id="esaude-metadata-96" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="2">
+                SELECT COUNT(*) FROM concept_name WHERE concept_id=6409 and locale='en';
+            </sqlCheck>
+        </preConditions>
+        <sql>
+            SET FOREIGN_KEY_CHECKS=0;
+            DELETE FROM concept_name WHERE concept_id=6409 and locale='en';
+            SET FOREIGN_KEY_CHECKS=1;
+        </sql>
+    </changeSet>
 
+    <changeSet id="esaude-metadata-97" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="1">
+                SELECT COUNT(*) FROM concept WHERE uuid='9d6f51fb-10e8-11e5-9009-0242ac110012';
+            </sqlCheck>
+        </preConditions>
+        <sql>
+            SET FOREIGN_KEY_CHECKS=0;
+            DELETE FROM concept WHERE uuid='9d6f51fb-10e8-11e5-9009-0242ac110012';
+            SET FOREIGN_KEY_CHECKS=1;
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-98" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="1">
+                SELECT COUNT(*) FROM concept_name WHERE concept_id=1072 AND locale='en';
+            </sqlCheck>
+        </preConditions>
+        <sql>
+            UPDATE concept_name SET name='DAYS' WHERE concept_id=1072 AND locale='en';
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-99" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="2">
+                SELECT COUNT(*) FROM concept_name WHERE concept_id=6427 AND locale='en';
+            </sqlCheck>
+        </preConditions>
+        <sql>
+            SET FOREIGN_KEY_CHECKS=0;
+            DELETE FROM concept_name WHERE concept_id=6427 AND locale='en';
+            SET FOREIGN_KEY_CHECKS=1;
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-100" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="1">
+                SELECT COUNT(*) FROM concept_name WHERE concept_id=1074 locale='en';
+            </sqlCheck>
+        </preConditions>
+        <sql>
+            UPDATE concept_name SET name='MONTHS' WHERE concept_id=1074 AND locale='en';
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-101" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="2">
+                SELECT COUNT(*) FROM concept_name WHERE concept_id=6426 and locale='en';
+            </sqlCheck>
+        </preConditions>
+        <sql>
+            SET FOREIGN_KEY_CHECKS=0;
+            DELETE FROM concept_name WHERE concept_id=6426 and locale='en';
+            SET FOREIGN_KEY_CHECKS=1;
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-102" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="1">
+                SELECT COUNT(*) FROM concept_name WHERE concept_id=1073 AND locale='en';
+            </sqlCheck>
+        </preConditions>
+        <sql>
+            UPDATE concept_name SET name='WEEKS' WHERE concept_id=1073 AND locale='en';
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-103" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="1">
+                SELECT COUNT(*) FROM concept WHERE uuid='9d96489b-10e8-11e5-9009-0242ac110012';
+            </sqlCheck>
+        </preConditions>
+        <sql>
+            SET FOREIGN_KEY_CHECKS=0;
+            DELETE FROM concept WHERE uuid='9d96489b-10e8-11e5-9009-0242ac110012';
+            SET FOREIGN_KEY_CHECKS=1;
+        </sql>
+    </changeSet>
 </databaseChangeLog>
