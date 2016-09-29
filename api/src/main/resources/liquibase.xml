@@ -1317,4 +1317,43 @@
             SET FOREIGN_KEY_CHECKS=1;
         </sql>
     </changeSet>
+
+    <!--droppin the report_definition_uuid for reporting_report_design foreign key-->
+    <changeSet id="esaude-metadata-104" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <foreignKeyConstraintExists foreignKeyName="report_definition_uuid for reporting_report_design" schemaName="openmrs" />
+        </preConditions>
+        <comment>Droping the `report_definition_uuid for reporting_report_design` foreign key that stops upgrade to `1.11.6+`</comment>
+        <dropForeignKeyConstraint baseTableName="reporting_report_design" constraintName="report_definition_uuid for reporting_report_design" />
+    </changeSet>
+
+    <!--voiding concept_id 1534 in the concept name to avoid duplication of the concept name-->
+    <changeSet id="esaude-metadata-105" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="1">
+                SELECT COUNT(*) FROM concept_name where concept_id =1534 and locale='en' and name='ISONIAZID PROPYLAXIS';
+            </sqlCheck>
+        </preConditions>
+        <comment>Voiding concept 1534 in the en locale in concept_name table</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            UPDATE concept_name SET voided=1, voided_by=@user_id, date_voided=current_date, void_reason='duplicate concept in locale en' WHERE concept_id=1534 AND locale='en' AND name='ISONIAZID PROPYLAXIS';
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-106" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="1">
+                SELECT COUNT(*) FROM concept_name where concept_id =6122 and locale='en' and name='ISONIAZID PROPYLAXIS';
+            </sqlCheck>
+        </preConditions>
+        <comment>Voiding concept 6122 in the en locale in concept_name table</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            UPDATE concept_name SET voided=1, voided_by=@user_id, date_voided=current_date, void_reason='duplicate concept in locale en' WHERE concept_id=6122 AND locale='en' AND name='ISONIAZID PROPYLAXIS';
+        </sql>
+    </changeSet>
 </databaseChangeLog>

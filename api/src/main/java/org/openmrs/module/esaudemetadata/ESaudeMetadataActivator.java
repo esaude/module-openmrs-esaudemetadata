@@ -135,7 +135,7 @@ public class ESaudeMetadataActivator implements ModuleActivator {
 	 */
 	public boolean setupInitialData() throws Exception {
 		boolean anyChanges = false;
-		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_REPORTS_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_FILENAME_REPORTS);
+		//anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_REPORTS_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_FILENAME_REPORTS);
 		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_CONSULTATION_COHORTS_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_CONSULTATION_COHORTS);
 		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_CONSULTATION_CURRENT_STORY_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_CONSULTATION_CURRENT_STORY);
 		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_DIAGNOSIS_CONCEPTS_UUID, EsaudeMetadataUtils._PackageNames.METADATA_DIAGNOSIS_CONCEPTS);
@@ -147,6 +147,8 @@ public class ESaudeMetadataActivator implements ModuleActivator {
 		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_RELATIONSHIP_TYPE_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_RELATIONSHIP_TYPE);
 		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_WHO_FIELDS_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_WHO_FIELDS);
 		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_PRESCRIPTIONS_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_PRESCRIPTIONS);
+		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_POC_MAPPING_PRESCRIPTION_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_POC_MAPPING_PRESCRIPTION);
+		//anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_MCH_MODULE_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_MCH_MODULE);
 
 		return anyChanges;
 	}
