@@ -1356,4 +1356,16 @@
             UPDATE concept_name SET voided=1, voided_by=@user_id, date_voided=current_date, void_reason='duplicate concept in locale en' WHERE concept_id=6122 AND locale='en' AND name='ISONIAZID PROPYLAXIS';
         </sql>
     </changeSet>
+
+    <changeSet id="esaude-metadata-107" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <tableExists tableName="patientflags_flag" schemaName="openmrs" />
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM patientflags_flag WHERE name='VIRAL LOAD DROPPED';
+            </sqlCheck>
+        </preConditions>
+        <comment>flag that shows viral load dropped > 50% from start to end of prophylaxis </comment>
+        <sqlFile path="sql/alerts/viral_load_dropped.sql" />
+    </changeSet>
 </databaseChangeLog>
