@@ -9,7 +9,6 @@ public class EsaudeMetadataUtils {
     public static final class _PackageNames {
 
         public static final String METADATA_MCH_MODULE = "MCH_Module-1.zip";
-        //public static final String METADATA_FILENAME_REPORTS = "MCH_Reports_CPN_CCR-6.zip";
         public static final String METADATA_CONSULTATION_COHORTS = "consultation_schedule_cohort-3.zip";
         public static final String METADATA_CONSULTATION_CURRENT_STORY = "consultation_current_story-1.zip";
         public static final String METADATA_DIAGNOSIS_CONCEPTS = "Diagnosis_Concepts-1.zip";
@@ -22,11 +21,11 @@ public class EsaudeMetadataUtils {
         public static final String METADATA_RELATIONSHIP_TYPE = "Relationship_type-1.zip";
         public static final String METADATA_PRESCRIPTIONS = "prescription_convset_translated_answers-3.zip";
         public static final String METADATA_POC_MAPPING_PRESCRIPTION = "poc_mapping_prescriptions-1.zip";
+        public static final String METADATA_DIAGNOSIS_ICD10_FIELDS = "";
     }
 
     public static final class _PackageUuids {
         public static final String METADATA_MCH_MODULE_GROUP_UUID = "225f8b0a-ce6c-43a2-97e6-42daa963b04e";
-        public static final String METADATA_REPORTS_GROUP_UUID = "225f8b0a-ce6c-43a2-97e6-42daa963b04e";
         public static final String METADATA_CONSULTATION_COHORTS_GROUP_UUID = "c8e7a6ab-c061-4afd-a5ee-79247ba1c9c3";
         public static final String METADATA_CONSULTATION_CURRENT_STORY_GROUP_UUID = "e9b78422-3092-4ecb-ab9b-2b9e60c767d7";
         public static final String METADATA_DIAGNOSIS_CONCEPTS_UUID = "75aaf4eb-8e4d-4e0a-a1a6-c2496eca2e58";
@@ -39,5 +38,6 @@ public class EsaudeMetadataUtils {
         public static final String METADATA_RELATIONSHIP_TYPE_GROUP_UUID = "dabdade7-2fe4-49c1-a7a3-34104f7e2822";
         public static final String METADATA_PRESCRIPTIONS_GROUP_UUID = "696bd80e-d87b-44f3-9381-3b2e54ec64f4";
         public static final String METADATA_POC_MAPPING_PRESCRIPTION_GROUP_UUID = "9e5453d6-4be0-4013-b3fb-d080fbadfa7b";
+        public static final String METADATA_DIAGNOSIS_ICD10_GROUP_UUID = "";
     }
 }

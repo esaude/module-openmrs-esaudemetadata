@@ -9,6 +9,14 @@
         See http://www.liquibase.org/manual/home#available_database_refactorings
         for a list of supported elements and attributes
     -->
+    <!--loading the initial dictionry for esaude-->
+    <!--<changeSet id="esaude-dictionary-001" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+        </preConditions>
+        <comment>Loading the dictionary for esaude........</comment>
+        <sqlFile path="sql/dictionary/eSaudeConcepts24102016.sql" />
+    </changeSet>-->
 
     <!--
         Ensure the selected default location actually exists. If it doesn't, set
@@ -1368,4 +1376,29 @@
         <comment>flag that shows viral load dropped > 50% from start to end of prophylaxis </comment>
         <sqlFile path="sql/alerts/viral_load_dropped.sql" />
     </changeSet>
+    <!--load the address hierachy-->
+       <changeSet id="esaude-metadata-108" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+        </preConditions>
+        <comment>Populating table address_hierarchy_address_to_entry_map</comment>
+        <sqlFile path="sql/address/openmrs_address_hierarchy_address_to_entry_map.sql" />
+    </changeSet>
+
+    <changeSet id="esaude-metadata-109" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+        </preConditions>
+        <comment>Populating table address_hierarchy_entry</comment>
+        <sqlFile path="sql/address/openmrs_address_hierarchy_entry.sql" />
+    </changeSet>
+
+    <changeSet id="esaude-metadata-110" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+        </preConditions>
+        <comment>Populating table address_hierarchy_level</comment>
+        <sqlFile path="sql/address/openmrs_address_hierarchy_level.sql" />
+    </changeSet>
+
 </databaseChangeLog>
