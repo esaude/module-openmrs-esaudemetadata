@@ -1461,6 +1461,41 @@
         </sql>
     </changeSet>
 
+    <!--loading the form fields for ANAMNESE E EXAME FÍSICO - child-->
+    <changeSet id="esaude-metadata-114" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid = 'a39a036d-a8a9-4a19-ad66-b8fb124dfa76';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding form fields for who</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            SET FOREIGN_KEY_CHECKS=0;
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES(44, 787, NULL, NULL, NULL, 2731, NULL, NULL, 0, NULL, NULL, @user_id, '2016-10-10 06:03:09', 1228.12500, 'a39a036d-a8a9-4a19-ad66-b8fb124dfa76');
+            SET FOREIGN_KEY_CHECKS=1;
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-115" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid = '63325126-4f16-427c-a3e8-3061667da33d';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding form fields for who</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            SET FOREIGN_KEY_CHECKS=0;
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES(44, 786, NULL, NULL, NULL, 2731, NULL, NULL, 0, NULL, NULL, @user_id, '2016-10-10 06:03:09', 1231.25000, '63325126-4f16-427c-a3e8-3061667da33d');
+            SET FOREIGN_KEY_CHECKS=1;
+        </sql>
+    </changeSet>
+
     <!--Loading form fields for Diagnostico adult-->
     <!--<changeSet id="esaude-metadata-114" author="ningosi">
         <preConditions onFail="MARK_RAN" onError="WARN">
