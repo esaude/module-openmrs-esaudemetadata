@@ -21,7 +21,8 @@ public class EsaudeMetadataUtils {
         public static final String METADATA_RELATIONSHIP_TYPE = "Relationship_type-1.zip";
         public static final String METADATA_PRESCRIPTIONS = "prescription_convset_translated_answers-3.zip";
         public static final String METADATA_POC_MAPPING_PRESCRIPTION = "poc_mapping_prescriptions-1.zip";
-        public static final String METADATA_DIAGNOSIS_ICD10_FIELDS = "";
+        public static final String METADATA_DIAGNOSIS_ICD10_FIELDS = "CriptoAndHistory_fields-1.zip";
+        public static final String METADATA_CDC_RETENTION_REPORT = "Cdc_Retention_Report-1.zip";
     }
 
     public static final class _PackageUuids {
@@ -38,6 +39,7 @@ public class EsaudeMetadataUtils {
         public static final String METADATA_RELATIONSHIP_TYPE_GROUP_UUID = "dabdade7-2fe4-49c1-a7a3-34104f7e2822";
         public static final String METADATA_PRESCRIPTIONS_GROUP_UUID = "696bd80e-d87b-44f3-9381-3b2e54ec64f4";
         public static final String METADATA_POC_MAPPING_PRESCRIPTION_GROUP_UUID = "9e5453d6-4be0-4013-b3fb-d080fbadfa7b";
-        public static final String METADATA_DIAGNOSIS_ICD10_GROUP_UUID = "";
+        public static final String METADATA_DIAGNOSIS_ICD10_GROUP_UUID = "61ba13e3-9c06-46e8-95a6-730e16871338";
+        public static final String METADATA_CDC_RETENTION_REPORT_GROUP_UUID = "f8e06981-e13b-40ba-ab28-c17d96cff16e";
     }
 }

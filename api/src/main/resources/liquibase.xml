@@ -22,6 +22,15 @@
         Ensure the selected default location actually exists. If it doesn't, set
         the value to the unknown location.
     -->
+    <!--loading concept dictionary for eaude
+    -->
+    <changeSet id="esaue-metadata-dictinary-001" author="nngosi">
+        <preConditions onFail="MARK_RAN">
+            <dbms type="mysql"/>
+        </preConditions>
+        <comment>Loading concept dictioary for eaude</comment>
+        <sqlFile path="sql/dictionary/eSaudeGoldConcept31102016.sql" />
+    </changeSet>
     <changeSet id="esaude-metadata-1" author="psbrandt">
         <preConditions onFail="MARK_RAN">
             <dbms type="mysql"/>
@@ -1400,5 +1409,91 @@
         <comment>Populating table address_hierarchy_level</comment>
         <sqlFile path="sql/address/openmrs_address_hierarchy_level.sql" />
     </changeSet>
+
+     <!--Removing Duplicate entry 'SCT' for key 'concept_source_unique_hl7_codes'-->
+    <changeSet id="esaude-metadata-111" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="1">
+                SELECT COUNT(*) FROM concept_reference_source WHERE name='SNOMED' AND hl7_code='SCT';
+            </sqlCheck>
+        </preConditions>
+        <comment>Removing that so that it could be created a fresh</comment>
+        <sql>
+            SET FOREIGN_KEY_CHECKS=0;
+            UPDATE concept_reference_source SET hl7_code='SCT1' WHERE name='SNOMED' AND hl7_code='SCT';
+            SET FOREIGN_KEY_CHECKS=1;
+        </sql>
+    </changeSet>
+
+    <!--loading the form fields for ANAMNESE E EXAME FÍSICO - ADULTO-->
+    <changeSet id="esaude-metadata-112" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid = '3bca43c2-6e30-4494-96d4-9890904c3247';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding form fields for who</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            SET FOREIGN_KEY_CHECKS=0;
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES(37, 787, NULL, NULL, NULL, 2731, NULL, NULL, 0, NULL, NULL, @user_id, '2016-10-10 06:03:09', 1525.00000, '3bca43c2-6e30-4494-96d4-9890904c3247');
+            SET FOREIGN_KEY_CHECKS=1;
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-113" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid = '73d19562-3c80-451f-b673-88b3ef5c2dff';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding form fields for who</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            SET FOREIGN_KEY_CHECKS=0;
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES(37, 786, NULL, NULL, NULL, 2731, NULL, NULL, 0, NULL, NULL, @user_id, '2016-10-10 06:03:09', 1350.00000, '73d19562-3c80-451f-b673-88b3ef5c2dff');
+            SET FOREIGN_KEY_CHECKS=1;
+        </sql>
+    </changeSet>
+
+    <!--Loading form fields for Diagnostico adult-->
+    <!--<changeSet id="esaude-metadata-114" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid = '32b61bab-156b-4d6e-a938-644287e69b81';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding form fields for who</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            SET FOREIGN_KEY_CHECKS=0;
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES(37, 786, NULL, NULL, NULL, 2731, NULL, NULL, 0, NULL, NULL, @user_id, '2016-10-10 06:03:09', 1350.00000, '32b61bab-156b-4d6e-a938-644287e69b81');
+            SET FOREIGN_KEY_CHECKS=1;
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-115" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid = 'd516b911-032b-4ffc-9bc9-01978eb0ba41';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding form fields for who</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            SET FOREIGN_KEY_CHECKS=0;
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES(37, 786, NULL, NULL, NULL, 2731, NULL, NULL, 0, NULL, NULL, @user_id, '2016-10-10 06:03:09', 1350.00000, 'd516b911-032b-4ffc-9bc9-01978eb0ba41');
+            SET FOREIGN_KEY_CHECKS=1;
+        </sql>
+    </changeSet>-->
 
 </databaseChangeLog>
