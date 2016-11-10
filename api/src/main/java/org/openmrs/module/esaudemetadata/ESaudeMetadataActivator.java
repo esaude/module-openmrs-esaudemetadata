@@ -150,6 +150,7 @@ public class ESaudeMetadataActivator implements ModuleActivator {
 		//anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_MCH_MODULE_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_MCH_MODULE);
 		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_DIAGNOSIS_ICD10_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_DIAGNOSIS_ICD10_FIELDS);
 		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_CDC_RETENTION_REPORT_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_CDC_RETENTION_REPORT);
+		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_REQUIRED_PATIENT_IDENTIFIER_TYPES_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_REQUIRED_PATIENT_IDENTIFIER_TYPES);
 
 		return anyChanges;
 	}
