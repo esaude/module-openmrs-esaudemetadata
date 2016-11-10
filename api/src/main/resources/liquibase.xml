@@ -1531,4 +1531,39 @@
         </sql>
     </changeSet>-->
 
+    <!--Loading form fields for Diagnostico child-->
+    <changeSet id="esaude-metadata-118" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid = 'c117109f-7eca-464c-9660-f2d17d4cdfd5';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding form fields for diagostico 1 for child</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            SET FOREIGN_KEY_CHECKS=0;
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES(44, 22, NULL, NULL, NULL, 3204, NULL, NULL, 0, NULL, NULL, @user_id, '2016-09-30 08:41:05', 1325.00000, 'c117109f-7eca-464c-9660-f2d17d4cdfd5');
+            SET FOREIGN_KEY_CHECKS=1;
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-119" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid = 'd9e77865-6b9f-4130-a768-72b9df4a69ba';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding form fields for diagostico 2 for child</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            SET FOREIGN_KEY_CHECKS=0;
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES(44, 22, NULL, NULL, NULL, 3204, NULL, NULL, 0, NULL, NULL, @user_id, '2016-09-30 08:41:24', 925.00000, 'd9e77865-6b9f-4130-a768-72b9df4a69ba');
+            SET FOREIGN_KEY_CHECKS=1;
+        </sql>
+    </changeSet>
+
 </databaseChangeLog>
