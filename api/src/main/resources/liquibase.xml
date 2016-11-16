@@ -24,13 +24,6 @@
     -->
     <!--loading concept dictionary for eaude
     -->
-    <changeSet id="esaue-metadata-dictinary-001" author="nngosi">
-        <preConditions onFail="MARK_RAN">
-            <dbms type="mysql"/>
-        </preConditions>
-        <comment>Loading concept dictioary for eaude</comment>
-        <sqlFile path="sql/dictionary/eSaudeGoldConcept31102016.sql" />
-    </changeSet>
     <changeSet id="esaude-metadata-1" author="psbrandt">
         <preConditions onFail="MARK_RAN">
             <dbms type="mysql"/>
@@ -1409,7 +1402,14 @@
         <comment>Populating table address_hierarchy_level</comment>
         <sqlFile path="sql/address/openmrs_address_hierarchy_level.sql" />
     </changeSet>
-
+    <!--loading the dictionary from here-->
+    <changeSet id="esaue-metadata-dictinary-001" author="nngosi">
+        <preConditions onFail="MARK_RAN">
+            <dbms type="mysql"/>
+        </preConditions>
+        <comment>Loading concept dictioary for eaude</comment>
+        <sqlFile path="sql/dictionary/concepts14112016.sql" />
+    </changeSet>
      <!--Removing Duplicate entry 'SCT' for key 'concept_source_unique_hl7_codes'-->
     <changeSet id="esaude-metadata-111" author="ningosi">
         <preConditions onFail="MARK_RAN" onError="WARN">
@@ -1497,7 +1497,7 @@
     </changeSet>
 
     <!--Loading form fields for Diagnostico adult-->
-    <!--<changeSet id="esaude-metadata-114" author="ningosi">
+    <changeSet id="esaude-metadata-120" author="ningosi">
         <preConditions onFail="MARK_RAN" onError="WARN">
             <dbms type="mysql"/>
             <sqlCheck expectedResult="0">
@@ -1509,12 +1509,12 @@
             SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
             SET FOREIGN_KEY_CHECKS=0;
             INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
-            VALUES(37, 786, NULL, NULL, NULL, 2731, NULL, NULL, 0, NULL, NULL, @user_id, '2016-10-10 06:03:09', 1350.00000, '32b61bab-156b-4d6e-a938-644287e69b81');
+            VALUES(37, 22, NULL, NULL, NULL, 2731, NULL, NULL, 0, NULL, NULL, @user_id, '2016-10-10 06:03:09', 1350.00000, '32b61bab-156b-4d6e-a938-644287e69b81');
             SET FOREIGN_KEY_CHECKS=1;
         </sql>
     </changeSet>
 
-    <changeSet id="esaude-metadata-115" author="ningosi">
+    <changeSet id="esaude-metadata-121" author="ningosi">
         <preConditions onFail="MARK_RAN" onError="WARN">
             <dbms type="mysql"/>
             <sqlCheck expectedResult="0">
@@ -1526,10 +1526,10 @@
             SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
             SET FOREIGN_KEY_CHECKS=0;
             INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
-            VALUES(37, 786, NULL, NULL, NULL, 2731, NULL, NULL, 0, NULL, NULL, @user_id, '2016-10-10 06:03:09', 1350.00000, 'd516b911-032b-4ffc-9bc9-01978eb0ba41');
+            VALUES(37, 22, NULL, NULL, NULL, 2731, NULL, NULL, 0, NULL, NULL, @user_id, '2016-10-10 06:03:09', 1350.00000, 'd516b911-032b-4ffc-9bc9-01978eb0ba41');
             SET FOREIGN_KEY_CHECKS=1;
         </sql>
-    </changeSet>-->
+    </changeSet>
 
     <!--Loading form fields for Diagnostico child-->
     <changeSet id="esaude-metadata-118" author="ningosi">

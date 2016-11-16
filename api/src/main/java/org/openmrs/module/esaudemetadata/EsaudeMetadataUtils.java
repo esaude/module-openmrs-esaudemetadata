@@ -19,11 +19,11 @@ public class EsaudeMetadataUtils {
         public static final String METADATA_DIAGNOSIS_FORM_FIELDS_CHILD = "Diagnosis_Child_Schema-1.zip";
         public static final String METADATA_WHO_FIELDS = "WHO_FIELDS-1.zip";
         public static final String METADATA_RELATIONSHIP_TYPE = "Relationship_type-1.zip";
-        public static final String METADATA_PRESCRIPTIONS = "prescription_convset_translated_answers-3.zip";
         public static final String METADATA_POC_MAPPING_PRESCRIPTION = "poc_mapping_prescriptions-1.zip";
         public static final String METADATA_DIAGNOSIS_ICD10_FIELDS = "CriptoAndHistory_fields-1.zip";
         public static final String METADATA_CDC_RETENTION_REPORT = "Cdc_Retention_Report-1.zip";
         public static final String METADATA_REQUIRED_PATIENT_IDENTIFIER_TYPES = "required_patient_identifier_type-1.zip";
+        public static final String METADATA_PRESCRIPTION_CONVSET_FROM_METADATA = "prescriotion_convset_from_metatata-1.zip";
     }
 
     public static final class _PackageUuids {
@@ -38,10 +38,10 @@ public class EsaudeMetadataUtils {
         public static final String METADATA_DIAGNOSIS_FORM_FIELDS_CHILD_GORUP_UUID = "a8641598-613d-4da0-a0f6-07866bc8c31d";
         public static final String METADATA_WHO_FIELDS_GROUP_UUID = "69071fe7-0425-4299-9f9c-addf07c2ba42";
         public static final String METADATA_RELATIONSHIP_TYPE_GROUP_UUID = "dabdade7-2fe4-49c1-a7a3-34104f7e2822";
-        public static final String METADATA_PRESCRIPTIONS_GROUP_UUID = "696bd80e-d87b-44f3-9381-3b2e54ec64f4";
         public static final String METADATA_POC_MAPPING_PRESCRIPTION_GROUP_UUID = "9e5453d6-4be0-4013-b3fb-d080fbadfa7b";
         public static final String METADATA_DIAGNOSIS_ICD10_GROUP_UUID = "61ba13e3-9c06-46e8-95a6-730e16871338";
         public static final String METADATA_CDC_RETENTION_REPORT_GROUP_UUID = "f8e06981-e13b-40ba-ab28-c17d96cff16e";
         public static final String METADATA_REQUIRED_PATIENT_IDENTIFIER_TYPES_GROUP_UUID = "f6b66133-ffe1-4350-986b-31b81b86b257";
+        public static final String METADATA_PRESCRIPTION_CONVSET_FROM_METADATA_GROUP_UUID = "312d23c3-7f3f-494a-bc9c-d217f0a514ed";
     }
 }
