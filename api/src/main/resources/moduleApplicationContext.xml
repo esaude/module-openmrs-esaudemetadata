@@ -51,5 +51,9 @@
 			</list>
 		</property>
 	</bean>
+
+	<bean id="esaudeDictionaryRequirement" class="org.openmrs.module.esaudemetadata.system.EsaudeDictionaryRequirement">
+		<property name="requiredVersion" value="${esaudeDictionaryVersion}" />
+	</bean>
 	
 </beans>

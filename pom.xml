@@ -35,6 +35,7 @@
 
 	<properties>
 		<openMRSVersion>1.9.7</openMRSVersion>
+		<esaudeDictionaryVersion>20161031</esaudeDictionaryVersion>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
 		<metadatamappingVersion>1.0.1</metadatamappingVersion>
