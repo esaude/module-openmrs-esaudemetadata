@@ -44,4 +44,12 @@ public class EsaudeMetadataUtils {
         public static final String METADATA_REQUIRED_PATIENT_IDENTIFIER_TYPES_GROUP_UUID = "f6b66133-ffe1-4350-986b-31b81b86b257";
         public static final String METADATA_PRESCRIPTION_CONVSET_FROM_METADATA_GROUP_UUID = "312d23c3-7f3f-494a-bc9c-d217f0a514ed";
     }
+
+    public static final class _GlobalProperties {
+        public static final String GP_DICTIONARY_VERSION = "esaude.conceptVersion";
+    }
+
+    public static final class _OtherMetadata {
+        public static final String requiredConceptVersion = "20161001";
+    }
 }

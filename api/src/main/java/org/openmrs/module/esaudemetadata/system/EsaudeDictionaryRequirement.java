@@ -14,6 +14,7 @@
 package org.openmrs.module.esaudemetadata.system;
 
 import org.openmrs.api.context.Context;
+import org.openmrs.module.esaudemetadata.EsaudeMetadataUtils;
 import org.openmrs.module.esaudemetadata.requirement.Requirement;
 
 import java.text.DateFormat;
@@ -29,9 +30,8 @@ public class EsaudeDictionaryRequirement implements Requirement {
     /**
      * Name of global property that stores database concepts version
      */
-    protected static final String GP_CONCEPTS_VERSION = "esaude.conceptsVersion";
 
-    public String requiredVersion;
+    public String requiredVersion = EsaudeMetadataUtils._OtherMetadata.requiredConceptVersion;
 
     /**
      * @see Requirement#getName()
@@ -62,7 +62,7 @@ public class EsaudeDictionaryRequirement implements Requirement {
      */
     @Override
     public String getFoundVersion() {
-        return Context.getAdministrationService().getGlobalProperty(GP_CONCEPTS_VERSION);
+        return Context.getAdministrationService().getGlobalProperty(EsaudeMetadataUtils._GlobalProperties.GP_DICTIONARY_VERSION);
     }
 
     /**

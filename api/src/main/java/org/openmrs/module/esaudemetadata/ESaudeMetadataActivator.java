@@ -20,6 +20,9 @@ import org.apache.commons.logging.LogFactory;
 import org.openmrs.api.context.Context;
 import org.openmrs.module.ModuleActivator;
 import org.openmrs.module.esaudemetadata.api.EsaudeMetaDataService;
+import org.openmrs.module.esaudemetadata.requirement.Requirement;
+import org.openmrs.module.esaudemetadata.requirement.UnsatisfiedRequirementException;
+import org.openmrs.module.esaudemetadata.system.EsaudeDictionaryRequirement;
 import org.openmrs.module.metadatasharing.ImportConfig;
 import org.openmrs.module.metadatasharing.ImportMode;
 import org.openmrs.module.metadatasharing.ImportedPackage;
@@ -67,6 +70,7 @@ public class ESaudeMetadataActivator implements ModuleActivator {
 		try {
 			EsaudeMetaDataService service = Context.getService(EsaudeMetaDataService.class);
 			service.setDefaultMetadataUser();
+			checkIfDictionaryUptoDate();
 			setupInitialData();
 
 		} catch (Exception ex) {
@@ -154,6 +158,21 @@ public class ESaudeMetadataActivator implements ModuleActivator {
 
 
 		return anyChanges;
+	}
+
+	/**
+	 * Provide mechanism for checking if the dictionary is upto date
+	 */
+	public void checkIfDictionaryUptoDate() {
+		Requirement req = new EsaudeDictionaryRequirement();
+		if(req.isSatisfied()) {
+			log.info("Requirement '" + req.getName() + "' is satisfied");
+		}
+		else {
+			//install the dictionary. Fow now just show the error for such missing requirement
+			//Don't start the module until the right dictionary is supplied.
+			throw new UnsatisfiedRequirementException(req);
+		}
 	}
 		
 }
