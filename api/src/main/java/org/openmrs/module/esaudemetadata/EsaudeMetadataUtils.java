@@ -21,9 +21,11 @@ public class EsaudeMetadataUtils {
         public static final String METADATA_RELATIONSHIP_TYPE = "Relationship_type-1.zip";
         public static final String METADATA_POC_MAPPING_PRESCRIPTION = "poc_mapping_prescriptions-1.zip";
         public static final String METADATA_DIAGNOSIS_ICD10_FIELDS = "CriptoAndHistory_fields-1.zip";
-        public static final String METADATA_CDC_RETENTION_REPORT = "Cdc_Retention_Report-1.zip";
+        public static final String METADATA_CDC_RETENTION_REPORT = "CDC_Retention_Report_v2-5.zip";
         public static final String METADATA_REQUIRED_PATIENT_IDENTIFIER_TYPES = "required_patient_identifier_type-1.zip";
         public static final String METADATA_PRESCRIPTION_CONVSET_FROM_METADATA = "prescriotion_convset_from_metatata-1.zip";
+        public static final String METADATA_CLCARVQ12017_1 = "CLCARVQ12017-1.zip";
+        public static final String METADATA_ANAMNESE_MARKED_ON = "anamnese_marked_on-1.zip";
     }
 
     public static final class _PackageUuids {
@@ -43,6 +45,8 @@ public class EsaudeMetadataUtils {
         public static final String METADATA_CDC_RETENTION_REPORT_GROUP_UUID = "f8e06981-e13b-40ba-ab28-c17d96cff16e";
         public static final String METADATA_REQUIRED_PATIENT_IDENTIFIER_TYPES_GROUP_UUID = "f6b66133-ffe1-4350-986b-31b81b86b257";
         public static final String METADATA_PRESCRIPTION_CONVSET_FROM_METADATA_GROUP_UUID = "312d23c3-7f3f-494a-bc9c-d217f0a514ed";
+        public static final String METADATA_CLCARVQ12017_1_GROUP_UUID = "daae9409-104a-4690-9a87-d5e800dc3cf8";
+        public static final String METADATA_ANAMNESE_MARKED_ON_GROUP_UUID = "86a73c93-27db-467f-8d86-61101482031b";
     }
 
     public static final class _GlobalProperties {
