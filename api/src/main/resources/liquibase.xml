@@ -58,16 +58,28 @@
         <addForeignKeyConstraint baseTableName="reporting_report_design" baseColumnNames="creator" constraintName="creator for reporting_report_design" referencedTableName="users"
                                  referencedColumnNames="user_id" deferrable="false" initiallyDeferred="false" />
     </changeSet>
+    <changeSet id="esaude-metadata-4-dropping" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="1">
+                SELECT COUNT(*) FROM liquibasechangelog WHERE id='esaude-metadata-4' AND author='ningosi';
+            </sqlCheck>
+        </preConditions>
+        <comment>Dropping the liquibase change set that was erronoiusly done</comment>
+        <sql>
+            DELETE FROM liquibasechangelog WHERE id='esaude-metadata-4' AND author='ningosi';
+        </sql>
+    </changeSet>
 
-    <changeSet id="esaude-metadata-4" author="ningosi">
+    <changeSet id="esaude-metadata-4-correct" author="ningosi">
         <preConditions onFail="MARK_RAN" onError="WARN">
             <dbms type="mysql"/>
             <foreignKeyConstraintExists foreignKeyName="reporting_report_design_ibfk_3" />
         </preConditions>
         <comment>Droping 'reporting_report_design_ibfk_3' and creating a new one  'retired_by for reporting_report_design'</comment>
         <dropForeignKeyConstraint baseTableName="reporting_report_design" constraintName="reporting_report_design_ibfk_3" />
-        <addForeignKeyConstraint baseTableName="reporting_report_design" baseColumnNames="report_definition_id" constraintName="report_definition_id for reporting_report_design" referencedTableName="serialized_object"
-                                 referencedColumnNames="serialized_object_id" deferrable="false" initiallyDeferred="false" />
+        <addForeignKeyConstraint baseTableName="reporting_report_design" baseColumnNames="report_definition_uuid" constraintName="report_definition_uuid for reporting_report_design" referencedTableName="serialized_object"
+                                 referencedColumnNames="uuid" deferrable="false" initiallyDeferred="false" />
     </changeSet>
 
     <changeSet id="esaude-metadata-5" author="ningosi">
@@ -225,8 +237,21 @@
                                  referencedColumnNames="user_id" deferrable="false" initiallyDeferred="false" />
     </changeSet>
 
+    <changeSet id="esaude-metadata-19-correcting" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+        <sqlCheck expectedResult="1">
+            SELECT COUNT(*) FROM liquibasechangelog WHERE id='esaude-metadata-19' AND author='ningosi';
+        </sqlCheck>
+        </preConditions>
+        <comment>Dropping the liquibase change set that was erronoiusly done</comment>
+        <sql>
+            DELETE FROM liquibasechangelog WHERE id='esaude-metadata-19' AND author='ningosi';
+        </sql>
+    </changeSet>
+
     <!--supply default user for all metadata-->
-    <changeSet id="esaude-metadata-19" author="ningosi">
+    <changeSet id="esaude-metadata-19-corrected" author="ningosi">
         <preConditions onFail="MARK_RAN" onError="WARN">
             <dbms type="mysql"/>
             <sqlCheck expectedResult="0">
@@ -235,8 +260,8 @@
         </preConditions>
         <comment>Creating person object for user for the metadata creation</comment>
         <sql>
-            INSERT INTO person(`gender`, `birthdate`, `birthdate_estimated`, `dead`, `death_date`, `cause_of_death`, `creator`, `date_created`, `changed_by`, `date_changed`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid` ,`deathdate_estimated`, `birthtime`)
-            VALUES('M', '2000-12-01', 1, 0, NULL, NULL, 1, current_date, NULL, NULL, 0, NULL, NULL, NULL, 'aa81a280-57e9-11e6-bc5b-507b9dc4c741', 0, NULL);
+            INSERT INTO person(`gender`, `birthdate`, `birthdate_estimated`, `dead`, `death_date`, `cause_of_death`, `creator`, `date_created`, `changed_by`, `date_changed`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`)
+            VALUES('M', '2000-12-01', 1, 0, NULL, NULL, 1, current_date, NULL, NULL, 0, NULL, NULL, NULL, 'aa81a280-57e9-11e6-bc5b-507b9dc4c741');
         </sql>
     </changeSet>
     
@@ -1565,5 +1590,37 @@
             SET FOREIGN_KEY_CHECKS=1;
         </sql>
     </changeSet>
+
+    <!--Importing the file that conatins the tables for cdc reporting-->
+    <changeSet id="esaude-metadata-122cdc" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+        </preConditions>
+        <comment>Adding the DATAEXPORTCD4CDCMOH_DB_SP_V02.sql file for reporting purposes</comment>
+        <sqlFile path="sql/ddl/DATAEXPORTCD4CDCMOH_Only_TABLES.sql" />
+    </changeSet>
+
+    <changeSet id="esaude-metadata-122cdcsp" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+        </preConditions>
+        <comment>Adding stored procedure needed</comment>
+        <sqlFile endDelimiter="//" path="sql/ddl/DATAEXPORTCD4CDCMOH_Only_SP.sql" />
+    </changeSet>
+
+       <!--run the store procedure on the start of the EMM-->
+    <changeSet id="esaude-metadata-124cdc" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+        </preConditions>
+        <comment>Running the stroed procedure to populate the tables with data from openmrs</comment>
+        <sql>
+            SET SQL_SAFE_UPDATES = 0;
+            CALL FillCD4CDCMISAU('2015-09-21','2016-09-20');
+            SET SQL_SAFE_UPDATES = 1;
+        </sql>
+    </changeSet>
+
+
 
 </databaseChangeLog>
