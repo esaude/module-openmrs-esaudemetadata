@@ -1688,4 +1688,65 @@
         </sql>
     </changeSet>
 
+    <!--Adding compulsory address fields-->
+    <changeSet id="esaude-metadata-129" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="1">
+                SELECT COUNT(*) FROM address_hierarchy_level WHERE uuid='8e0a467f-7f7a-4f8d-abaf-65abd3d20ba1';
+            </sqlCheck>
+        </preConditions>
+        <comment>Setting the country to be required</comment>
+        <sql>
+            SET SQL_SAFE_UPDATES = 0;
+                UPDATE address_hierarchy_level SET required=1 WHERE uuid='8e0a467f-7f7a-4f8d-abaf-65abd3d20ba1';
+            SET SQL_SAFE_UPDATES = 1;
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-130" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="1">
+                SELECT COUNT(*) FROM address_hierarchy_level WHERE uuid='9ae2d905-d896-493f-94fa-ed679a4e2cdb';
+            </sqlCheck>
+        </preConditions>
+        <comment>Setting the country to be required</comment>
+        <sql>
+            SET SQL_SAFE_UPDATES = 0;
+            UPDATE address_hierarchy_level SET required=1 WHERE uuid='9ae2d905-d896-493f-94fa-ed679a4e2cdb';
+            SET SQL_SAFE_UPDATES = 1;
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-131" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="1">
+                SELECT COUNT(*) FROM address_hierarchy_level WHERE uuid='554a39f9-ac73-4e5f-ae32-fe2004d1e982';
+            </sqlCheck>
+        </preConditions>
+        <comment>Setting the country to be required</comment>
+        <sql>
+            SET SQL_SAFE_UPDATES = 0;
+            UPDATE address_hierarchy_level SET required=1 WHERE uuid='554a39f9-ac73-4e5f-ae32-fe2004d1e982';
+            SET SQL_SAFE_UPDATES = 1;
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-132" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="1">
+                SELECT COUNT(*) FROM address_hierarchy_level WHERE uuid='016bf7d9-440c-44d4-9652-4c5906c0931f';
+            </sqlCheck>
+        </preConditions>
+        <comment>Setting the country to be required</comment>
+        <sql>
+            SET SQL_SAFE_UPDATES = 0;
+            UPDATE address_hierarchy_level SET required=1 WHERE uuid='016bf7d9-440c-44d4-9652-4c5906c0931f';
+            SET SQL_SAFE_UPDATES = 1;
+        </sql>
+    </changeSet>
+
 </databaseChangeLog>
