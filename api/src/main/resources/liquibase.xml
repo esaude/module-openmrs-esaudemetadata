@@ -1621,6 +1621,71 @@
         </sql>
     </changeSet>
 
+<!--add fields that are suppossed to be compulsory on the forms-->
+    <!--social information for the adult-->
+    <changeSet id="esaude-metadata-125" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="1">
+                SELECT COUNT(*) FROM form_field WHERE uuid='e29f8ac6-1d5f-11e0-b929-000c29ad1d07';
+            </sqlCheck>
+        </preConditions>
+        <comment>Making the nome of the social form compulsory</comment>
 
+        <sql>
+            SET SQL_SAFE_UPDATES = 0;
+            UPDATE form_field SET required=1 WHERE uuid='e29f8ac6-1d5f-11e0-b929-000c29ad1d07';
+            SET SQL_SAFE_UPDATES = 1;
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-126" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="1">
+                SELECT COUNT(*) FROM form_field WHERE uuid='e2a0bb8a-1d5f-11e0-b929-000c29ad1d07';
+            </sqlCheck>
+        </preConditions>
+        <comment>Making the Apelido of the social form compulsory</comment>
+
+        <sql>
+            SET SQL_SAFE_UPDATES = 0;
+            UPDATE form_field SET required=1 WHERE uuid='e2a0bb8a-1d5f-11e0-b929-000c29ad1d07';
+            SET SQL_SAFE_UPDATES = 1;
+        </sql>
+    </changeSet>
+
+    <!--social information for the child-->
+    <changeSet id="esaude-metadata-127" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="1">
+                SELECT COUNT(*) FROM form_field WHERE uuid='e2a0d11a-1d5f-11e0-b929-000c29ad1d07';
+            </sqlCheck>
+        </preConditions>
+        <comment>Making the nome of the social form compulsory for the children</comment>
+
+        <sql>
+            SET SQL_SAFE_UPDATES = 0;
+            UPDATE form_field SET required=1 WHERE uuid='e2a0d11a-1d5f-11e0-b929-000c29ad1d07';
+            SET SQL_SAFE_UPDATES = 1;
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-128" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="1">
+                SELECT COUNT(*) FROM form_field WHERE uuid='e2a1c6a6-1d5f-11e0-b929-000c29ad1d07';
+            </sqlCheck>
+        </preConditions>
+        <comment>Making the Apelido of the social form compulsory for the children</comment>
+
+        <sql>
+            SET SQL_SAFE_UPDATES = 0;
+            UPDATE form_field SET required=1 WHERE uuid='e2a1c6a6-1d5f-11e0-b929-000c29ad1d07';
+            SET SQL_SAFE_UPDATES = 1;
+        </sql>
+    </changeSet>
 
 </databaseChangeLog>
