@@ -1749,4 +1749,73 @@
         </sql>
     </changeSet>
 
+    <!--Adding form fields for the WHO for the children-->
+    <changeSet id="esaude-metadata-133" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid = '9ad5fe09-a35c-4400-b216-ee72b0e76523';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding form fields for who child for child - ESTADIO I</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            SET FOREIGN_KEY_CHECKS=0;
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES(44, 784, NULL, NULL, NULL, 3204, NULL, NULL, 0, NULL, NULL, @user_id, '2017-01-31 20:07:15', 2050.00000, '9ad5fe09-a35c-4400-b216-ee72b0e76523');
+            SET FOREIGN_KEY_CHECKS=1;
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-134" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid = '675e6753-e4a8-4919-939c-bcea25d76553';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding form fields for who child for child - ESTADIO II</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            SET FOREIGN_KEY_CHECKS=0;
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES(44, 785, NULL, NULL, NULL, 3204, NULL, NULL, 0, NULL, NULL, @user_id, '2017-01-31 20:07:58', 2100.00000, '675e6753-e4a8-4919-939c-bcea25d76553');
+            SET FOREIGN_KEY_CHECKS=1;
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-135" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid = '35c00f28-5ce7-4917-b83e-a8f41a9b626e';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding form fields for who child for child - ESTADIO III</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            SET FOREIGN_KEY_CHECKS=0;
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES(44, 783, NULL, NULL, NULL, 3204, NULL, NULL, 0, NULL, NULL, @user_id, '2017-01-31 20:08:06', 2150.00000, '35c00f28-5ce7-4917-b83e-a8f41a9b626e');
+            SET FOREIGN_KEY_CHECKS=1;
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-136" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid = 'b99023a4-1452-4f30-811f-6d96ad1028a8';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding form fields for who child for child - ESTADIO IV</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            SET FOREIGN_KEY_CHECKS=0;
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES(44, 782, NULL, NULL, NULL, 3204, NULL, NULL, 0, NULL, NULL, @user_id, '2017-01-31 20:08:31', 2200.00000, 'b99023a4-1452-4f30-811f-6d96ad1028a8');
+            SET FOREIGN_KEY_CHECKS=1;
+        </sql>
+    </changeSet>
+
 </databaseChangeLog>
