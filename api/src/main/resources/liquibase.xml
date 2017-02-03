@@ -1818,4 +1818,16 @@
         </sql>
     </changeSet>
 
+    <!--Loading the cd4 report-->
+    <changeSet id="esaude-metadata-137" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM serialized_object WHERE uuid = 'ab960ae6-fe08-43d9-904d-2accc64126d8';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding the cdcdatacd4 sql report</comment>
+        <sqlFile path="sql/CDCDATACD4.sql" />
+    </changeSet>
+
 </databaseChangeLog>
