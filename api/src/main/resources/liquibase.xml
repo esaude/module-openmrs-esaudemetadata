@@ -1830,4 +1830,38 @@
         <sqlFile path="sql/CDCDATACD4.sql" />
     </changeSet>
 
+    <!--set the next date of appointment to be compulsory-->
+    <!--for the child-->
+    <changeSet id="esaude-metadata-138" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="1">
+                SELECT COUNT(*) FROM form_field WHERE uuid = 'e2ade81e-1d5f-11e0-b929-000c29ad1d07';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding the next visit date to be compulsory for the child</comment>
+        <sql>
+            SET SQL_SAFE_UPDATES = 0;
+            UPDATE form_field SET required=1 WHERE uuid='e2ade81e-1d5f-11e0-b929-000c29ad1d07';
+            SET SQL_SAFE_UPDATES = 1;
+        </sql>
+    </changeSet>
+
+    <!--for the adult-->
+
+    <changeSet id="esaude-metadata-139" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="1">
+                SELECT COUNT(*) FROM form_field WHERE uuid = 'e2ade512-1d5f-11e0-b929-000c29ad1d07';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding the next visit date to be compulsory for the adult</comment>
+        <sql>
+            SET SQL_SAFE_UPDATES = 0;
+            UPDATE form_field SET required=1 WHERE uuid='e2ade512-1d5f-11e0-b929-000c29ad1d07';
+            SET SQL_SAFE_UPDATES = 1;
+        </sql>
+    </changeSet>
+
 </databaseChangeLog>
