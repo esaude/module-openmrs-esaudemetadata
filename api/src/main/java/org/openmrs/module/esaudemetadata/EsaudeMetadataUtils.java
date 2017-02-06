@@ -27,6 +27,7 @@ public class EsaudeMetadataUtils {
         public static final String METADATA_CLCARVQ12017_1 = "CLCARVQ12017-1.zip";
         public static final String METADATA_ANAMNESE_MARKED_ON = "anamnese_marked_on-1.zip";
         public static final String METADATA_APSS = "APSS_Seguimento-1.zip";
+        public static final String METADATA_TREATMENT_PRESCRIBED_UPDATED = "treatment_prescribed_updated-1.zip";
     }
 
     public static final class _PackageUuids {
@@ -49,6 +50,7 @@ public class EsaudeMetadataUtils {
         public static final String METADATA_CLCARVQ12017_1_GROUP_UUID = "daae9409-104a-4690-9a87-d5e800dc3cf8";
         public static final String METADATA_ANAMNESE_MARKED_ON_GROUP_UUID = "86a73c93-27db-467f-8d86-61101482031b";
         public static final String METADATA_APSS_GROUP_UUID = "51ea0c37-6f3e-4975-909c-4193c38e959d";
+        public static final String METADATA_TREATMENT_PRESCRIBED_UPDATED_GROUP_UUID = "7b30660c-35c6-4c13-82b3-53401e6aa3d5";
     }
 
     public static final class _GlobalProperties {
