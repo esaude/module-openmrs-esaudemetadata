@@ -310,8 +310,21 @@
         <comment>Creating the 'eligibles' patient flag</comment>
         <sqlFile path="sql/eligibles.sql" />
     </changeSet>
-
-    <changeSet id="esaude-metadata-23" author="ningosi">
+    <!--Dropping the already existing Drug start date flag and provide the correct one-->
+    <changeSet id="esaude-metadata-23-correcting" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <sqlCheck expectedResult="1">
+                SELECT COUNT(*) FROM patientflags_flag WHERE name='DRUG START DATE';
+            </sqlCheck>
+        </preConditions>
+        <sql>
+            SET FOREIGN_KEY_CHECKS = 0;
+            DELETE FROM patientflags_flag WHERE name='DRUG START DATE';
+            DELETE FROM liquibasechangelog WHERE id="esaude-metadata-23";
+            SET FOREIGN_KEY_CHECKS = 1;
+        </sql>
+    </changeSet>
+    <changeSet id="esaude-metadata-23-corrected" author="ningosi">
         <preConditions onFail="MARK_RAN" onError="WARN">
             <dbms type="mysql"/>
             <tableExists tableName="patientflags_flag" schemaName="openmrs" />
@@ -334,8 +347,20 @@
         <comment>Creating the 'CTZ_PROPHILAXIS' patient flag</comment>
         <sqlFile path="sql/ctz_prophilaxis.sql" />
     </changeSet>
-
-    <changeSet id="esaude-metadata-25" author="ningosi">
+    <changeSet id="esaude-metadata-25-correcting" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <sqlCheck expectedResult="1">
+                SELECT COUNT(*) FROM patientflags_flag WHERE name='CD4 FIRST CONSULTATION';
+            </sqlCheck>
+        </preConditions>
+        <sql>
+            SET FOREIGN_KEY_CHECKS = 0;
+            DELETE FROM patientflags_flag WHERE name='CD4 FIRST CONSULTATION';
+            DELETE FROM liquibasechangelog WHERE id="esaude-metadata-25";
+            SET FOREIGN_KEY_CHECKS = 1;
+        </sql>
+    </changeSet>
+    <changeSet id="esaude-metadata-25-corrected" author="ningosi">
         <preConditions onFail="MARK_RAN" onError="WARN">
             <dbms type="mysql"/>
             <tableExists tableName="patientflags_flag" schemaName="openmrs" />
@@ -346,8 +371,20 @@
         <comment>Creating the 'CD4 FIRST CONSULTATION' patient flag</comment>
         <sqlFile path="sql/cd4_first_consultation.sql" />
     </changeSet>
-
-    <changeSet id="esaude-metadata-26" author="ningosi">
+    <changeSet id="esaude-metadata-26-correcting" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <sqlCheck expectedResult="1">
+                SELECT COUNT(*) FROM patientflags_flag WHERE name='CD4 6 MONTHS LATER';
+            </sqlCheck>
+        </preConditions>
+        <sql>
+            SET FOREIGN_KEY_CHECKS = 0;
+            DELETE FROM patientflags_flag WHERE name='CD4 6 MONTHS LATER';
+            DELETE FROM liquibasechangelog WHERE id="esaude-metadata-26";
+            SET FOREIGN_KEY_CHECKS = 1;
+        </sql>
+    </changeSet>
+    <changeSet id="esaude-metadata-26-corrected" author="ningosi">
         <preConditions onFail="MARK_RAN" onError="WARN">
             <dbms type="mysql"/>
             <tableExists tableName="patientflags_flag" schemaName="openmrs" />
@@ -1029,8 +1066,20 @@
         SET FOREIGN_KEY_CHECKS = 1;
         </sql>
     </changeSet>
-
-    <changeSet id="esaude-metadata-81" author="ningosi">
+    <changeSet id="esaude-metadata-81-correcting" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <sqlCheck expectedResult="1">
+                SELECT COUNT(*) FROM patientflags_flag WHERE name='VIRALOGICAL FAILURE';
+            </sqlCheck>
+        </preConditions>
+        <sql>
+            SET FOREIGN_KEY_CHECKS = 0;
+            DELETE FROM patientflags_flag WHERE name='VIRALOGICAL FAILURE';
+            DELETE FROM liquibasechangelog WHERE id="esaude-metadata-81";
+            SET FOREIGN_KEY_CHECKS = 1;
+        </sql>
+    </changeSet>
+    <changeSet id="esaude-metadata-81-corrected" author="ningosi">
         <preConditions onFail="MARK_RAN" onError="WARN">
             <dbms type="mysql"/>
             <tableExists tableName="patientflags_flag" schemaName="openmrs" />
@@ -1400,8 +1449,20 @@
             UPDATE concept_name SET voided=1, voided_by=@user_id, date_voided=current_date, void_reason='duplicate concept in locale en' WHERE concept_id=6122 AND locale='en' AND name='ISONIAZID PROPYLAXIS';
         </sql>
     </changeSet>
-
-    <changeSet id="esaude-metadata-107" author="ningosi">
+    <changeSet id="esaude-metadata-107-correcting" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <sqlCheck expectedResult="1">
+                SELECT COUNT(*) FROM patientflags_flag WHERE name='VIRAL LOAD DROPPED';
+            </sqlCheck>
+        </preConditions>
+        <sql>
+            SET FOREIGN_KEY_CHECKS = 0;
+            DELETE FROM patientflags_flag WHERE name='VIRAL LOAD DROPPED';
+            DELETE FROM liquibasechangelog WHERE id="esaude-metadata-107";
+            SET FOREIGN_KEY_CHECKS = 1;
+        </sql>
+    </changeSet>
+    <changeSet id="esaude-metadata-107-corrected" author="ningosi">
         <preConditions onFail="MARK_RAN" onError="WARN">
             <dbms type="mysql"/>
             <tableExists tableName="patientflags_flag" schemaName="openmrs" />

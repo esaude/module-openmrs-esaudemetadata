@@ -28,6 +28,7 @@ public class EsaudeMetadataUtils {
         public static final String METADATA_ANAMNESE_MARKED_ON = "anamnese_marked_on-1.zip";
         public static final String METADATA_APSS = "APSS_Seguimento-1.zip";
         public static final String METADATA_TREATMENT_PRESCRIBED_UPDATED = "treatment_prescribed_updated-1.zip";
+        public static final String METADATA_PHAMARCY = "";
     }
 
     public static final class _PackageUuids {

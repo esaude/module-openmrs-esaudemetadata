@@ -8,7 +8,7 @@ INSERT INTO patientflags_flag(`name`,`criteria`,`message`,`enabled`,`evaluator`,
     'select en.patient_id
     from
     (select * from encounter e where e.encounter_type in (6, 9) and e.encounter_datetime =(select max(en.encounter_datetime) from encounter en where en.patient_id = e.patient_id and e.encounter_type in (6, 9))) as en
-    where TIMESTAMPDIFF(MONTH, en.encounter_datetime, now()) >= 6 AND (select count(o.obs_id) from obs o where o.person_id = en.patient_id AND o.obs_datetime between (en.encounter_datetime and now()) AND o.concept_id IN (5497, 730, 1695)) = 0;',
+    where TIMESTAMPDIFF(MONTH, en.encounter_datetime, now()) >= 6 AND (select count(o.obs_id) from obs o where o.person_id = en.patient_id AND o.obs_datetime between (en.encounter_datetime and now()) AND o.concept_id IN (5497, 730, 1695)  and o.voided = 0) = 0;',
 	  'Teste de CD4 em falta(passam 6 meses desde a ultima consulta)',
 	  1,
 	  'org.openmrs.module.patientflags.evaluator.SQLFlagEvaluator',

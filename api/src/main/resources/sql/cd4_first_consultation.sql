@@ -7,7 +7,7 @@ INSERT INTO patientflags_flag(`name`,`criteria`,`message`,`enabled`,`evaluator`,
     VALUES('CD4 FIRST CONSULTATION',
     'SELECT p.patient_id FROM patient p WHERE
     (SELECT count(en.encounter_id) FROM encounter en WHERE en.patient_id = p.patient_id AND encounter_type IN (6, 9)) > 0 and
-    (SELECT count(ob.obs_id) FROM obs ob WHERE ob.person_id = p.patient_id AND ob.concept_id IN (5497, 730, 1695)) = 0;',
+    (SELECT count(ob.obs_id) FROM obs ob WHERE ob.person_id = p.patient_id AND ob.concept_id IN (5497, 730, 1695)  and o.voided = 0) = 0;',
 	  'Teste de CD4 em falta',
 	  1,
 	  'org.openmrs.module.patientflags.evaluator.SQLFlagEvaluator',
