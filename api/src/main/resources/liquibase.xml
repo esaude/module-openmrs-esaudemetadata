@@ -1933,5 +1933,13 @@
             SET SQL_SAFE_UPDATES = 1;
         </sql>
     </changeSet>
+    <!--changing the drug ingredient table to have the mappings to suite phamacy module-->
+    <changeSet id="esaude-metadata-140-p" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+        </preConditions>
+        <comment>Changing the concepts for the drug ingredients</comment>
+        <sqlFile path="sql/pharmacy/order_frequency_update.sql" />
+    </changeSet>
 
 </databaseChangeLog>
