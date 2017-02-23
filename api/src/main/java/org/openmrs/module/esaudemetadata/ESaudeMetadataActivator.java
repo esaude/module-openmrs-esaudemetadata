@@ -160,6 +160,7 @@ public class ESaudeMetadataActivator implements ModuleActivator {
 		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_ANAMNESE_MARKED_ON_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_ANAMNESE_MARKED_ON);
 		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_TREATMENT_PRESCRIBED_UPDATED_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_TREATMENT_PRESCRIBED_UPDATED);
 		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_PHAMARCY_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_PHAMARCY);
+		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_POC_COHORT_QUERY_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_POC_COHORT_QUERY);
 
 
 		return anyChanges;
