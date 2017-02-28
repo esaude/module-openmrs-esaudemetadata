@@ -21,7 +21,7 @@ public class EsaudeMetadataUtils {
         public static final String METADATA_RELATIONSHIP_TYPE = "Relationship_type-1.zip";
         public static final String METADATA_POC_MAPPING_PRESCRIPTION = "poc_mapping_prescriptions-1.zip";
         public static final String METADATA_DIAGNOSIS_ICD10_FIELDS = "CriptoAndHistory_fields-1.zip";
-        public static final String METADATA_CDC_RETENTION_REPORT = "CDC_Retention_Report_v2-5.zip";
+        public static final String METADATA_CDC_RETENTION_REPORT = "CDC_Retention_Report_v2-8.zip";
         public static final String METADATA_REQUIRED_PATIENT_IDENTIFIER_TYPES = "required_patient_identifier_type-1.zip";
         public static final String METADATA_PRESCRIPTION_CONVSET_FROM_METADATA = "prescriotion_convset_from_metatata-1.zip";
         public static final String METADATA_CLCARVQ12017_1 = "CLCARVQ12017-1.zip";
