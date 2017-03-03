@@ -14,12 +14,10 @@
 package org.openmrs.module.esaudemetadata;
 
 
-import org.apache.commons.lang.SystemUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.openmrs.api.context.Context;
 import org.openmrs.module.ModuleActivator;
-import org.openmrs.module.esaudemetadata.api.EsaudeMetaDataService;
 import org.openmrs.module.esaudemetadata.requirement.Requirement;
 import org.openmrs.module.esaudemetadata.requirement.UnsatisfiedRequirementException;
 import org.openmrs.module.esaudemetadata.system.EsaudeDictionaryRequirement;
@@ -68,9 +66,7 @@ public class ESaudeMetadataActivator implements ModuleActivator {
 	public void started() {
 		//check if the deafualt user responsible for setting up metadata is set
 		try {
-			EsaudeMetaDataService service = Context.getService(EsaudeMetaDataService.class);
-			service.setDefaultMetadataUser();
-			//checkIfDictionaryUptoDate();
+
 			setupInitialData();
 
 		} catch (Exception ex) {
