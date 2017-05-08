@@ -1942,4 +1942,12 @@
         <sqlFile path="sql/pharmacy/order_frequency_update.sql" />
     </changeSet>
 
+    <changeSet id="esaude-metadata-141-update" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+        </preConditions>
+        <comment>Updating the viral load drop criteria</comment>
+        <sqlFile path="sql/alerts/viral_load_dropped_update.sql" />
+    </changeSet>
+
 </databaseChangeLog>
