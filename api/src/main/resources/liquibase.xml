@@ -1945,9 +1945,29 @@
     <changeSet id="esaude-metadata-141-update" author="ningosi">
         <preConditions onFail="MARK_RAN" onError="WARN">
             <dbms type="mysql"/>
+            <sqlCheck expectedResult="1">
+                SELECT COUNT(*) FROM patientflags_flag WHERE uuid='a1d03d6c-8972-11e6-848d-507b9dc4c741';
+            </sqlCheck>
+        </preConditions>
+        <comment>Updating the viral load drop criteria</comment>
+        <sql>
+            SET SQL_SAFE_UPDATES = 0;
+            DELETE FROM patientflags_flag WHERE uuid='a1d03d6c-8972-11e6-848d-507b9dc4c741';
+            SET SQL_SAFE_UPDATES = 1;
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-142" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM patientflags_flag WHERE uuid='a1d03d6c-8972-11e6-848d-507b9dc4c741';
+            </sqlCheck>
         </preConditions>
         <comment>Updating the viral load drop criteria</comment>
         <sqlFile path="sql/alerts/viral_load_dropped_update.sql" />
     </changeSet>
+
+
 
 </databaseChangeLog>
