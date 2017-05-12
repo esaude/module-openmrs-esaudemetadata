@@ -1968,6 +1968,13 @@
         <sqlFile path="sql/alerts/viral_load_dropped_update.sql" />
     </changeSet>
 
-
+    <changeSet id="esaude-metadata-143" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <foreignKeyConstraintExists foreignKeyName="report_definition_id for reporting_report_design" />
+        </preConditions>
+        <comment>Droping 'report_definition_id for reporting_report_design'</comment>
+        <dropForeignKeyConstraint baseTableName="reporting_report_design" constraintName="report_definition_id for reporting_report_design" />
+    </changeSet>
 
 </databaseChangeLog>
