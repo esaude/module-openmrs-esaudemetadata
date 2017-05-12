@@ -24,7 +24,7 @@
     -->
     <!--Setting the uncode of the database to utf-8 for openmrs
     -->
-    <changeSet id="esaude-metadata-database-unicode-001" author="ningosi">
+    <!--<changeSet id="esaude-metadata-database-unicode-001" author="ningosi">
         <preConditions onFail="MARK_RAN" onError="WARN">
             <dbms type="mysql"/>
         </preConditions>
@@ -32,7 +32,7 @@
         <sql>
             ALTER DATABASE openmrs CHARACTER SET utf8 COLLATE utf8_unicode_ci;
         </sql>
-    </changeSet>
+    </changeSet>-->
     <changeSet id="esaude-metadata-1" author="psbrandt">
         <preConditions onFail="MARK_RAN">
             <dbms type="mysql"/>
