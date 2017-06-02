@@ -1976,5 +1976,13 @@
         <comment>Droping 'report_definition_id for reporting_report_design'</comment>
         <dropForeignKeyConstraint baseTableName="reporting_report_design" constraintName="report_definition_id for reporting_report_design" />
     </changeSet>
+    
+    <changeSet id="esaude-metadata-144" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+        </preConditions>
+        <comment>Restring reporting objects in openmrs - the correct tables to loaded back</comment>
+        <sqlFile path="sql/ddl/reports_object_schema_v1.sql" />
+    </changeSet>
 
 </databaseChangeLog>
