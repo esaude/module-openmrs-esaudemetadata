@@ -26,8 +26,12 @@
 	
 	<!-- Module Activator -->
 	<activator>${project.parent.groupId}.${project.parent.artifactId}.ESaudeMetadataActivator</activator>
-	
-	
+
+	<globalProperty>
+		<property>esaudemetadata.hfc</property>
+		<description>This is the unique code given to a facility to be used when converting mysql to access</description>
+	</globalProperty>
+
 	<!-- Maps hibernate file's, if present -->
 	<mappingFiles>
 				
