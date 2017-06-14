@@ -32,6 +32,11 @@
 		<description>This is the unique code given to a facility to be used when converting mysql to access</description>
 	</globalProperty>
 
+	<globalProperty>
+		<property>esaudemetadata.dateToImportTo</property>
+		<description>This field specifies the encounterdate to use when importing - yyyy-mm-dd</description>
+	</globalProperty>
+
 	<!-- Maps hibernate file's, if present -->
 	<mappingFiles>
 				
