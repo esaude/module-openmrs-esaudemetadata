@@ -157,6 +157,10 @@ public class ESaudeMetadataActivator implements ModuleActivator {
 		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_TREATMENT_PRESCRIBED_UPDATED_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_TREATMENT_PRESCRIBED_UPDATED);
 		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_PHAMARCY_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_PHAMARCY);
 		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_POC_COHORT_QUERY_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_POC_COHORT_QUERY);
+		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_PRESCRIPTION_CONVSET_UPDATED_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_PRESCRIPTION_CONVSET_UPDATED);
+		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_IMPORT_DRUGS_CONCEPTS_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_IMPORT_DRUGS_CONCEPTS);
+		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_FIX_CONCEPT_WITH_STOP_WORDS_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_FIX_CONCEPT_WITH_STOP_WORDS);
+		//anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_DRUGS_FROM_SIGLUS_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_DRUGS_FROM_SIGLUS);
 
 
 		return anyChanges;

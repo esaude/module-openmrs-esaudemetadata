@@ -8,7 +8,7 @@ public class EsaudeMetadataUtils {
 
     public static final class _PackageNames {
 
-        public static final String METADATA_MCH_MODULE = "MCH_Module-1.zip";
+        //public static final String METADATA_MCH_MODULE = "MCH_Module-1.zip";
         public static final String METADATA_CONSULTATION_COHORTS = "consultation_schedule_cohort-3.zip";
         public static final String METADATA_CONSULTATION_CURRENT_STORY = "consultation_current_story-1.zip";
         public static final String METADATA_DIAGNOSIS_CONCEPTS = "Diagnosis_Concepts-1.zip";
@@ -30,10 +30,14 @@ public class EsaudeMetadataUtils {
         public static final String METADATA_TREATMENT_PRESCRIBED_UPDATED = "treatment_prescribed_updated-1.zip";
         public static final String METADATA_PHAMARCY = "PHARMACY_METADATA-1.zip";
         public static final String METADATA_POC_COHORT_QUERY = "POC_COHORT_QUERY-2.zip";
+        public static final String METADATA_PRESCRIPTION_CONVSET_UPDATED = "prescription_convset_updated-1.zip";
+        public static final String METADATA_IMPORT_DRUGS_CONCEPTS = "Import_Concept_Dictionary_for_Drugs-1.zip";
+        public static final String METADATA_FIX_CONCEPT_WITH_STOP_WORDS = "FIX_CONCEPT_WITH_STOP_WORDS-1.zip";
+        //public static final String METADATA_DRUGS_FROM_SIGLUS = "DRUGS_FROM_SIGLUS_Second_Version-1.zip";
     }
 
     public static final class _PackageUuids {
-        public static final String METADATA_MCH_MODULE_GROUP_UUID = "225f8b0a-ce6c-43a2-97e6-42daa963b04e";
+        //public static final String METADATA_MCH_MODULE_GROUP_UUID = "225f8b0a-ce6c-43a2-97e6-42daa963b04e";
         public static final String METADATA_CONSULTATION_COHORTS_GROUP_UUID = "c8e7a6ab-c061-4afd-a5ee-79247ba1c9c3";
         public static final String METADATA_CONSULTATION_CURRENT_STORY_GROUP_UUID = "e9b78422-3092-4ecb-ab9b-2b9e60c767d7";
         public static final String METADATA_DIAGNOSIS_CONCEPTS_UUID = "75aaf4eb-8e4d-4e0a-a1a6-c2496eca2e58";
@@ -55,6 +59,10 @@ public class EsaudeMetadataUtils {
         public static final String METADATA_TREATMENT_PRESCRIBED_UPDATED_GROUP_UUID = "7b30660c-35c6-4c13-82b3-53401e6aa3d5";
         public static final String METADATA_PHAMARCY_GROUP_UUID = "f0dc5830-4c92-4266-91b2-3f4028c193d4";
         public static final String METADATA_POC_COHORT_QUERY_GROUP_UUID = "f0dc5830-4c92-4266-91b2-3f4028c193d4";
+        public static final String METADATA_PRESCRIPTION_CONVSET_UPDATED_GROUP_UUID ="7864ba84-39a6-4edb-9152-4d3d3b4abb7b";
+        public static final String METADATA_IMPORT_DRUGS_CONCEPTS_GROUP_UUID = "c1ae523a-8114-49f8-ba5f-4ddba4b568d1";
+        public static final String METADATA_FIX_CONCEPT_WITH_STOP_WORDS_GROUP_UUID = "19a09fdb-601e-48a3-bfea-3e5d327059bb";
+        //public static final String METADATA_DRUGS_FROM_SIGLUS_GROUP_UUID = "5e99c2c8-ee3a-46e4-8d08-316ae0b7af16";
     }
 
     public static final class _GlobalProperties {
