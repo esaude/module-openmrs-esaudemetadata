@@ -1985,4 +1985,12 @@
         <sqlFile path="sql/ddl/reports_object_schema_v1.sql" />
     </changeSet>
 
+    <changeSet id="esaude-metadata-145" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+        </preConditions>
+        <comment>Correcting velocity errors after upgrade to 1.11.5</comment>
+        <sqlFile path="sql/correctVelocityError.sql" />
+    </changeSet>
+
 </databaseChangeLog>
