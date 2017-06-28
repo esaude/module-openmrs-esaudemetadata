@@ -1993,4 +1993,40 @@
         <sqlFile path="sql/correctVelocityError.sql" />
     </changeSet>
 
+    <changeSet id="esaude-metadata-146" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+				SELECT COUNT(*) FROM phm_drug_items;
+            </sqlCheck>
+        </preConditions>
+        <comment>Insert drugItem data provided by SIGLUS</comment>
+        <sqlFile path="sql/pharmacy/insert_drug_item.sql" />
+    </changeSet>
+
+    <changeSet id="esaude-metadata-147" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+        </preConditions>
+        <comment>Retiring drugs that have a null drug form</comment>
+        <sql>
+            SET SQL_SAFE_UPDATES = 0;
+            SET FOREIGN_KEY_CHECKS = 0;
+            UPDATE drug SET retired=1 WHERE dosage_form IS NULL;
+            SET SQL_SAFE_UPDATES = 1;
+            SET FOREIGN_KEY_CHECKS = 1;
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-148" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+				SELECT COUNT(*) FROM phm_drug_regime;
+            </sqlCheck>
+        </preConditions>
+        <comment>Inserting DrugRegime data mappings</comment>
+        <sqlFile path="sql/pharmacy/insert_drug_regime_mapping.sql" />
+    </changeSet>
+
 </databaseChangeLog>
