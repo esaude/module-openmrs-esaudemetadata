@@ -1,0 +1,27 @@
+DROP TABLE IF EXISTS `phm_drug_regime`;
+CREATE TABLE `phm_drug_regime` (
+  `drug_regime_id` int(11) NOT NULL AUTO_INCREMENT,
+  `drug_item_id` int(11) NOT NULL,
+  `regime_id` int(11) NOT NULL,
+  `uuid` char(38) NOT NULL,
+  `creator` int(11) NOT NULL DEFAULT '0',
+  `date_created` datetime NOT NULL,
+  `changed_by` int(11) DEFAULT NULL,
+  `date_changed` datetime DEFAULT NULL,
+  `retired` tinyint(1) NOT NULL DEFAULT '0',
+  `retired_by` int(11) DEFAULT NULL,
+  `date_retired` datetime DEFAULT NULL,
+  `retire_reason` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`drug_regime_id`),
+  UNIQUE KEY `uuid` (`uuid`),
+  UNIQUE KEY `phm_drug_regime_drug_item_regime_unique` (`drug_item_id`,`regime_id`),
+  KEY `phm_drug_regime_regime_fk` (`regime_id`),
+  KEY `phm_drug_regime_creator_fk` (`creator`),
+  KEY `phm_drug_regime_changed_by_fk` (`changed_by`),
+  KEY `phm_drug_regime_retired_by_fk` (`retired_by`),
+  CONSTRAINT `phm_drug_regime_changed_by_fk` FOREIGN KEY (`changed_by`) REFERENCES `users` (`user_id`),
+  CONSTRAINT `phm_drug_regime_creator_fk` FOREIGN KEY (`creator`) REFERENCES `users` (`user_id`),
+  CONSTRAINT `phm_drug_regime_drug_item_fk` FOREIGN KEY (`drug_item_id`) REFERENCES `phm_drug_items` (`drug_id`),
+  CONSTRAINT `phm_drug_regime_regime_fk` FOREIGN KEY (`regime_id`) REFERENCES `concept` (`concept_id`),
+  CONSTRAINT `phm_drug_regime_retired_by_fk` FOREIGN KEY (`retired_by`) REFERENCES `users` (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8;

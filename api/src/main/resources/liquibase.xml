@@ -1,5 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<!DOCTYPE databaseChangeLog [
+        <!ELEMENT databaseChangeLog (changeSet)*>
+        <!ATTLIST databaseChangeLog
+                xmlns CDATA #REQUIRED
+                xmlns:xsi CDATA #REQUIRED
+                xsi:schemaLocation CDATA #REQUIRED>
+        <!ELEMENT changeSet (preConditions|sql|comment|dropForeignKeyConstraint|addForeignKeyConstraint|sqlFile)*>
+        <!ATTLIST changeSet
+                author CDATA #REQUIRED
+                id CDATA #REQUIRED>
+        <!ELEMENT preConditions (dbms|sqlCheck|foreignKeyConstraintExists|tableExists)*>
+        <!ATTLIST preConditions
+                onError CDATA #IMPLIED
+                onFail CDATA #REQUIRED>
+        <!ELEMENT dbms (#PCDATA)>
+        <!ATTLIST dbms
+                type CDATA #REQUIRED>
+        <!ELEMENT sqlCheck (#PCDATA)>
+        <!ATTLIST sqlCheck
+                expectedResult CDATA #REQUIRED>
+        <!ELEMENT sql (#PCDATA)>
+        <!ELEMENT foreignKeyConstraintExists (#PCDATA)>
+        <!ATTLIST foreignKeyConstraintExists
+                foreignKeyName CDATA #REQUIRED
+                schemaName CDATA #IMPLIED>
+        <!ELEMENT comment (#PCDATA)>
+        <!ELEMENT dropForeignKeyConstraint (#PCDATA)>
+        <!ATTLIST dropForeignKeyConstraint
+                baseTableName CDATA #REQUIRED
+                constraintName CDATA #REQUIRED>
+        <!ELEMENT addForeignKeyConstraint (#PCDATA)>
+        <!ATTLIST addForeignKeyConstraint
+                baseColumnNames CDATA #REQUIRED
+                baseTableName CDATA #REQUIRED
+                constraintName CDATA #REQUIRED
+                deferrable CDATA #REQUIRED
+                initiallyDeferred CDATA #REQUIRED
+                referencedColumnNames CDATA #REQUIRED
+                referencedTableName CDATA #REQUIRED>
+        <!ELEMENT sqlFile (#PCDATA)>
+        <!ATTLIST sqlFile
+                endDelimiter CDATA #IMPLIED
+                path CDATA #REQUIRED>
+        <!ELEMENT tableExists (#PCDATA)>
+        <!ATTLIST tableExists
+                schemaName CDATA #REQUIRED
+                tableName CDATA #REQUIRED>
+        ]>
 <databaseChangeLog
     xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -1992,18 +2040,6 @@
         <comment>Correcting velocity errors after upgrade to 1.11.5</comment>
         <sqlFile path="sql/correctVelocityError.sql" />
     </changeSet>
-
-    <changeSet id="esaude-metadata-146" author="ningosi">
-        <preConditions onFail="MARK_RAN" onError="WARN">
-            <dbms type="mysql"/>
-            <sqlCheck expectedResult="0">
-				SELECT COUNT(*) FROM phm_drug_items;
-            </sqlCheck>
-        </preConditions>
-        <comment>Insert drugItem data provided by SIGLUS</comment>
-        <sqlFile path="sql/pharmacy/insert_drug_item.sql" />
-    </changeSet>
-
     <changeSet id="esaude-metadata-147" author="ningosi">
         <preConditions onFail="MARK_RAN" onError="WARN">
             <dbms type="mysql"/>
@@ -2017,16 +2053,52 @@
             SET FOREIGN_KEY_CHECKS = 1;
         </sql>
     </changeSet>
-
     <changeSet id="esaude-metadata-148" author="ningosi">
         <preConditions onFail="MARK_RAN" onError="WARN">
             <dbms type="mysql"/>
+        </preConditions>
+        <comment>Creating phm_drug_items table </comment>
+        <sqlFile path="sql/ddl/phm_drug_items.sql" />
+    </changeSet>
+
+    <changeSet id="esaude-metadata-149" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <tableExists tableName="phm_drug_items" schemaName="openmrs" />
             <sqlCheck expectedResult="0">
-				SELECT COUNT(*) FROM phm_drug_regime;
+                SELECT COUNT(*) FROM phm_drug_items;
+            </sqlCheck>
+        </preConditions>
+        <comment>Insert drugItem data provided by SIGLUS</comment>
+        <sqlFile path="sql/pharmacy/insert_drug_item.sql" />
+    </changeSet>
+
+    <changeSet id="esaude-metadata-150" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+        </preConditions>
+        <comment>Creating phm_drug_regime table </comment>
+        <sqlFile path="sql/ddl/phm_drug_regime.sql" />
+    </changeSet>
+
+    <changeSet id="esaude-metadata-151" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <tableExists tableName="phm_drug_regime" schemaName="openmrs" />
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM phm_drug_regime;
             </sqlCheck>
         </preConditions>
         <comment>Inserting DrugRegime data mappings</comment>
         <sqlFile path="sql/pharmacy/insert_drug_regime_mapping.sql" />
+    </changeSet>
+
+    <changeSet id="esaude-metadata-152" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+        </preConditions>
+        <comment>Creating phm_prescription_dispensation table </comment>
+        <sqlFile path="sql/ddl/phm_prescription_dispensation.sql" />
     </changeSet>
 
 </databaseChangeLog>
