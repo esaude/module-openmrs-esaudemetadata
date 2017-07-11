@@ -165,6 +165,8 @@ public class ESaudeMetadataActivator implements ModuleActivator {
 		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_DRUGS_FROM_SIGLUS_FIRST_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_DRUGS_FROM_SIGLUS_FIRST);
 		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_DRUGS_FROM_SIGLUS_SECOND_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_DRUGS_FROM_SIGLUS_SECOND);
 		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_ARV_REGIMENS_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_ARV_REGIMENS);
+		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_DURATION_UNITS_UPDATED_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_DURATION_UNITS_UPDATED);
+		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_RETIRE_DRUGS_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_RETIRE_DRUGS);
 
 
 

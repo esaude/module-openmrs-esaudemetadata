@@ -37,6 +37,8 @@ public class EsaudeMetadataUtils {
         public static final String METADATA_DRUGS_FROM_SIGLUS_FIRST = "DRUGS_FROM_SIGLUS_FIRST-1.zip";
         public static final String METADATA_DRUGS_FROM_SIGLUS_SECOND = "DRUGS_FROM_SIGLUS_SECOND-1.zip";
         public static final String METADATA_ARV_REGIMENS = "ARV_Regimens-1.zip";
+        public static final String METADATA_DURATION_UNITS_UPDATED = "duration_units_updated-1.zip";
+        public static final String METADATA_RETIRE_DRUGS = "RetiredDrugs-1.zip";
 
     }
 
@@ -71,6 +73,8 @@ public class EsaudeMetadataUtils {
         public static final String METADATA_DRUGS_FROM_SIGLUS_FIRST_GROUP_UUID = "7a581c69-684d-40e2-8b57-8941d712d7cf";
         public static final String METADATA_DRUGS_FROM_SIGLUS_SECOND_GROUP_UUID = "3465be5c-2bfd-41c3-a863-461f2153725e";
         public static final String METADATA_ARV_REGIMENS_GROUP_UUID = "353d1931-2959-4cb0-bc8e-4025dcaf9d21";
+        public static final String METADATA_DURATION_UNITS_UPDATED_GROUP_UUID = "a3330d2e-a05c-4241-8b5f-31697fe98b2f";
+        public static final String METADATA_RETIRE_DRUGS_GROUP_UUID = "caa59c55-f358-4d3c-b75b-0e2d4bae568f";
 
     }
 
