@@ -2024,15 +2024,19 @@
         <comment>Droping 'report_definition_id for reporting_report_design'</comment>
         <dropForeignKeyConstraint baseTableName="reporting_report_design" constraintName="report_definition_id for reporting_report_design" />
     </changeSet>
-    
-    <changeSet id="esaude-metadata-144" author="ningosi">
+    <changeSet id="esaude-metadata-revert-reports" author="ningosi">
         <preConditions onFail="MARK_RAN" onError="WARN">
             <dbms type="mysql"/>
+            <sqlCheck expectedResult="1">
+                SELECT COUNT(*) FROM liquibasechangelog WHERE id="esaude-metadata-144";
+            </sqlCheck>
         </preConditions>
-        <comment>Restring reporting objects in openmrs - the correct tables to loaded back</comment>
-        <sqlFile path="sql/ddl/reports_object_schema_v1.sql" />
+        <comment>Reverting the report schema to original to maintain 1.9.2</comment>
+        <sql>
+            DELETE FROM liquibasechangelog WHERE id="esaude-metadata-144";
+        </sql>
     </changeSet>
-
+    
     <changeSet id="esaude-metadata-145" author="ningosi">
         <preConditions onFail="MARK_RAN" onError="WARN">
             <dbms type="mysql"/>
