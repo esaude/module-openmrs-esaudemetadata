@@ -2105,4 +2105,16 @@
         <sqlFile path="sql/ddl/phm_prescription_dispensation.sql" />
     </changeSet>
 
+    <changeSet id="esaude-metadata-153" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+        </preConditions>
+        <comment>Modify the report_definition_uuid column to 38 characters</comment>
+        <sql>
+            SET FOREIGN_KEY_CHECKS = 0;
+            alter table reporting_report_design modify report_definition_uuid char(38) not null;
+            SET FOREIGN_KEY_CHECKS = 1;
+        </sql>
+    </changeSet>
+
 </databaseChangeLog>
