@@ -5,6 +5,7 @@
 # eSaude Metadata Module
 
 [![Build Status](https://travis-ci.org/esaude/openmrs-module-esaudemetadata.svg?branch=master)](https://travis-ci.org/esaude/openmrs-module-esaudemetadata)
+[![Coverage Status](https://coveralls.io/repos/github/esaude/openmrs-module-esaudemetadata/badge.svg?branch=master)](https://coveralls.io/github/esaude/openmrs-module-esaudemetadata?branch=master)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/a2ec78324b5c4011893957ad338e0cce)](https://www.codacy.com/app/esaude/openmrs-module-esaudemetadata?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=esaude/openmrs-module-esaudemetadata&amp;utm_campaign=Badge_Grade)
 [![eSaude Version](https://omrs-shields.psbrandt.io/custom/esaude/v1.2.0/brightgreen?logo=esaude)](http://www.esaude.org/technical-resources/esaude-emr-versions)
 [![eSaude Slack](https://slack.esaude.org/badge.svg)](https://slack.esaude.org)
