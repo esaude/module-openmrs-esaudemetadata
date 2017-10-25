@@ -2127,5 +2127,16 @@
             SET FOREIGN_KEY_CHECKS = 1;
         </sql>
     </changeSet>
+    <!--Setting up the compulsory fields for vitals-->
+    <changeSet id="esaude-metadata-form-fields-vitals-1" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+        </preConditions>
+        <sql>
+            SET FOREIGN_KEY_CHECKS = 0;
+                UPDATE form_field SET required="1" WHERE field_id IN(282,20,26,283,384,402,397) AND form_id IN(37,44);
+            SET FOREIGN_KEY_CHECKS = 1;
+        </sql>
+    </changeSet>
 
 </databaseChangeLog>
