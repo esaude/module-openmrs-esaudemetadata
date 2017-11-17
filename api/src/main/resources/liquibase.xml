@@ -2139,4 +2139,37 @@
         </sql>
     </changeSet>
 
+    <!-- Remove roles that are no longer needed -->
+    <changeSet id="esaude-metadata-155" author="ynurmahomed">
+        <sql>
+            DELETE FROM role_role
+            WHERE child_role IN ('Admin-Role', 'Consultation-Observation', 'InPatient-Patient-Movement', 'Registration-Additional',
+            'Orders-Role', 'Clinical-Read-Only', 'Consultation-Disposition', 'Registration-Visit-Action', 'Registration-Read',
+            'Clinical:ReadOnly', 'Clinical:FullAccess', 'Registration', 'Consultation-Treatment', 'Patient-Documents-Upload',
+            'Privilege Level: Full', 'Consultation-Save', 'Consultation-Diagnosis', 'Registration-Write', 'Consultation-Orders',
+            'InPatient-Read');
+
+            DELETE FROM user_role
+            WHERE role IN ('Admin-Role', 'Consultation-Observation', 'InPatient-Patient-Movement', 'Registration-Additional',
+            'Orders-Role', 'Clinical-Read-Only', 'Consultation-Disposition', 'Registration-Visit-Action', 'Registration-Read',
+            'Clinical:ReadOnly', 'Clinical:FullAccess', 'Registration', 'Consultation-Treatment', 'Patient-Documents-Upload',
+            'Privilege Level: Full', 'Consultation-Save', 'Consultation-Diagnosis', 'Registration-Write', 'Consultation-Orders',
+            'InPatient-Read');
+
+            DELETE FROM role_privilege
+            WHERE role IN ('Admin-Role', 'Consultation-Observation', 'InPatient-Patient-Movement', 'Registration-Additional',
+            'Orders-Role', 'Clinical-Read-Only', 'Consultation-Disposition', 'Registration-Visit-Action', 'Registration-Read',
+            'Clinical:ReadOnly', 'Clinical:FullAccess', 'Registration', 'Consultation-Treatment', 'Patient-Documents-Upload',
+            'Privilege Level: Full', 'Consultation-Save', 'Consultation-Diagnosis', 'Registration-Write', 'Consultation-Orders',
+            'InPatient-Read');
+
+            DELETE FROM role
+            WHERE role IN ('Admin-Role', 'Consultation-Observation', 'InPatient-Patient-Movement', 'Registration-Additional',
+            'Orders-Role', 'Clinical-Read-Only', 'Consultation-Disposition', 'Registration-Visit-Action', 'Registration-Read',
+            'Clinical:ReadOnly', 'Clinical:FullAccess', 'Registration', 'Consultation-Treatment', 'Patient-Documents-Upload',
+            'Privilege Level: Full', 'Consultation-Save', 'Consultation-Diagnosis', 'Registration-Write', 'Consultation-Orders',
+            'InPatient-Read');
+        </sql>
+    </changeSet>
+
 </databaseChangeLog>
