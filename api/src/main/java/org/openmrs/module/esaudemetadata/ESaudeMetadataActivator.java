@@ -18,9 +18,11 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.openmrs.api.context.Context;
 import org.openmrs.module.ModuleActivator;
+import org.openmrs.module.esaudemetadata.metadatadeploy.CommonMetadataBundle;
 import org.openmrs.module.esaudemetadata.requirement.Requirement;
 import org.openmrs.module.esaudemetadata.requirement.UnsatisfiedRequirementException;
 import org.openmrs.module.esaudemetadata.system.EsaudeDictionaryRequirement;
+import org.openmrs.module.metadatadeploy.api.MetadataDeployService;
 import org.openmrs.module.metadatasharing.ImportConfig;
 import org.openmrs.module.metadatasharing.ImportMode;
 import org.openmrs.module.metadatasharing.ImportedPackage;
@@ -64,10 +66,13 @@ public class ESaudeMetadataActivator implements ModuleActivator {
 	 * @see ModuleActivator#started()
 	 */
 	public void started() {
-		//check if the deafualt user responsible for setting up metadata is set
+		MetadataDeployService deployService = Context.getService(MetadataDeployService.class);
+		//check if the default user responsible for setting up metadata is set
 		try {
 
 			setupInitialData();
+			// install commonly used metadata eg forms, encounter types, etc
+			installCommonMetadata(deployService);
 
 		} catch (Exception ex) {
 			throw new RuntimeException("Failed to setup initial data", ex);
@@ -185,6 +190,13 @@ public class ESaudeMetadataActivator implements ModuleActivator {
 			//Don't start the module until the right dictionary is supplied.
 			throw new UnsatisfiedRequirementException(req);
 		}
+	}
+
+	private void installCommonMetadata(MetadataDeployService deployService) {
+		log.info("Installing metadata");
+		log.info("Installing commonly used metadata");
+		deployService.installBundle(Context.getRegisteredComponents(CommonMetadataBundle.class).get(0));
+		log.info("Done installing commonly used metadata");
 	}
 		
 }
