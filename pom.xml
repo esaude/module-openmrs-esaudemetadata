@@ -40,6 +40,7 @@
 
 		<metadatamappingVersion>1.0.1</metadatamappingVersion>
 		<metadatasharingVersion>1.1.8</metadatasharingVersion>
+		<metadatadeployVersion>1.8.1</metadatadeployVersion>
 
 	</properties>
 
@@ -72,6 +73,13 @@
 				<groupId>org.openmrs.module</groupId>
 				<artifactId>metadatasharing-api</artifactId>
 				<version>${metadatasharingVersion}</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.openmrs.module</groupId>
+				<artifactId>metadatadeploy-api</artifactId>
+				<version>${metadatadeployVersion}</version>
 				<scope>provided</scope>
 			</dependency>
 
