@@ -194,6 +194,9 @@ public class ESaudeMetadataActivator implements ModuleActivator {
 
 	private void installCommonMetadata(MetadataDeployService deployService) {
 		log.info("Installing metadata");
+		log.info("Installing locations and its associated metadata");
+		HealthFacilities.createLocationAttributeType();
+		HealthFacilities.uploadLocations();
 		log.info("Installing commonly used metadata");
 		deployService.installBundle(Context.getRegisteredComponents(CommonMetadataBundle.class).get(0));
 		log.info("Done installing commonly used metadata");
