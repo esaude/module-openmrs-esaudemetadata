@@ -2172,4 +2172,16 @@
         </sql>
     </changeSet>
 
+    <changeSet id="esaude-metadata-280220181520" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+        </preConditions>
+        <comment>Changing data type of (20687,20686,20685,20682) from Text(3) to Coded(2)</comment>
+        <sql>
+            SET FOREIGN_KEY_CHECKS = 0;
+            UPDATE concept SET datatype_id = 2 WHERE concept_id in(20687,20686,20685,20682);
+            SET FOREIGN_KEY_CHECKS = 1;
+        </sql>
+    </changeSet>
+
 </databaseChangeLog>
