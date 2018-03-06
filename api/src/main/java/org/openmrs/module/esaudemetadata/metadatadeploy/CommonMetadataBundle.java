@@ -14,13 +14,21 @@ public class CommonMetadataBundle extends AbstractMetadataBundle {
      */
     @Override
     public void install() throws Exception {
-        // install the patient identifier types
-        // install person attribute types
         //Install Encounter Type
-        //install(encounterType("Test deploy encounter type", "This is a testing encounter type", MetadataBundleUtils._EncounterType.TEST_ENCOUNTER_TYPE));
+        install(encounterType("CCU: RASTREIO", "Rastreio do cancro do colo uterino", MetadataBundleUtils._EncounterType.CCU_RASTREIO));
+        install(encounterType("ADMISSION", "ADMISSION encounter", MetadataBundleUtils._EncounterType.ADMISSION));
+        install(encounterType("APSS: PREVENÇÃO POSITIVA", "Avaliação Psico-Social e Prevenção Positiva", MetadataBundleUtils._EncounterType.APSS_PREVENCAO_POSITIVA));
+        install(encounterType("APSS: PREVENÇÃO POSITIVA - SEGUIMENTO", "Ficha de apoio psicossocial e prevenção positiva - Seguimento", MetadataBundleUtils._EncounterType.APSS_PREVENCAO_POSITIVA_SEGUIMENTO));
+        install(encounterType("CCR: PCR", "TESTE DE PCR", MetadataBundleUtils._EncounterType.CCR_PCR));
+        install(encounterType("CCR: PROCESSO", "Primeira visita do Criança em risco", MetadataBundleUtils._EncounterType.CCR_PROCESSO));
+        install(encounterType("CCR: SEGUIMENTO", "Seguimento visita do Criança Em Risco", MetadataBundleUtils._EncounterType.CCR_SEGUIMENTO));
+        install(encounterType("Consultation", "Consultation encounter", MetadataBundleUtils._EncounterType.Consultation));
+        install(encounterType("DISCHARGE", "DISCHARGE encounter", MetadataBundleUtils._EncounterType.DISCHARGE));
+        install(encounterType("INVESTIGATION", "Investigation encounter", MetadataBundleUtils._EncounterType.INVESTIGATION));
+        install(encounterType("S.TARV: ADULTO INICIAL A", "Primeira visita do paciente adulto", MetadataBundleUtils._EncounterType.S_TARV_ADULTO_INICIAL_A));
+
         //Install forms
-        //install(form("Test deploy form", "The form to collect different data", MetadataBundleUtils._EncounterType.TEST_ENCOUNTER_TYPE, "1.0", MetadataBundleUtils._Form.TEST_FORM));
-        //installing programs
+        install(form("ADULTO: PROCESSO PARTE A - ANAMNESE", "Processo de Hospital de Dia 1/2", MetadataBundleUtils._EncounterType.S_TARV_ADULTO_INICIAL_A, "1.1", MetadataBundleUtils._Form.ADULTO_PROCESSO_PARTE_A_ANAMNESE));
         //install Locations
         // Install Encounter Role
         //global properties

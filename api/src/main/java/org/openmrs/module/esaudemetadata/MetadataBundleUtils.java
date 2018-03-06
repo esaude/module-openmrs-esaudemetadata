@@ -12,11 +12,23 @@ public class MetadataBundleUtils {
 
     }
     public static final class _EncounterType {
-       // public static final String TEST_ENCOUNTER_TYPE = "1cc69298-d9bb-11e7-ae8d-7f6c9aa2b70b";
+       public static final String  CCU_RASTREIO = "e2791f26-1d5f-11e0-b929-000c29ad1d07";
+       public static final String  ADMISSION = "9cf2aabe-10e8-11e5-9009-0242ac110012";
+       public static final String  APSS_PREVENCAO_POSITIVA = "f0bc6401-4e62-43e5-97e2-6ab027bb0405";
+       public static final String  APSS_PREVENCAO_POSITIVA_SEGUIMENTO = "f4aa93fe-8737-4f70-9532-542b768459d7";
+       public static final String  CCR_PCR = "e2791800-1d5f-11e0-b929-000c29ad1d07";
+       public static final String  CCR_PROCESSO = "e278fbb8-1d5f-11e0-b929-000c29ad1d07";
+       public static final String  CCR_SEGUIMENTO = "e278fe10-1d5f-11e0-b929-000c29ad1d07";
+       public static final String  Consultation = "536111da-10e7-11e5-9009-0242ac110012";
+       public static final String  DISCHARGE = "9cf4a2cd-10e8-11e5-9009-0242ac110012";
+       public static final String  INVESTIGATION = "9d0c3be0-10e8-11e5-9009-0242ac110012";
+       public static final String  S_TARV_ADULTO_INICIAL_A = "e278f820-1d5f-11e0-b929-000c29ad1d07";
+
 
     }
     public static final class _Form {
-        //public static final String TEST_FORM = "43b74dfc-d9bb-11e7-bb6e-8b5c28081dfe";
+        public static final String ADULTO_PROCESSO_PARTE_A_ANAMNESE = "e28b6096-1d5f-11e0-b929-000c29ad1d07";
+       // public static final String ADULTO_PROCESSO_PARTE_A_ANAMNESE = "e28b6096-1d5f-11e0-b929-000c29ad1d07";
     }
     public static final class _PatientIdentifierType {
 
