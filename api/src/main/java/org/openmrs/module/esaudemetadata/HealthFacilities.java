@@ -19,6 +19,7 @@ import org.apache.commons.logging.LogFactory;
 import org.openmrs.Location;
 import org.openmrs.LocationAttribute;
 import org.openmrs.LocationAttributeType;
+import org.openmrs.api.AdministrationService;
 import org.openmrs.api.LocationService;
 import org.openmrs.api.context.Context;
 import org.openmrs.util.OpenmrsClassLoader;
@@ -28,6 +29,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Collection;
+import java.util.Date;
+import java.util.List;
 
 /**
  *  class that will map correctly a health facility with unique code, province and district
@@ -66,25 +69,26 @@ public class HealthFacilities {
                     //check whether that location does not exist in the database
                     if (location == null) {
                         //create the location and associate it with respective metadata
+                        Location newLocation = new Location();
+                        newLocation.setName(facility_name);
+                        newLocation.setCreator(Context.getAuthenticatedUser());
+                        newLocation.setStateProvince(province);
+                        newLocation.setCountyDistrict(district);
+
+                        //set the facility unique code for this location
+                        setLocationAttribute(health_facility_code, newLocation);
+                        locationService.saveLocation(newLocation);
                     }
                     //get the location and check if the health facility code is set
                     //check for location attribute for this location, if it exists means we already set it up
                     //No need to repeat the process
                     if(location != null) {
-                        Collection<LocationAttribute> locationAttributeValues = location.getActiveAttributes();
-                        String valueOfAttribute = "";
-                        if (locationAttributeValues.size() > 0) {
-                            for (LocationAttribute locationAttribute : locationAttributeValues) {
-                                if (locationAttribute.getAttributeType().getUuid().equals("132895aa-1c88-11e8-b6fd-7395830b63f3")) {
-                                    //pick that value and break from the for loop
-                                    valueOfAttribute = locationAttribute.getValue().toString();
-                                }
-                            }
-                        }
-                        //now that we have the attribute value we need, we can now check if location exists and no attribute value is set
-                        if (StringUtils.isEmpty(valueOfAttribute)){
-                            //this means the location needs the attribute as required
-                        }
+                        setLocationAttribute(health_facility_code, location);
+                        location.setCountyDistrict(district);
+                        location.setStateProvince(province);
+
+                        //save the location, this will edit existing one
+                        locationService.saveLocation(location);
                     }
 
                 }
@@ -109,5 +113,68 @@ public class HealthFacilities {
             locationService.saveLocationAttributeType(type);
         }
 
+    }
+
+    public static LocationAttribute setLocationAttribute(String facilityCode, Location location){
+        LocationService locationService = Context.getLocationService();
+        LocationAttributeType locationAttributeType = locationService.getLocationAttributeTypeByUuid("132895aa-1c88-11e8-b6fd-7395830b63f3");
+        LocationAttribute attribute = new LocationAttribute();
+
+        if (location != null) {
+            Collection<LocationAttribute> availableAttributes = location.getActiveAttributes();
+            if(availableAttributes.size() == 0){
+                //this means there are no attribute created, we therefore create one for this location
+                attribute.setDateCreated(new Date());
+                attribute.setAttributeType(locationAttributeType);
+                attribute.setValue(facilityCode);
+                attribute.setCreator(Context.getAuthenticatedUser());
+                location.addAttribute(attribute);
+            }
+            else {
+                //this means we already have attributes with the set values, let only focus on the one with mfl code
+                //we loop through all the attributes that are availabe if we find one with location attribute we just update it
+                //we we don't get one we just create new
+
+                for (LocationAttribute locationAttribute : availableAttributes) {
+
+                    if (locationAttribute.getAttributeType().equals(locationAttributeType)) {
+                        locationAttribute.setValue(facilityCode);
+                        location.addAttribute(locationAttribute);
+                        break;
+                    }
+                    else {
+                        //create new one here
+                        attribute.setDateCreated(new Date());
+                        attribute.setAttributeType(locationAttributeType);
+                        attribute.setValue(facilityCode);
+                        attribute.setCreator(Context.getAuthenticatedUser());
+                        location.addAttribute(attribute);
+                    }
+                }
+            }
+
+        }
+
+        return attribute;
+    }
+
+    public static void assignFacilityCodeToUnKownLocation(String name){
+        LocationService locationService = Context.getLocationService();
+        Location location = locationService.getLocation(name);
+        if(location != null){
+            setLocationAttribute("0000001", location);
+            location.setCountyDistrict("Desconhecido");
+            location.setStateProvince("Desconhecido");
+
+            //save the location, this will edit existing one
+            locationService.saveLocation(location);
+        }
+    }
+
+    public static void removeNonMatchingLocations(){
+        AdministrationService as = Context.getAdministrationService();
+        String locations_in_attributes_table = "SELECT location_id FROM location_attribute";
+        String locations_to_remove = "UPDATE location SET retired=1 WHERE location_id NOT IN("+locations_in_attributes_table+")";
+        as.executeSQL(locations_to_remove, false);
     }
 }

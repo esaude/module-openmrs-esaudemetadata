@@ -31,6 +31,8 @@ import org.openmrs.module.metadatasharing.api.MetadataSharingService;
 import org.openmrs.module.metadatasharing.wrapper.PackageImporter;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -196,10 +198,30 @@ public class ESaudeMetadataActivator implements ModuleActivator {
 		log.info("Installing metadata");
 		log.info("Installing locations and its associated metadata");
 		HealthFacilities.createLocationAttributeType();
+		HealthFacilities.assignFacilityCodeToUnKownLocation("Local Desconhecido");
 		HealthFacilities.uploadLocations();
+		//removing unwanted locations that do not have unique code
+		HealthFacilities.removeNonMatchingLocations();
 		log.info("Installing commonly used metadata");
 		deployService.installBundle(Context.getRegisteredComponents(CommonMetadataBundle.class).get(0));
 		log.info("Done installing commonly used metadata");
+	}
+
+	private List<String> getLocationsToRemove(){
+		List<String> locationListStrings = new ArrayList<String>();
+
+		locationListStrings.add("Zambezia");
+		locationListStrings.add("Ile");
+		locationListStrings.add("Alto Molocue");
+		locationListStrings.add("Gurue");
+		locationListStrings.add("Chinde");
+		locationListStrings.add("Mocuba");
+		locationListStrings.add("Milange");
+		locationListStrings.add("Nicoadala");
+		locationListStrings.add("Quelimane");
+		locationListStrings.add("Morrumbala");
+		locationListStrings.add("Pebane");
+		return locationListStrings;
 	}
 		
 }
