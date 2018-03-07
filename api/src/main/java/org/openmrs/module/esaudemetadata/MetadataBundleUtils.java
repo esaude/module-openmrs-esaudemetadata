@@ -55,9 +55,19 @@ public class MetadataBundleUtils {
   }
     public static final class _Form {
         public static final String ADULTO_PROCESSO_PARTE_A_ANAMNESE = "e28b6096-1d5f-11e0-b929-000c29ad1d07";
-       // public static final String ADULTO_PROCESSO_PARTE_A_ANAMNESE = "e28b6096-1d5f-11e0-b929-000c29ad1d07";
     }
     public static final class _PatientIdentifierType {
+
+        public static final String NID_SERVICO_TARV = "e2b966d0-1d5f-11e0-b929-000c29ad1d07";
+        public static final String BILHETE_DE_IDENTIDADE_BI = "e2b9682e-1d5f-11e0-b929-000c29ad1d07";
+        public static final String CODIGO_ATS_UATS = "e2b9698c-1d5f-11e0-b929-000c29ad1d07";
+        public static final String CODIGO_ITS = "e2b96c16-1d5f-11e0-b929-000c29ad1d07";
+        public static final String CODIGO_PTV_MATERNIDADE = "e2b96d56-1d5f-11e0-b929-000c29ad1d07";
+        public static final String CODIGO_PTV_PRE_NATAL = "e2b96ad6-1d5f-11e0-b929-000c29ad1d07";
+        public static final String NID_CCR = "e2b97b70-1d5f-11e0-b929-000c29ad1d07";
+        public static final String NIT_SECTOR_DE_TB = "e2b97e40-1d5f-11e0-b929-000c29ad1d07";
+        public static final String NUMERO_CANCRO_CERVICAL = "e2b97f8a-1d5f-11e0-b929-000c29ad1d07";
+        public static final String PCR_NUMERO_DE_REGISTO = "e2b97cec-1d5f-11e0-b929-000c29ad1d07";
 
     }
     public static final class _Program {

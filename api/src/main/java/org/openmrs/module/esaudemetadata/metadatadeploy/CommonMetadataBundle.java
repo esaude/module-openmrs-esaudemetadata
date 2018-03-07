@@ -1,5 +1,6 @@
 package org.openmrs.module.esaudemetadata.metadatadeploy;
 
+import org.openmrs.PatientIdentifierType;
 import org.openmrs.customdatatype.datatype.RegexValidatedTextDatatype;
 import org.openmrs.module.esaudemetadata.MetadataBundleUtils;
 import org.openmrs.module.metadatadeploy.bundle.AbstractMetadataBundle;
@@ -77,8 +78,20 @@ public class CommonMetadataBundle extends AbstractMetadataBundle {
 
         //install the Health facility code here and make sure it exists all the time
         install(locationAttributeType("Health Facility Code", "Unique facility code allocated by the Ministry of Health",
-                RegexValidatedTextDatatype.class, "\\d{7}", 0, 1,
+                RegexValidatedTextDatatype.class, ".{5,10}", 0, 1,
                 MetadataBundleUtils._LocationAttributeType.MASTER_FACILITY_CODE
         ));
+        //install identifier types here
+        install(patientIdentifierType("NID (SERVICO TARV)", "Numero de Identificaçao de Doente, serviço TARV",
+                "[0-9]{8}/[0-9]{2}/[0-9]{5}", "PPDDUUSS/AA/NNNNN", null,
+                PatientIdentifierType.LocationBehavior.NOT_USED, true, MetadataBundleUtils._PatientIdentifierType.NID_SERVICO_TARV));
+
+        install(patientIdentifierType("BILHETE DE IDENTIDADE (BI)", "O Bilhete de Identidade referido no artigo anterior é válido em todo o território nacional e é documento bastante para prova de identidade do deu possuidor.",
+                "[0-9]{9,12}[A-Z]{1}", "000000000X", null,
+                PatientIdentifierType.LocationBehavior.NOT_USED, false, MetadataBundleUtils._PatientIdentifierType.BILHETE_DE_IDENTIDADE_BI));
+
+        install(patientIdentifierType("NUMERO CANCRO CERVICAL", "Numero de registo de paciente para rastreio do cancro do colo uterino",
+                "[0-9]/[0-9]{4}", "NNNNNN/20_ _", null,
+                PatientIdentifierType.LocationBehavior.NOT_USED, false, MetadataBundleUtils._PatientIdentifierType.NUMERO_CANCRO_CERVICAL));
     }
 }
