@@ -207,21 +207,4 @@ public class ESaudeMetadataActivator implements ModuleActivator {
 		log.info("Done installing commonly used metadata");
 	}
 
-	private List<String> getLocationsToRemove(){
-		List<String> locationListStrings = new ArrayList<String>();
-
-		locationListStrings.add("Zambezia");
-		locationListStrings.add("Ile");
-		locationListStrings.add("Alto Molocue");
-		locationListStrings.add("Gurue");
-		locationListStrings.add("Chinde");
-		locationListStrings.add("Mocuba");
-		locationListStrings.add("Milange");
-		locationListStrings.add("Nicoadala");
-		locationListStrings.add("Quelimane");
-		locationListStrings.add("Morrumbala");
-		locationListStrings.add("Pebane");
-		return locationListStrings;
-	}
-		
 }

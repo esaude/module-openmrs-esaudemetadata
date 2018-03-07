@@ -23,9 +23,36 @@ public class MetadataBundleUtils {
        public static final String  DISCHARGE = "9cf4a2cd-10e8-11e5-9009-0242ac110012";
        public static final String  INVESTIGATION = "9d0c3be0-10e8-11e5-9009-0242ac110012";
        public static final String  S_TARV_ADULTO_INICIAL_A = "e278f820-1d5f-11e0-b929-000c29ad1d07";
-
-
-    }
+       public static final String  LAB_RESULT = "9d12403c-10e8-11e5-9009-0242ac110012";
+       public static final String  MISAU_ATS = "e27910d0-1d5f-11e0-b929-000c29ad1d07";
+       public static final String  MISAU_ITS = "e278f460-1d5f-11e0-b929-000c29ad1d07";
+       public static final String  MISAU_LABORATORIO = "e2790f68-1d5f-11e0-b929-000c29ad1d07";
+       public static final String  POC_CURRENT_STORY = "782da6c5-3931-4ab5-8e10-2c647ee1cf9d";
+       public static final String  POC_DISPENSATION = "18fd49b7-6c2b-4604-88db-b3eb5b3a6d5f";
+       public static final String  PTV_MATERNIDADE = "e2791936-1d5f-11e0-b929-000c29ad1d07";
+       public static final String  PTV_PRE_NATAL_INICIAL = "e278ff3c-1d5f-11e0-b929-000c29ad1d07";
+       public static final String  PTV_PRE_NATAL_SEGUIMENTO = "e2790072-1d5f-11e0-b929-000c29ad1d07";
+       public static final String  S_TARV_ACONSELHAMENTO = "e2791472-1d5f-11e0-b929-000c29ad1d07";
+       public static final String  S_TARV_ACONSELHAMENTO_SEGUIMENTO = "e2791a62-1d5f-11e0-b929-000c29ad1d07";
+       public static final String  S_TARV_ADULTO_INICIAL_B = "e278f1c2-1d5f-11e0-b929-000c29ad1d07";
+       public static final String  S_TARV_ADULTO_SEGUIMENTO = "e278f956-1d5f-11e0-b929-000c29ad1d07";
+       public static final String  S_TARV_AVALIACAO_DE_ADESAO = "b2ea993c-cb38-4d48-aade-00e62db9a57e";
+       public static final String  S_TARV_AVALIACAO_E_PREPARACAO_DO_CANDIDATO_TARV = "f69df47f-44a2-4cca-9819-a536bd47d927";
+       public static final String  S_TARV_BUSCA_ACTIVA = "e27916d4-1d5f-11e0-b929-000c29ad1d07";
+       public static final String  S_TARV_FARMACIA = "e279133c-1d5f-11e0-b929-000c29ad1d07";
+       public static final String  S_TARV_LIVRO_PRE_TARV = "bc30cbe1-85b4-459f-acca-cffc4041a3b8";
+       public static final String  S_TARV_LIVRO_TARV = "15915fa8-3d94-430b-9adb-14ec806a8ff2";
+       public static final String  S_TARV_PEDIATRIA_INICIAL_A = "e278fa8c-1d5f-11e0-b929-000c29ad1d07";
+       public static final String  S_TARV_PEDIATRIA_INICIAL_B = "e278f5aa-1d5f-11e0-b929-000c29ad1d07";
+       public static final String  S_TARV_PEDIATRIA_SEGUIMENTO = "e278fce4-1d5f-11e0-b929-000c29ad1d07";
+       public static final String  S_TARV_SOLICITACAO_ARV = "e2791206-1d5f-11e0-b929-000c29ad1d07";
+       public static final String  S_TARV_TERMO_DE_CONSENTIMENTO_DE_VISITA = "f719006d-dd1f-44cc-b4a0-d25257a8f558";
+       public static final String  TRANSFER = "9cf6f812-10e8-11e5-9009-0242ac110012";
+       public static final String  TUBERCULOSE_LIVRO = "e2791b98-1d5f-11e0-b929-000c29ad1d07";
+       public static final String  TUBERCULOSE_PROCESSO = "e2791cc4-1d5f-11e0-b929-000c29ad1d07";
+       public static final String  TUBERCULOSE_RASTREIO = "e27915a8-1d5f-11e0-b929-000c29ad1d07";
+       public static final String  TUBERCULOSE_SEGUIMENTO = "e2791dfa-1d5f-11e0-b929-000c29ad1d07";
+  }
     public static final class _Form {
         public static final String ADULTO_PROCESSO_PARTE_A_ANAMNESE = "e28b6096-1d5f-11e0-b929-000c29ad1d07";
        // public static final String ADULTO_PROCESSO_PARTE_A_ANAMNESE = "e28b6096-1d5f-11e0-b929-000c29ad1d07";
@@ -50,5 +77,9 @@ public class MetadataBundleUtils {
     }
     public static final class _GlobalProperties {
 
+    }
+
+    public static final class _LocationAttributeType {
+        public static final String MASTER_FACILITY_CODE = "132895aa-1c88-11e8-b6fd-7395830b63f3";
     }
 }
