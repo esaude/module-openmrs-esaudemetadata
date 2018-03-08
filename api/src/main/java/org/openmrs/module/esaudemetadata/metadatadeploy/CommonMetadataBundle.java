@@ -78,7 +78,7 @@ public class CommonMetadataBundle extends AbstractMetadataBundle {
 
         //install the Health facility code here and make sure it exists all the time
         install(locationAttributeType("Health Facility Code", "Unique facility code allocated by the Ministry of Health",
-                RegexValidatedTextDatatype.class, ".{5,10}", 0, 1,
+                RegexValidatedTextDatatype.class, "\\d{5,10}", 0, 1,
                 MetadataBundleUtils._LocationAttributeType.MASTER_FACILITY_CODE
         ));
         //install identifier types here

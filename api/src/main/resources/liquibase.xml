@@ -2184,4 +2184,38 @@
         </sql>
     </changeSet>
 
+    <changeSet id="esaude-metadata-080320181103" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid = 'ab76b422-c6fa-4e51-b7b7-104611ead4da';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding form fields for pregnancy form fields</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            SET FOREIGN_KEY_CHECKS=0;
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES(37, 348, NULL, NULL, NULL, 2731, NULL, NULL, 0, 1, '2018-03-01 09:34:44', @user_id, '2018-03-01 09:34:44', 2600.00000, 'ab76b422-c6fa-4e51-b7b7-104611ead4da');
+            SET FOREIGN_KEY_CHECKS=1;
+        </sql>
+    </changeSet>
+
+    <changeSet id="esaude-metadata-080320181119" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form_field WHERE uuid = 'e91bbcba-089e-4368-902e-b0bfe84948fb';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding form fields for pregnancy form fields</comment>
+        <sql>
+            SELECT user_id INTO @user_id FROM users where uuid='f9a19c60-57eb-11e6-a798-507b9dc4c741';
+            SET FOREIGN_KEY_CHECKS=0;
+            INSERT INTO form_field(`form_id`,`field_id`,`field_number`,`field_part`,`page_number`,`parent_form_field`,`min_occurs`,`max_occurs`,`required`,`changed_by`, `date_changed`,`creator`,`date_created`,`sort_weight`,`uuid`)
+            VALUES(37, 248, NULL, NULL, NULL, 2731, NULL, NULL, 0, 1, '2018-03-01 09:34:49', @user_id, '2018-03-01 09:34:29', 2650.00000, 'e91bbcba-089e-4368-902e-b0bfe84948fb');
+            SET FOREIGN_KEY_CHECKS=1;
+        </sql>
+    </changeSet>
+
 </databaseChangeLog>
