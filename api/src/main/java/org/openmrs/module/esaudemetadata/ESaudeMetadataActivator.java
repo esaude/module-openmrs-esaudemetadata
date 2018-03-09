@@ -31,6 +31,8 @@ import org.openmrs.module.metadatasharing.api.MetadataSharingService;
 import org.openmrs.module.metadatasharing.wrapper.PackageImporter;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -173,6 +175,7 @@ public class ESaudeMetadataActivator implements ModuleActivator {
 		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_DURATION_UNITS_UPDATED_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_DURATION_UNITS_UPDATED);
 		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_RETIRE_DRUGS_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_RETIRE_DRUGS);
 		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_ESAUDE_ROLES_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_ESAUDE_ROLES);
+        anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_PREGNANCY_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_PREGNANCY);
 
 		return anyChanges;
 	}
@@ -194,9 +197,15 @@ public class ESaudeMetadataActivator implements ModuleActivator {
 
 	private void installCommonMetadata(MetadataDeployService deployService) {
 		log.info("Installing metadata");
+		log.info("Installing locations and its associated metadata");
+		HealthFacilities.createLocationAttributeType();
+		HealthFacilities.assignFacilityCodeToUnKownLocation("Local Desconhecido");
+		HealthFacilities.uploadLocations();
+		//removing unwanted locations that do not have unique code
+		HealthFacilities.removeNonMatchingLocations();
 		log.info("Installing commonly used metadata");
 		deployService.installBundle(Context.getRegisteredComponents(CommonMetadataBundle.class).get(0));
 		log.info("Done installing commonly used metadata");
 	}
-		
+
 }
