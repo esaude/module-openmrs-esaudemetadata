@@ -45,9 +45,9 @@
 	</properties>
 	<distributionManagement>
 		<repository>
-			<id>bintray-ningois-maven</id>
-			<name>ningois-maven</name>
-			<url>https://api.bintray.com/maven/ningois/maven/openmrs-module-esaudemetadata/;publish=1</url>
+			<id>bintray-esaude-maven</id>
+			<name>esaude-maven</name>
+			<url>https://api.bintray.com/maven/esaude/maven/openmrs-module-esaudemetadata/;publish=1</url>
 		</repository>
 	</distributionManagement>
 

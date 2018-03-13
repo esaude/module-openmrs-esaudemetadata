@@ -2217,5 +2217,19 @@
             SET FOREIGN_KEY_CHECKS=1;
         </sql>
     </changeSet>
+    <changeSet id="esaude-metadata-130320181420" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="1">
+                SELECT COUNT(*) FROM global_property WHERE property='default_locale';
+            </sqlCheck>
+        </preConditions>
+        <comment>Setting the default locale to pt</comment>
+        <sql>
+            SET FOREIGN_KEY_CHECKS=0;
+            UPDATE global_property SET property_value='pt' WHERE property='default_locale';
+            SET FOREIGN_KEY_CHECKS=1;
+        </sql>
+    </changeSet>
 
 </databaseChangeLog>
