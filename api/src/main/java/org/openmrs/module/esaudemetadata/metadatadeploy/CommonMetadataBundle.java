@@ -93,5 +93,8 @@ public class CommonMetadataBundle extends AbstractMetadataBundle {
         install(patientIdentifierType("NUMERO CANCRO CERVICAL", "Numero de registo de paciente para rastreio do cancro do colo uterino",
                 "[0-9]/[0-9]{4}", "NNNNNN/20_ _", null,
                 PatientIdentifierType.LocationBehavior.NOT_USED, false, MetadataBundleUtils._PatientIdentifierType.NUMERO_CANCRO_CERVICAL));
+
+        //install the person attributes
+        install(personAttributeType("Nickname","Patient's nick name", String.class, null, true, 1.0, MetadataBundleUtils._PersonAttributeType.NICK_NAME));
     }
 }

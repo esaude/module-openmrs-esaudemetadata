@@ -74,6 +74,7 @@ public class MetadataBundleUtils {
 
     }
     public static final class _PersonAttributeType {
+        public static final String NICK_NAME = "d82b0cf4-26cc-11e8-bdc0-2b5ea141f82e";
 
     }
     public static final class _VisitAttributeType {
