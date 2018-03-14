@@ -22,8 +22,8 @@
 	</organization>
 
 	<scm>
-		<connection>scm:git:https://github.com/esaude/openmrs-module-esaudemetadata.git</connection>
-		<developerConnection>scm:git:https://github.com/esaude/openmrs-module-esaudemetadata.git</developerConnection>
+		<connection>scm:git:https://github.com/esaude/openmrs-module-esaudemetadata</connection>
+		<developerConnection>scm:git:https://github.com/esaude/openmrs-module-esaudemetadata</developerConnection>
 		<url>https://github.com/esaude/openmrs-module-esaudemetadata</url>
 		<tag>HEAD</tag>
 	</scm>
@@ -47,7 +47,7 @@
 		<repository>
 			<id>bintray-ningosi-maven</id>
 			<name>ningosi-maven</name>
-			<url>https://api.bintray.com/maven/ningosi/maven/esaudemetadata/;publish=1</url>
+			<url>https://api.bintray.com/maven/ningosi/maven/openmrs-module-esaudemetadata/;publish=1</url>
 		</repository>
 	</distributionManagement>
 
