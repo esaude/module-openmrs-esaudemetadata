@@ -6,7 +6,15 @@ import org.openmrs.module.esaudemetadata.MetadataBundleUtils;
 import org.openmrs.module.metadatadeploy.bundle.AbstractMetadataBundle;
 import org.springframework.stereotype.Component;
 
-import static org.openmrs.module.metadatadeploy.bundle.CoreConstructors.*;
+import static org.openmrs.module.metadatadeploy.bundle.CoreConstructors.encounterType;
+import static org.openmrs.module.metadatadeploy.bundle.CoreConstructors.form;
+import static org.openmrs.module.metadatadeploy.bundle.CoreConstructors.idSet;
+import static org.openmrs.module.metadatadeploy.bundle.CoreConstructors.locationAttributeType;
+import static org.openmrs.module.metadatadeploy.bundle.CoreConstructors.patientIdentifierType;
+import static org.openmrs.module.metadatadeploy.bundle.CoreConstructors.personAttributeType;
+import static org.openmrs.module.metadatadeploy.bundle.CoreConstructors.privilege;
+import static org.openmrs.module.metadatadeploy.bundle.CoreConstructors.role;
+
 
 @Component
 public class CommonMetadataBundle extends AbstractMetadataBundle {
