@@ -237,7 +237,7 @@
 		<repository>
 			<id>bintray-ningosi-maven</id>
 			<name>ningosi-maven</name>
-			<url>https://api.bintray.com/ningosi/maven/openmrs-module-esaudemetadata/;publish=1</url>
+			<url>https://api.bintray.com/maven/ningosi/maven/openmrs-module-esaudemetadata/;publish=1</url>
 		</repository>
 	</distributionManagement>
 
