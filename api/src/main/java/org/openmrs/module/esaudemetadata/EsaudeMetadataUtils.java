@@ -41,6 +41,8 @@ public class EsaudeMetadataUtils {
         public static final String METADATA_RETIRE_DRUGS = "RetiredDrugs-1.zip";
         public static final String METADATA_ESAUDE_ROLES = "eSaude_Roles-1.zip";
         public static final String METADATA_PREGNANCY = "pregnancy_fields-1.zip";
+        public static final String METADATA_CONCEITO = "conceito_22771-1.zip";
+
 
     }
 
@@ -80,6 +82,7 @@ public class EsaudeMetadataUtils {
         public static final String METADATA_ESAUDE_ROLES_GROUP_UUID = "2f1866ad-161b-4769-b148-8b417151c071";
 
         public static final String METADATA_PREGNANCY_GROUP_UUID = "dc51083d-1c96-481d-b8b7-755b65c76158";
+        public static final String METADATA_CONCEITO_GROUP_UUID = "88bd4671-41dd-4780-8e5a-de0eccd84ef9";
 
     }
 
