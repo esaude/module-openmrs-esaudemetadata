@@ -107,4 +107,25 @@ public class MetadataBundleUtils {
 	public static final class _LocationAttributeType {
 		public static final String MASTER_FACILITY_CODE = "132895aa-1c88-11e8-b6fd-7395830b63f3";
 	}
+	public static final class _Programs {
+		public static final String SERVICO_TARV_CUIDADO = "7b2e4a0a-d4eb-4df7-be30-78ca4b28ca99";
+		public static final String SERVICO_TARV_TRATAMENTO = "efe2481f-9e75-4515-8d5a-86bfde2b5ad3";
+		public static final String TUBERCULOSE = "142d23c4-c29f-4799-8047-eb3af911fd21";
+		public static final String CCR = "611f0a6b-68b7-4de7-bc7a-fd021330eef8";
+		public static final String CCU = "8954a750-079e-4bf2-940c-b4f71ea8bb15";
+		public static final String PTV_ETV = "06057245-ca21-43ab-a02f-e861d7e54593";
+		public static final String CLINICA_MOVEL = "fb455824-fb53-45ab-bf5a-a81482ff6848";
+
+	}
+
+	public static final class _Concepts{
+		public static final String ARV_SERVICE_CARE = "e1de7d54-1d5f-11e0-b929-000c29ad1d07";
+		public static final String ART_SERVICE_TREATMENT= "be53ec04-d2ae-485e-9a6c-e167deef9a95";
+		public static final String NATIONAL_PROGRAM_AGAINST_TUBERCULOSIS_AND_LEPROSY= "e1de7e58-1d5f-11e0-b929-000c29ad1d07";
+		public static final String CHILD_AT_RISK_CLINIC = "e1dee38e-1d5f-11e0-b929-000c29ad1d07";
+		public static final String CERVICAL_CANCER = "e1dc8ac6-1d5f-11e0-b929-000c29ad1d07";
+		public static final String PREVENTION_MOTHER_CHILD_TRANSMISSION = "e1dca6e6-1d5f-11e0-b929-000c29ad1d07";
+		public static final String MOBILE_CLINIC = "e1daca74-1d5f-11e0-b929-000c29ad1d07";
+
+	}
 }

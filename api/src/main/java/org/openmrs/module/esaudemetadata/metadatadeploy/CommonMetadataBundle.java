@@ -3,6 +3,7 @@ package org.openmrs.module.esaudemetadata.metadatadeploy;
 import org.openmrs.Concept;
 import org.openmrs.PatientIdentifierType;
 import org.openmrs.customdatatype.datatype.RegexValidatedTextDatatype;
+import org.openmrs.module.esaudemetadata.Dictionary;
 import org.openmrs.module.esaudemetadata.MetadataBundleUtils;
 import org.openmrs.module.metadatadeploy.bundle.AbstractMetadataBundle;
 import org.springframework.stereotype.Component;
@@ -15,6 +16,7 @@ import static org.openmrs.module.metadatadeploy.bundle.CoreConstructors.patientI
 import static org.openmrs.module.metadatadeploy.bundle.CoreConstructors.personAttributeType;
 import static org.openmrs.module.metadatadeploy.bundle.CoreConstructors.privilege;
 import static org.openmrs.module.metadatadeploy.bundle.CoreConstructors.role;
+import static org.openmrs.module.metadatadeploy.bundle.CoreConstructors.program;
 
 
 @Component
@@ -110,10 +112,6 @@ public class CommonMetadataBundle extends AbstractMetadataBundle {
 		install(form("ADULTO: PROCESSO PARTE A - ANAMNESE", "Processo de Hospital de Dia 1/2",
 				MetadataBundleUtils._EncounterType.S_TARV_ADULTO_INICIAL_A, "1.1",
 				MetadataBundleUtils._Form.ADULTO_PROCESSO_PARTE_A_ANAMNESE));
-		// install Location attribute
-
-		// Install Encounter Role
-		// global properties
 
 		// installing privileges
 		install(privilege(MetadataBundleUtils._Privilege.READ_TEST_ORDER, "View Test Orders"));
@@ -157,5 +155,17 @@ public class CommonMetadataBundle extends AbstractMetadataBundle {
 				MetadataBundleUtils._PersonAttributeType.Numero_de_Telefone_1));
 		install(personAttributeType("Numero de Telefone 2", "", String.class, null, false, 5.0,
 				MetadataBundleUtils._PersonAttributeType.Numero_de_Telefone_2));
+
+		//install programs
+		//need to include work flows before activating them
+		/*install(program("SERVICO TARV - CUIDADO", "Programa de seguimento e cuidado aos pacientes HIV+", MetadataBundleUtils._Concepts.ARV_SERVICE_CARE, MetadataBundleUtils._Programs.SERVICO_TARV_CUIDADO));
+		install(program("SERVICO TARV - TRATAMENTO", "Programa de seguimento e tratamento aos pacientes HIV+", MetadataBundleUtils._Concepts.ART_SERVICE_TREATMENT, MetadataBundleUtils._Programs.SERVICO_TARV_TRATAMENTO));
+		install(program("TUBERCULOSE", "Programa de Combate a Tuberculose", MetadataBundleUtils._Concepts.NATIONAL_PROGRAM_AGAINST_TUBERCULOSIS_AND_LEPROSY, MetadataBundleUtils._Programs.TUBERCULOSE));
+		install(program("CCR", "Programa de consultas para criancas em risco (CCR)", MetadataBundleUtils._Concepts.CHILD_AT_RISK_CLINIC, MetadataBundleUtils._Programs.CCR));
+		install(program("CCU", "Programa de Rastreio de Cancro do Colo de Utero", MetadataBundleUtils._Concepts.CERVICAL_CANCER, MetadataBundleUtils._Programs.CCU));
+		install(program("PTV/ETV", "Programa de representa o estado de gravidez de uma mulher", MetadataBundleUtils._Concepts.PREVENTION_MOTHER_CHILD_TRANSMISSION, MetadataBundleUtils._Programs.PTV_ETV));
+		install(program("CLINICA MOVEL", "Seguimento de pacientes atraves da Clinica Móvel", MetadataBundleUtils._Concepts.MOBILE_CLINIC, MetadataBundleUtils._Programs.CLINICA_MOVEL));
+*/
+
 	}
 }
