@@ -1,5 +1,6 @@
 package org.openmrs.module.esaudemetadata.metadatadeploy;
 
+import org.openmrs.Concept;
 import org.openmrs.PatientIdentifierType;
 import org.openmrs.customdatatype.datatype.RegexValidatedTextDatatype;
 import org.openmrs.module.esaudemetadata.MetadataBundleUtils;
@@ -146,7 +147,15 @@ public class CommonMetadataBundle extends AbstractMetadataBundle {
 				MetadataBundleUtils._PatientIdentifierType.NUMERO_CANCRO_CERVICAL));
 
 		// install the person attributes
-		install(personAttributeType("Nickname", "Patient's nick name", String.class, null, true, 1.0,
+		install(personAttributeType("Alcunha", "Patient's nick name", String.class, null, true, 1.0,
 				MetadataBundleUtils._PersonAttributeType.NICK_NAME));
+		install(personAttributeType("Proveniência", "", Concept.class, 1594, false, 2.0,
+				MetadataBundleUtils._PersonAttributeType.Proveniencia));
+		install(personAttributeType("Ponto de Referência", "", String.class, null, false, 3.0,
+				MetadataBundleUtils._PersonAttributeType.Ponto_de_Referência));
+		install(personAttributeType("Numero de Telefone 1", "Telefone de contacto do paciente", String.class, null, false, 4.0,
+				MetadataBundleUtils._PersonAttributeType.Numero_de_Telefone_1));
+		install(personAttributeType("Numero de Telefone 2", "", String.class, null, false, 5.0,
+				MetadataBundleUtils._PersonAttributeType.Numero_de_Telefone_2));
 	}
 }

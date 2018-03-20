@@ -81,6 +81,10 @@ public class MetadataBundleUtils {
 
 	public static final class _PersonAttributeType {
 		public static final String NICK_NAME = "d82b0cf4-26cc-11e8-bdc0-2b5ea141f82e";
+		public static final String Proveniencia = "d10628a7-ba75-4495-840b-bf6f1c44fd2d";
+		public static final String Ponto_de_Referência = "e944813c-11b1-49f3-b9a5-9fbbd10beec2";
+		public static final String Numero_de_Telefone_1 = "e2e3fd64-1d5f-11e0-b929-000c29ad1d07";
+		public static final String Numero_de_Telefone_2 = "e6c97a9d-a77b-401f-b06e-81900e21ed1d";
 
 	}
 
