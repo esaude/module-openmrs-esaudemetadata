@@ -177,6 +177,7 @@ public class ESaudeMetadataActivator implements ModuleActivator {
 		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_ESAUDE_ROLES_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_ESAUDE_ROLES);
         anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_PREGNANCY_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_PREGNANCY);
 		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_CONCEITO_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_CONCEITO);
+		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_HIV_TYPE_OF_TEST_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_HIV_TYPE_OF_TEST);
 
 		return anyChanges;
 	}

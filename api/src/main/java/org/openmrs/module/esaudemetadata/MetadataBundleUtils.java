@@ -86,6 +86,9 @@ public class MetadataBundleUtils {
 		public static final String Numero_de_Telefone_1 = "e2e3fd64-1d5f-11e0-b929-000c29ad1d07";
 		public static final String Numero_de_Telefone_2 = "e6c97a9d-a77b-401f-b06e-81900e21ed1d";
 
+		public static final String Data_do_teste_HIV = "46e79fce-ba89-4ec9-8f31-2dfd9318d415";
+		public static final String Tipo_de_teste_HIV = "ce778a93-66f9-4607-9d80-8794ed127674";
+
 	}
 
 	public static final class _VisitAttributeType {

@@ -6,6 +6,7 @@ import org.openmrs.customdatatype.datatype.RegexValidatedTextDatatype;
 import org.openmrs.module.esaudemetadata.Dictionary;
 import org.openmrs.module.esaudemetadata.MetadataBundleUtils;
 import org.openmrs.module.metadatadeploy.bundle.AbstractMetadataBundle;
+import org.openmrs.util.AttributableDate;
 import org.springframework.stereotype.Component;
 
 import static org.openmrs.module.metadatadeploy.bundle.CoreConstructors.encounterType;
@@ -16,7 +17,6 @@ import static org.openmrs.module.metadatadeploy.bundle.CoreConstructors.patientI
 import static org.openmrs.module.metadatadeploy.bundle.CoreConstructors.personAttributeType;
 import static org.openmrs.module.metadatadeploy.bundle.CoreConstructors.privilege;
 import static org.openmrs.module.metadatadeploy.bundle.CoreConstructors.role;
-import static org.openmrs.module.metadatadeploy.bundle.CoreConstructors.program;
 
 
 @Component
@@ -147,7 +147,7 @@ public class CommonMetadataBundle extends AbstractMetadataBundle {
 		// install the person attributes
 		install(personAttributeType("Alcunha", "Patient's nick name", String.class, null, true, 1.0,
 				MetadataBundleUtils._PersonAttributeType.NICK_NAME));
-		install(personAttributeType("Proveniência", "", Concept.class, 1594, false, 2.0,
+		install(personAttributeType("Proveniência", "", Concept.class, Dictionary.getConcept("e1dca2ea-1d5f-11e0-b929-000c29ad1d07").getConceptId(), false, 2.0,
 				MetadataBundleUtils._PersonAttributeType.Proveniencia));
 		install(personAttributeType("Ponto de Referência", "", String.class, null, false, 3.0,
 				MetadataBundleUtils._PersonAttributeType.Ponto_de_Referência));
@@ -155,6 +155,11 @@ public class CommonMetadataBundle extends AbstractMetadataBundle {
 				MetadataBundleUtils._PersonAttributeType.Numero_de_Telefone_1));
 		install(personAttributeType("Numero de Telefone 2", "", String.class, null, false, 5.0,
 				MetadataBundleUtils._PersonAttributeType.Numero_de_Telefone_2));
+		install(personAttributeType("Data do teste HIV", "", AttributableDate.class, null, false, 6.0,
+				MetadataBundleUtils._PersonAttributeType.Data_do_teste_HIV));
+
+		install(personAttributeType("Tipo de teste HIV", "", Concept.class, Dictionary.getConcept("c7ac119c-d59d-474d-8334-0c5bdd2e9863").getConceptId(), false, 7.0,
+				MetadataBundleUtils._PersonAttributeType.Tipo_de_teste_HIV));
 
 		//install programs
 		//need to include work flows before activating them
