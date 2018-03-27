@@ -6,6 +6,21 @@ public class MetadataBundleUtils {
 		public static final String WRITE_TEST_ORDER = "Write Test Order";
 		public static final String READ_TEST_ORDER = "Read Test Order";
 		public static final String UPDATE_TEST_ORDER = "Update Test Order";
+		public static final String DELETE_VITALS = "Delete Vitals";
+		public static final String EDIT_VITALS = "Edit Vitals";
+		public static final String READ_ANAMNESIS = "Read Anamnesis";
+		public static final String READ_DIAGNOSIS = "Read Diagnosis";
+		public static final String READ_OMS_STADIUM = "Read OMS Stadium";
+		public static final String READ_PATIENT = "Read Patient";
+		public static final String READ_DRUG_PRESCRIPTION = "Read Drug Prescription";
+		public static final String READ_RELEVANT_ASPECTS = "Read Relevant Aspects";
+		public static final String READ_SOCIAL = "Read Social";
+		public static final String READ_VITAL = "Read Vital";
+		public static final String WRITE_DIAGNOSIS = "Write Diagnosis";
+		public static final String WRITE_DRUG_PRESCRIPTION = "Write Drug Prescription";
+		public static final String WRITE_SOCIAL = "Write Social";
+		public static final String WRITE_VITAL = "Write Vital";
+		public static final String GET_VISITS = "Get Visits";
 	}
 
 	public static class _Role {
@@ -110,6 +125,7 @@ public class MetadataBundleUtils {
 	public static final class _LocationAttributeType {
 		public static final String MASTER_FACILITY_CODE = "132895aa-1c88-11e8-b6fd-7395830b63f3";
 	}
+
 	public static final class _Programs {
 		public static final String SERVICO_TARV_CUIDADO = "7b2e4a0a-d4eb-4df7-be30-78ca4b28ca99";
 		public static final String SERVICO_TARV_TRATAMENTO = "efe2481f-9e75-4515-8d5a-86bfde2b5ad3";
@@ -121,10 +137,10 @@ public class MetadataBundleUtils {
 
 	}
 
-	public static final class _Concepts{
+	public static final class _Concepts {
 		public static final String ARV_SERVICE_CARE = "e1de7d54-1d5f-11e0-b929-000c29ad1d07";
-		public static final String ART_SERVICE_TREATMENT= "be53ec04-d2ae-485e-9a6c-e167deef9a95";
-		public static final String NATIONAL_PROGRAM_AGAINST_TUBERCULOSIS_AND_LEPROSY= "e1de7e58-1d5f-11e0-b929-000c29ad1d07";
+		public static final String ART_SERVICE_TREATMENT = "be53ec04-d2ae-485e-9a6c-e167deef9a95";
+		public static final String NATIONAL_PROGRAM_AGAINST_TUBERCULOSIS_AND_LEPROSY = "e1de7e58-1d5f-11e0-b929-000c29ad1d07";
 		public static final String CHILD_AT_RISK_CLINIC = "e1dee38e-1d5f-11e0-b929-000c29ad1d07";
 		public static final String CERVICAL_CANCER = "e1dc8ac6-1d5f-11e0-b929-000c29ad1d07";
 		public static final String PREVENTION_MOTHER_CHILD_TRANSMISSION = "e1dca6e6-1d5f-11e0-b929-000c29ad1d07";
