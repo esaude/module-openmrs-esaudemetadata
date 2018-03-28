@@ -1,14 +1,5 @@
 package org.openmrs.module.esaudemetadata.metadatadeploy;
 
-import org.openmrs.Concept;
-import org.openmrs.PatientIdentifierType;
-import org.openmrs.customdatatype.datatype.RegexValidatedTextDatatype;
-import org.openmrs.module.esaudemetadata.Dictionary;
-import org.openmrs.module.esaudemetadata.MetadataBundleUtils;
-import org.openmrs.module.metadatadeploy.bundle.AbstractMetadataBundle;
-import org.openmrs.util.AttributableDate;
-import org.springframework.stereotype.Component;
-
 import static org.openmrs.module.metadatadeploy.bundle.CoreConstructors.encounterType;
 import static org.openmrs.module.metadatadeploy.bundle.CoreConstructors.form;
 import static org.openmrs.module.metadatadeploy.bundle.CoreConstructors.idSet;
@@ -18,6 +9,14 @@ import static org.openmrs.module.metadatadeploy.bundle.CoreConstructors.personAt
 import static org.openmrs.module.metadatadeploy.bundle.CoreConstructors.privilege;
 import static org.openmrs.module.metadatadeploy.bundle.CoreConstructors.role;
 
+import org.openmrs.Concept;
+import org.openmrs.PatientIdentifierType;
+import org.openmrs.customdatatype.datatype.RegexValidatedTextDatatype;
+import org.openmrs.module.esaudemetadata.Dictionary;
+import org.openmrs.module.esaudemetadata.MetadataBundleUtils;
+import org.openmrs.module.metadatadeploy.bundle.AbstractMetadataBundle;
+import org.openmrs.util.AttributableDate;
+import org.springframework.stereotype.Component;
 
 @Component
 public class CommonMetadataBundle extends AbstractMetadataBundle {
@@ -114,14 +113,46 @@ public class CommonMetadataBundle extends AbstractMetadataBundle {
 				MetadataBundleUtils._Form.ADULTO_PROCESSO_PARTE_A_ANAMNESE));*/
 
 		// installing privileges
-		install(privilege(MetadataBundleUtils._Privilege.READ_TEST_ORDER, "View Test Orders"));
-		install(privilege(MetadataBundleUtils._Privilege.WRITE_TEST_ORDER, "Create Test Orders"));
-		install(privilege(MetadataBundleUtils._Privilege.UPDATE_TEST_ORDER, "Update Test Orders"));
+		install(privilege(MetadataBundleUtils._Privilege.READ_TEST_ORDER,
+				MetadataBundleUtils._Privilege.READ_TEST_ORDER));
+		install(privilege(MetadataBundleUtils._Privilege.WRITE_TEST_ORDER,
+				MetadataBundleUtils._Privilege.WRITE_TEST_ORDER));
+		install(privilege(MetadataBundleUtils._Privilege.UPDATE_TEST_ORDER,
+				MetadataBundleUtils._Privilege.UPDATE_TEST_ORDER));
+		install(privilege(MetadataBundleUtils._Privilege.DELETE_VITALS, MetadataBundleUtils._Privilege.DELETE_VITALS));
+		install(privilege(MetadataBundleUtils._Privilege.EDIT_VITALS, MetadataBundleUtils._Privilege.EDIT_VITALS));
+		install(privilege(MetadataBundleUtils._Privilege.READ_ANAMNESIS,
+				MetadataBundleUtils._Privilege.READ_ANAMNESIS));
+		install(privilege(MetadataBundleUtils._Privilege.READ_DIAGNOSIS,
+				MetadataBundleUtils._Privilege.READ_DIAGNOSIS));
+		install(privilege(MetadataBundleUtils._Privilege.READ_OMS_STADIUM,
+				MetadataBundleUtils._Privilege.READ_OMS_STADIUM));
+		install(privilege(MetadataBundleUtils._Privilege.READ_PATIENT, MetadataBundleUtils._Privilege.READ_PATIENT));
+		install(privilege(MetadataBundleUtils._Privilege.READ_DRUG_PRESCRIPTION,
+				MetadataBundleUtils._Privilege.READ_DRUG_PRESCRIPTION));
+		install(privilege(MetadataBundleUtils._Privilege.READ_RELEVANT_ASPECTS,
+				MetadataBundleUtils._Privilege.READ_RELEVANT_ASPECTS));
+		install(privilege(MetadataBundleUtils._Privilege.READ_SOCIAL, MetadataBundleUtils._Privilege.READ_SOCIAL));
+		install(privilege(MetadataBundleUtils._Privilege.READ_VITAL, MetadataBundleUtils._Privilege.READ_VITAL));
+		install(privilege(MetadataBundleUtils._Privilege.WRITE_DIAGNOSIS,
+				MetadataBundleUtils._Privilege.WRITE_DIAGNOSIS));
+		install(privilege(MetadataBundleUtils._Privilege.WRITE_DRUG_PRESCRIPTION,
+				MetadataBundleUtils._Privilege.WRITE_DRUG_PRESCRIPTION));
+		install(privilege(MetadataBundleUtils._Privilege.WRITE_SOCIAL, MetadataBundleUtils._Privilege.WRITE_SOCIAL));
+		install(privilege(MetadataBundleUtils._Privilege.WRITE_VITAL, MetadataBundleUtils._Privilege.WRITE_VITAL));
+		install(privilege(MetadataBundleUtils._Privilege.GET_VISITS, MetadataBundleUtils._Privilege.GET_VISITS));
 
 		// Tying roles to privileges
-		install(role(MetadataBundleUtils._Role.POC_CLINICIAN, "Creates test orders", idSet(),
-				idSet(MetadataBundleUtils._Privilege.READ_TEST_ORDER, MetadataBundleUtils._Privilege.UPDATE_TEST_ORDER,
-						MetadataBundleUtils._Privilege.WRITE_TEST_ORDER)));
+		install(role(MetadataBundleUtils._Role.POC_CLINICIAN, "Creates test orders", idSet(), idSet(
+				MetadataBundleUtils._Privilege.READ_TEST_ORDER, MetadataBundleUtils._Privilege.UPDATE_TEST_ORDER,
+				MetadataBundleUtils._Privilege.WRITE_TEST_ORDER, MetadataBundleUtils._Privilege.DELETE_VITALS,
+				MetadataBundleUtils._Privilege.EDIT_VITALS, MetadataBundleUtils._Privilege.READ_ANAMNESIS,
+				MetadataBundleUtils._Privilege.READ_DIAGNOSIS, MetadataBundleUtils._Privilege.READ_OMS_STADIUM,
+				MetadataBundleUtils._Privilege.READ_PATIENT, MetadataBundleUtils._Privilege.READ_DRUG_PRESCRIPTION,
+				MetadataBundleUtils._Privilege.READ_RELEVANT_ASPECTS, MetadataBundleUtils._Privilege.READ_SOCIAL,
+				MetadataBundleUtils._Privilege.READ_VITAL, MetadataBundleUtils._Privilege.WRITE_DIAGNOSIS,
+				MetadataBundleUtils._Privilege.WRITE_DRUG_PRESCRIPTION, MetadataBundleUtils._Privilege.WRITE_SOCIAL,
+				MetadataBundleUtils._Privilege.WRITE_VITAL, MetadataBundleUtils._Privilege.GET_VISITS)));
 
 		// install the Health facility code here and make sure it exists all the
 		// time
@@ -147,30 +178,51 @@ public class CommonMetadataBundle extends AbstractMetadataBundle {
 		// install the person attributes
 		install(personAttributeType("Alcunha", "Patient's nick name", String.class, null, true, 1.0,
 				MetadataBundleUtils._PersonAttributeType.NICK_NAME));
-		install(personAttributeType("Proveniência", "", Concept.class, Dictionary.getConcept("e1dca2ea-1d5f-11e0-b929-000c29ad1d07").getConceptId(), false, 2.0,
+		install(personAttributeType("Proveniência", "", Concept.class,
+				Dictionary.getConcept("e1dca2ea-1d5f-11e0-b929-000c29ad1d07").getConceptId(), false, 2.0,
 				MetadataBundleUtils._PersonAttributeType.Proveniencia));
 		install(personAttributeType("Ponto de Referência", "", String.class, null, false, 3.0,
 				MetadataBundleUtils._PersonAttributeType.Ponto_de_Referência));
-		install(personAttributeType("Numero de Telefone 1", "Telefone de contacto do paciente", String.class, null, false, 4.0,
-				MetadataBundleUtils._PersonAttributeType.Numero_de_Telefone_1));
+		install(personAttributeType("Numero de Telefone 1", "Telefone de contacto do paciente", String.class, null,
+				false, 4.0, MetadataBundleUtils._PersonAttributeType.Numero_de_Telefone_1));
 		install(personAttributeType("Numero de Telefone 2", "", String.class, null, false, 5.0,
 				MetadataBundleUtils._PersonAttributeType.Numero_de_Telefone_2));
 		install(personAttributeType("Data do teste HIV", "", AttributableDate.class, null, false, 6.0,
 				MetadataBundleUtils._PersonAttributeType.Data_do_teste_HIV));
 
-		install(personAttributeType("Tipo de teste HIV", "", Concept.class, Dictionary.getConcept("c7ac119c-d59d-474d-8334-0c5bdd2e9863").getConceptId(), false, 7.0,
+		install(personAttributeType("Tipo de teste HIV", "", Concept.class,
+				Dictionary.getConcept("c7ac119c-d59d-474d-8334-0c5bdd2e9863").getConceptId(), false, 7.0,
 				MetadataBundleUtils._PersonAttributeType.Tipo_de_teste_HIV));
 
-		//install programs
-		//need to include work flows before activating them
-		/*install(program("SERVICO TARV - CUIDADO", "Programa de seguimento e cuidado aos pacientes HIV+", MetadataBundleUtils._Concepts.ARV_SERVICE_CARE, MetadataBundleUtils._Programs.SERVICO_TARV_CUIDADO));
-		install(program("SERVICO TARV - TRATAMENTO", "Programa de seguimento e tratamento aos pacientes HIV+", MetadataBundleUtils._Concepts.ART_SERVICE_TREATMENT, MetadataBundleUtils._Programs.SERVICO_TARV_TRATAMENTO));
-		install(program("TUBERCULOSE", "Programa de Combate a Tuberculose", MetadataBundleUtils._Concepts.NATIONAL_PROGRAM_AGAINST_TUBERCULOSIS_AND_LEPROSY, MetadataBundleUtils._Programs.TUBERCULOSE));
-		install(program("CCR", "Programa de consultas para criancas em risco (CCR)", MetadataBundleUtils._Concepts.CHILD_AT_RISK_CLINIC, MetadataBundleUtils._Programs.CCR));
-		install(program("CCU", "Programa de Rastreio de Cancro do Colo de Utero", MetadataBundleUtils._Concepts.CERVICAL_CANCER, MetadataBundleUtils._Programs.CCU));
-		install(program("PTV/ETV", "Programa de representa o estado de gravidez de uma mulher", MetadataBundleUtils._Concepts.PREVENTION_MOTHER_CHILD_TRANSMISSION, MetadataBundleUtils._Programs.PTV_ETV));
-		install(program("CLINICA MOVEL", "Seguimento de pacientes atraves da Clinica Móvel", MetadataBundleUtils._Concepts.MOBILE_CLINIC, MetadataBundleUtils._Programs.CLINICA_MOVEL));
-*/
+		// install programs
+		// need to include work flows before activating them
+		/*
+		 * install(program("SERVICO TARV - CUIDADO",
+		 * "Programa de seguimento e cuidado aos pacientes HIV+",
+		 * MetadataBundleUtils._Concepts.ARV_SERVICE_CARE,
+		 * MetadataBundleUtils._Programs.SERVICO_TARV_CUIDADO));
+		 * install(program("SERVICO TARV - TRATAMENTO",
+		 * "Programa de seguimento e tratamento aos pacientes HIV+",
+		 * MetadataBundleUtils._Concepts.ART_SERVICE_TREATMENT,
+		 * MetadataBundleUtils._Programs.SERVICO_TARV_TRATAMENTO));
+		 * install(program("TUBERCULOSE", "Programa de Combate a Tuberculose",
+		 * MetadataBundleUtils._Concepts.
+		 * NATIONAL_PROGRAM_AGAINST_TUBERCULOSIS_AND_LEPROSY,
+		 * MetadataBundleUtils._Programs.TUBERCULOSE)); install(program("CCR",
+		 * "Programa de consultas para criancas em risco (CCR)",
+		 * MetadataBundleUtils._Concepts.CHILD_AT_RISK_CLINIC,
+		 * MetadataBundleUtils._Programs.CCR)); install(program("CCU",
+		 * "Programa de Rastreio de Cancro do Colo de Utero",
+		 * MetadataBundleUtils._Concepts.CERVICAL_CANCER,
+		 * MetadataBundleUtils._Programs.CCU)); install(program("PTV/ETV",
+		 * "Programa de representa o estado de gravidez de uma mulher",
+		 * MetadataBundleUtils._Concepts.PREVENTION_MOTHER_CHILD_TRANSMISSION,
+		 * MetadataBundleUtils._Programs.PTV_ETV));
+		 * install(program("CLINICA MOVEL",
+		 * "Seguimento de pacientes atraves da Clinica Móvel",
+		 * MetadataBundleUtils._Concepts.MOBILE_CLINIC,
+		 * MetadataBundleUtils._Programs.CLINICA_MOVEL));
+		 */
 
 	}
 }
