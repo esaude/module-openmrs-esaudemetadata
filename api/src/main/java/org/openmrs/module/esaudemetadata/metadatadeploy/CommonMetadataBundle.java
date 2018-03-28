@@ -109,9 +109,9 @@ public class CommonMetadataBundle extends AbstractMetadataBundle {
 				MetadataBundleUtils._EncounterType.TUBERCULOSE_SEGUIMENTO));
 
 		// Install forms
-		install(form("ADULTO: PROCESSO PARTE A - ANAMNESE", "Processo de Hospital de Dia 1/2",
+		/*install(form("ADULTO: PROCESSO PARTE A - ANAMNESE", "Processo de Hospital de Dia 1/2",
 				MetadataBundleUtils._EncounterType.S_TARV_ADULTO_INICIAL_A, "1.1",
-				MetadataBundleUtils._Form.ADULTO_PROCESSO_PARTE_A_ANAMNESE));
+				MetadataBundleUtils._Form.ADULTO_PROCESSO_PARTE_A_ANAMNESE));*/
 
 		// installing privileges
 		install(privilege(MetadataBundleUtils._Privilege.READ_TEST_ORDER, "View Test Orders"));
