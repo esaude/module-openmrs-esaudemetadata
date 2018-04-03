@@ -2232,4 +2232,15 @@
         </sql>
     </changeSet>
 
+    <changeSet id="esaude-metadata-030420181500" author="edrisse">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="1">
+                SELECT COUNT(*) FROM global_property WHERE property='default_locale';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding form field for occupations as list on POC</comment>
+        <sqlFile path="sql/social/insert-poc-occupation-field.sql" />
+    </changeSet>
+
 </databaseChangeLog>
