@@ -23,9 +23,13 @@ import org.openmrs.api.context.Context;
 import org.openmrs.api.impl.BaseOpenmrsService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.openmrs.module.esaudemetadata.ContentManager;
+import org.openmrs.module.esaudemetadata.EsaudeCoreUtils;
 import org.openmrs.module.esaudemetadata.api.EsaudeMetaDataService;
 import org.openmrs.module.esaudemetadata.api.db.EsaudeMetaDataServiceDAO;
+import org.openmrs.module.esaudemetadata.chore.Chore;
 
+import java.io.PrintWriter;
 import java.util.Date;
 
 /**
@@ -34,29 +38,43 @@ import java.util.Date;
 public class EsaudeMetaDataServiceImpl extends BaseOpenmrsService implements EsaudeMetaDataService {
 	
 	protected final Log log = LogFactory.getLog(this.getClass());
-	
-	private EsaudeMetaDataServiceDAO dao;
-	
-	/**
-     * @param dao the dao to set
-     */
-    public void setDao(EsaudeMetaDataServiceDAO dao) {
-	    this.dao = dao;
-    }
-    
-    /**
-     * @return the dao
-     */
-    public EsaudeMetaDataServiceDAO getDao() {
-	    return dao;
-    }
+
 
     @Override
-    public void setDefaultMetadataUser() {
-        UserService userService = Context.getUserService();
-        if(userService.getUserByUsername("esaude.metadata") != null) {
-            log.info("The user `esaude.metadata` exists! with role "+userService.getAllRoles().get(0)+" Use this user for all metadata creation. ");
-        }
+    public void refreshManager(ContentManager manager) {
+        log.info("Refreshing " + manager.getClass().getName() + "...");
 
+        long start = System.currentTimeMillis();
+        manager.refresh();
+
+        // A content manager might load a lot of stuff into Hibernate's cache
+        Context.flushSession();
+        Context.clearSession();
+
+        long time = System.currentTimeMillis() - start;
+
+        log.info("Refreshed " + manager.getClass().getName() + " in " + time + "ms");
+    }
+
+
+    @Override
+    public void performChore(Chore chore) {
+        log.info("Performing chore '" + chore.getId() + "'...");
+
+        PrintWriter writer = new PrintWriter(System.out);
+
+        long start = System.currentTimeMillis();
+        chore.perform(writer);
+
+        writer.flush();
+
+        Context.flushSession();
+        Context.clearSession();
+
+        long time = System.currentTimeMillis() - start;
+
+        log.info("Performed chore '" + chore.getId() + "' in " + time + "ms");
+
+        EsaudeCoreUtils.setGlobalProperty(chore.getId() + ".done", "true");
     }
 }

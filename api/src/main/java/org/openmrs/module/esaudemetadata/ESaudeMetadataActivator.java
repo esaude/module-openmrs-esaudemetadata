@@ -54,7 +54,15 @@ public class ESaudeMetadataActivator implements ModuleActivator {
 	 * @see ModuleActivator#contextRefreshed()
 	 */
 	public void contextRefreshed() {
-		log.info("eSaude Metadata Module refreshed");
+		try {
+			CoreContext.getInstance().refresh();
+		}
+		catch (Exception ex) {
+			// If an error occurs during core refresh, we need EMM to still start so that the error can be
+			// communicated to an admin user. So we catch exceptions, log them and alert super users.
+			log.error("Unable to refresh core context", ex);
+
+		}
 	}
 	
 	/**

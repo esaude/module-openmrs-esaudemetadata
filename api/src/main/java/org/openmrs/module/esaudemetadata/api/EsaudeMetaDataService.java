@@ -13,25 +13,26 @@
  */
 package org.openmrs.module.esaudemetadata.api;
 
+import org.openmrs.api.APIException;
 import org.openmrs.api.OpenmrsService;
+import org.openmrs.module.esaudemetadata.ContentManager;
+import org.openmrs.module.esaudemetadata.chore.Chore;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * This service exposes module's core functionality. It is a Spring managed bean which is configured in moduleApplicationContext.xml.
- * <p>
- * It can be accessed only via Context:<br>
- * <code>
- * Context.getService(EsaudeMetaDataService.class).someMethod();
- * </code>
- * 
- * @see org.openmrs.api.context.Context
+ * Module service implementation
  */
 @Transactional
 public interface EsaudeMetaDataService extends OpenmrsService {
-     
-	/*
-	 * Add service methods here
-	 * 
+	/**
+	 * Refreshes a content manager
+	 * @param manager the manager
 	 */
-   public void setDefaultMetadataUser();
+	void refreshManager(ContentManager manager) throws APIException;
+
+	/**
+	 * Performs the given chore
+	 * @param chore the chore
+	 */
+	void performChore(Chore chore) throws APIException;
 }
