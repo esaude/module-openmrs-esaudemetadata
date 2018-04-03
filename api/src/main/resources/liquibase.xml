@@ -2232,24 +2232,6 @@
         </sql>
     </changeSet>
 
-    <changeSet id="esaude-metadata-030420181300" author="ningosi">
-        <preConditions onFail="MARK_RAN" onError="WARN">
-            <dbms type="mysql"/>
-            <sqlCheck expectedResult="0">
-                SELECT COUNT(*) FROM form_field WHERE form_id =(SELECT form_id FROM form WHERE uuid='e28b6096-1d5f-11e0-b929-000c29ad1d07');
-            </sqlCheck>
-        </preConditions>
-        <comment>Restoring the lost form objects</comment>
-        <sqlFile path="sql/forms/structure_restore.sql" />
-        <sql>
-            SET FOREIGN_KEY_CHECKS = 0;
-                SELECT encounter_type_id INTO @encounterType_id FROM encounter_type WHERE uuid='e278f820-1d5f-11e0-b929-000c29ad1d07';
-                SELECT form_id INTO @form_id FROM form WHERE uuid='e28b6096-1d5f-11e0-b929-000c29ad1d07';
-                UPDATE form SET encounter_type =@encounterType_id WHERE form_id = @form_id;
-            SET FOREIGN_KEY_CHECKS = 1;
-        </sql>
-    </changeSet>
-
     <changeSet id="esaude-metadata-030420181500" author="edrisse">
         <preConditions onFail="MARK_RAN" onError="WARN">
             <dbms type="mysql"/>
