@@ -44,7 +44,7 @@ public class EsaudeMetadataUtils {
 		public static final String METADATA_CONCEITO = "conceito_22771-1.zip";
 		public static final String METADATA_HIV_TYPE_OF_TEST = "hiv_type_of_test-1.zip";
 		public static final String METADATA_INE_CONCEPT_SOURCE = "INEConceptSource-1.zip";
-		public static final String METADATA_OCCUPATIONS_AS_LIST = "OccupationsAsListConcept-1.zip";
+		public static final String METADATA_OCCUPATIONS_AS_LIST_FORM = "POCOccupationField-1.zip";
 	}
 
 	public static final class _PackageUuids {
@@ -87,7 +87,7 @@ public class EsaudeMetadataUtils {
 		public static final String METADATA_HIV_TYPE_OF_TEST_GROUP_UUID = "398df755-01db-48d0-a68f-cdf2abfef623";
 
 		public static final String METADATA_INE_CONCEPT_SOURCE_GROUP_UUID = "a460aa7b-a8cb-4386-91a3-3ea194251b65";
-		public static final String METADATA_OCCUPATIONS_AS_LIST_GROUP_UUID = "241c37ea-3578-4756-8e11-e23699305b84";
+		public static final String METADATA_OCCUPATIONS_AS_LIST_FORM_GROUP_UUID = "92c856ab-4183-401f-a8a5-5e55c3243394";
 	}
 
 	public static final class _GlobalProperties {
