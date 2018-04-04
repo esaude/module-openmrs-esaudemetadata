@@ -14,6 +14,10 @@
 package org.openmrs.module.esaudemetadata;
 
 
+import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.openmrs.api.context.Context;
@@ -29,12 +33,6 @@ import org.openmrs.module.metadatasharing.ImportedPackage;
 import org.openmrs.module.metadatasharing.MetadataSharing;
 import org.openmrs.module.metadatasharing.api.MetadataSharingService;
 import org.openmrs.module.metadatasharing.wrapper.PackageImporter;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * This class contains the logic that is run every time this module is either started or stopped.
@@ -186,6 +184,8 @@ public class ESaudeMetadataActivator implements ModuleActivator {
         anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_PREGNANCY_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_PREGNANCY);
 		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_CONCEITO_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_CONCEITO);
 		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_HIV_TYPE_OF_TEST_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_HIV_TYPE_OF_TEST);
+		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_INE_CONCEPT_SOURCE_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_INE_CONCEPT_SOURCE);
+		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_OCCUPATIONS_AS_LIST_FORM_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_OCCUPATIONS_AS_LIST_FORM);
 
 		return anyChanges;
 	}
