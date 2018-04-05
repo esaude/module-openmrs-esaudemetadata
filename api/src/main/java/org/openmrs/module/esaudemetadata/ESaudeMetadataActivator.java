@@ -81,6 +81,8 @@ public class ESaudeMetadataActivator implements ModuleActivator {
 			setupInitialData();
 			// install commonly used metadata eg forms, encounter types, etc
 			installCommonMetadata(deployService);
+			//update concepts units
+			ConceptsRanges.setUpConceptsMinAndMaxValues();
 
 		} catch (Exception ex) {
 			throw new RuntimeException("Failed to setup initial data", ex);
