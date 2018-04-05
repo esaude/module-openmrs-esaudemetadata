@@ -82,7 +82,7 @@ public class ESaudeMetadataActivator implements ModuleActivator {
 			// install commonly used metadata eg forms, encounter types, etc
 			installCommonMetadata(deployService);
 			//update concepts units
-			ConceptsRanges.setUpConceptsMinAndMaxValues();
+			//ConceptsRanges.setUpConceptsMinAndMaxValues();
 
 		} catch (Exception ex) {
 			throw new RuntimeException("Failed to setup initial data", ex);
@@ -212,7 +212,7 @@ public class ESaudeMetadataActivator implements ModuleActivator {
 		log.info("Installing locations and its associated metadata");
 		HealthFacilities.createLocationAttributeType();
 		HealthFacilities.assignFacilityCodeToUnKownLocation("Local Desconhecido");
-		HealthFacilities.uploadLocations();
+		//HealthFacilities.uploadLocations();
 		//removing unwanted locations that do not have unique code
 		HealthFacilities.removeNonMatchingLocations();
 		log.info("Installing commonly used metadata");
