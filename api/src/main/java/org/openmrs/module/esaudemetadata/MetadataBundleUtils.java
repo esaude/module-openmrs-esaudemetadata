@@ -74,6 +74,7 @@ public class MetadataBundleUtils {
 		public static final String TUBERCULOSE_PROCESSO = "e2791cc4-1d5f-11e0-b929-000c29ad1d07";
 		public static final String TUBERCULOSE_RASTREIO = "e27915a8-1d5f-11e0-b929-000c29ad1d07";
 		public static final String TUBERCULOSE_SEGUIMENTO = "e2791dfa-1d5f-11e0-b929-000c29ad1d07";
+		public static final String SEXUAL_PARTNERS = "fc72477b-90a5-4222-a43d-efe10f0ad342";
 	}
 
 	public static final class _Form {

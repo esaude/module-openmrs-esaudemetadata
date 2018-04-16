@@ -188,6 +188,7 @@ public class ESaudeMetadataActivator implements ModuleActivator {
 		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_HIV_TYPE_OF_TEST_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_HIV_TYPE_OF_TEST);
 		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_INE_CONCEPT_SOURCE_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_INE_CONCEPT_SOURCE);
 		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_OCCUPATIONS_AS_LIST_FORM_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_OCCUPATIONS_AS_LIST_FORM);
+		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_SEXUAL_PARTNER_INFO_CONCEPT_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_SEXUAL_PARTNER_INFO_CONCEPT);
 
 		return anyChanges;
 	}
