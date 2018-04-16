@@ -89,7 +89,7 @@ public class EsaudeMetadataUtils {
 
 		public static final String METADATA_INE_CONCEPT_SOURCE_GROUP_UUID = "a460aa7b-a8cb-4386-91a3-3ea194251b65";
 		public static final String METADATA_OCCUPATIONS_AS_LIST_FORM_GROUP_UUID = "92c856ab-4183-401f-a8a5-5e55c3243394";
-		public static final String METADATA_SEXUAL_PARTNER_INFO_CONCEPT_GROUP_UUID = "ade412c9-8987-4df3-b6e4-f1caebc317f9";
+		public static final String METADATA_SEXUAL_PARTNER_INFO_CONCEPT_GROUP_UUID = "774b08f5-3d8a-4101-a184-0df73e672b92";
     }
 
 	public static final class _GlobalProperties {
