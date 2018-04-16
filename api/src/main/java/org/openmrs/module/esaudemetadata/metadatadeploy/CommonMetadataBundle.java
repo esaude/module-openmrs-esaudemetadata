@@ -106,6 +106,8 @@ public class CommonMetadataBundle extends AbstractMetadataBundle {
 				MetadataBundleUtils._EncounterType.TUBERCULOSE_RASTREIO));
 		install(encounterType("TUBERCULOSE: SEGUIMENTO", "Seguimento de doentes com tuberculose",
 				MetadataBundleUtils._EncounterType.TUBERCULOSE_SEGUIMENTO));
+        install(encounterType("Sexual Partners", "Sexual Partners encounter type",
+                MetadataBundleUtils._EncounterType.SEXUAL_PARTNERS));
 
 		// Install forms
 		/*install(form("ADULTO: PROCESSO PARTE A - ANAMNESE", "Processo de Hospital de Dia 1/2",
