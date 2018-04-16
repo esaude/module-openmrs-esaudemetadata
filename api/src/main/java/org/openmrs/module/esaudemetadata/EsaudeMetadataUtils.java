@@ -45,7 +45,7 @@ public class EsaudeMetadataUtils {
 		public static final String METADATA_HIV_TYPE_OF_TEST = "hiv_type_of_test-1.zip";
 		public static final String METADATA_INE_CONCEPT_SOURCE = "INEConceptSource-1.zip";
 		public static final String METADATA_OCCUPATIONS_AS_LIST_FORM = "POCOccupationField-1.zip";
-		public static final String METADATA_SEXUAL_PARTNER_INFO_CONCEPT = "Sexual_Partner_Information-1";
+		public static final String METADATA_SEXUAL_PARTNER_INFO_CONCEPT = "Sexual_Partner_Information-1.zip";
 	}
 
 	public static final class _PackageUuids {
