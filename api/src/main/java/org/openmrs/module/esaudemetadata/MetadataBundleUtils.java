@@ -12,19 +12,24 @@ public class MetadataBundleUtils {
 		public static final String READ_DIAGNOSIS = "Read Diagnosis";
 		public static final String READ_OMS_STADIUM = "Read OMS Stadium";
 		public static final String READ_PATIENT = "Read Patient";
+		public static final String READ_PATIENT_PROGRAM = "Read Patient Program";
 		public static final String READ_DRUG_PRESCRIPTION = "Read Drug Prescription";
 		public static final String READ_RELEVANT_ASPECTS = "Read Relevant Aspects";
 		public static final String READ_SOCIAL = "Read Social";
-		public static final String READ_VITAL = "Read Vital";
+		public static final String READ_VITALS = "Read Vitals";
 		public static final String WRITE_DIAGNOSIS = "Write Diagnosis";
 		public static final String WRITE_DRUG_PRESCRIPTION = "Write Drug Prescription";
 		public static final String WRITE_SOCIAL = "Write Social";
-		public static final String WRITE_VITAL = "Write Vital";
+		public static final String WRITE_VITALS = "Write Vitals";
 		public static final String GET_VISITS = "Get Visits";
+		public static final String WRITE_VISIT = "Write Visit";
+		public static final String WRITE_PATIENT = "Write Patient";
+		public static final String WRITE_PATIENT_PROGRAM = "Write Patient Program";
 	}
 
 	public static class _Role {
 		public static final String POC_CLINICIAN = "POC: Clinician";
+		public static final String POC_RECEPTIONIST = "POC: Receptionist";
 
 	}
 
@@ -69,6 +74,7 @@ public class MetadataBundleUtils {
 		public static final String TUBERCULOSE_PROCESSO = "e2791cc4-1d5f-11e0-b929-000c29ad1d07";
 		public static final String TUBERCULOSE_RASTREIO = "e27915a8-1d5f-11e0-b929-000c29ad1d07";
 		public static final String TUBERCULOSE_SEGUIMENTO = "e2791dfa-1d5f-11e0-b929-000c29ad1d07";
+		public static final String SEXUAL_PARTNERS = "fc72477b-90a5-4222-a43d-efe10f0ad342";
 	}
 
 	public static final class _Form {

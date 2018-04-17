@@ -40,65 +40,6 @@ public class HealthFacilities {
 
     protected Log log = LogFactory.getLog(getClass());
 
-    public static void uploadLocations(){
-        LocationService locationService = Context.getLocationService();
-        InputStream path = OpenmrsClassLoader.getInstance().getResourceAsStream("metadata/health_facilities.csv");
-
-        String line = "";
-        String cvsSplitBy = ",";
-        String headLine = "";
-        String health_facility_code = "";
-        String facility_name = "";
-        String province = "";
-        String district = "";
-
-        try {
-            BufferedReader br = new BufferedReader(new InputStreamReader(path, "UTF-8"));
-            //exclude the first line as this holds the column headers
-            headLine = br.readLine();
-            while ((line = br.readLine()) != null) {
-
-                String[] records = line.split(cvsSplitBy);
-                health_facility_code = records[0];
-                province = records[1];
-                district = records[2];
-                facility_name = records[3];
-                //facility name must be present at all time
-                if (StringUtils.isNotEmpty(facility_name)) {
-                    Location location = locationService.getLocation(facility_name);
-                    //check whether that location does not exist in the database
-                    if (location == null) {
-                        //create the location and associate it with respective metadata
-                        Location newLocation = new Location();
-                        newLocation.setName(facility_name);
-                        newLocation.setCreator(Context.getAuthenticatedUser());
-                        newLocation.setStateProvince(province);
-                        newLocation.setCountyDistrict(district);
-
-                        //set the facility unique code for this location
-                        setLocationAttribute(health_facility_code, newLocation);
-                        locationService.saveLocation(newLocation);
-                    }
-                    //get the location and check if the health facility code is set
-                    //check for location attribute for this location, if it exists means we already set it up
-                    //No need to repeat the process
-                    if(location != null) {
-                        setLocationAttribute(health_facility_code, location);
-                        location.setCountyDistrict(district);
-                        location.setStateProvince(province);
-
-                        //save the location, this will edit existing one
-                        locationService.saveLocation(location);
-                    }
-
-                }
-            }
-
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
     public static void createLocationAttributeType(){
         LocationService locationService = Context.getLocationService();
         LocationAttributeType locationAttributeType = locationService.getLocationAttributeTypeByUuid("132895aa-1c88-11e8-b6fd-7395830b63f3");

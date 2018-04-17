@@ -106,6 +106,8 @@ public class CommonMetadataBundle extends AbstractMetadataBundle {
 				MetadataBundleUtils._EncounterType.TUBERCULOSE_RASTREIO));
 		install(encounterType("TUBERCULOSE: SEGUIMENTO", "Seguimento de doentes com tuberculose",
 				MetadataBundleUtils._EncounterType.TUBERCULOSE_SEGUIMENTO));
+        install(encounterType("Sexual Partners", "Sexual Partners encounter type",
+                MetadataBundleUtils._EncounterType.SEXUAL_PARTNERS));
 
 		// Install forms
 		/*install(form("ADULTO: PROCESSO PARTE A - ANAMNESE", "Processo de Hospital de Dia 1/2",
@@ -133,14 +135,16 @@ public class CommonMetadataBundle extends AbstractMetadataBundle {
 		install(privilege(MetadataBundleUtils._Privilege.READ_RELEVANT_ASPECTS,
 				MetadataBundleUtils._Privilege.READ_RELEVANT_ASPECTS));
 		install(privilege(MetadataBundleUtils._Privilege.READ_SOCIAL, MetadataBundleUtils._Privilege.READ_SOCIAL));
-		install(privilege(MetadataBundleUtils._Privilege.READ_VITAL, MetadataBundleUtils._Privilege.READ_VITAL));
+		install(privilege(MetadataBundleUtils._Privilege.READ_VITALS, MetadataBundleUtils._Privilege.READ_VITALS));
 		install(privilege(MetadataBundleUtils._Privilege.WRITE_DIAGNOSIS,
 				MetadataBundleUtils._Privilege.WRITE_DIAGNOSIS));
 		install(privilege(MetadataBundleUtils._Privilege.WRITE_DRUG_PRESCRIPTION,
 				MetadataBundleUtils._Privilege.WRITE_DRUG_PRESCRIPTION));
 		install(privilege(MetadataBundleUtils._Privilege.WRITE_SOCIAL, MetadataBundleUtils._Privilege.WRITE_SOCIAL));
-		install(privilege(MetadataBundleUtils._Privilege.WRITE_VITAL, MetadataBundleUtils._Privilege.WRITE_VITAL));
+		install(privilege(MetadataBundleUtils._Privilege.WRITE_VITALS, MetadataBundleUtils._Privilege.WRITE_VITALS));
 		install(privilege(MetadataBundleUtils._Privilege.GET_VISITS, MetadataBundleUtils._Privilege.GET_VISITS));
+        install(privilege(MetadataBundleUtils._Privilege.WRITE_VISIT, MetadataBundleUtils._Privilege.WRITE_VISIT));
+        install(privilege(MetadataBundleUtils._Privilege.READ_PATIENT_PROGRAM, MetadataBundleUtils._Privilege.READ_PATIENT_PROGRAM));
 
 		// Tying roles to privileges
 		install(role(MetadataBundleUtils._Role.POC_CLINICIAN, "Creates test orders", idSet(), idSet(
@@ -150,9 +154,18 @@ public class CommonMetadataBundle extends AbstractMetadataBundle {
 				MetadataBundleUtils._Privilege.READ_DIAGNOSIS, MetadataBundleUtils._Privilege.READ_OMS_STADIUM,
 				MetadataBundleUtils._Privilege.READ_PATIENT, MetadataBundleUtils._Privilege.READ_DRUG_PRESCRIPTION,
 				MetadataBundleUtils._Privilege.READ_RELEVANT_ASPECTS, MetadataBundleUtils._Privilege.READ_SOCIAL,
-				MetadataBundleUtils._Privilege.READ_VITAL, MetadataBundleUtils._Privilege.WRITE_DIAGNOSIS,
+				MetadataBundleUtils._Privilege.READ_VITALS, MetadataBundleUtils._Privilege.WRITE_DIAGNOSIS,
 				MetadataBundleUtils._Privilege.WRITE_DRUG_PRESCRIPTION, MetadataBundleUtils._Privilege.WRITE_SOCIAL,
-				MetadataBundleUtils._Privilege.WRITE_VITAL, MetadataBundleUtils._Privilege.GET_VISITS)));
+				MetadataBundleUtils._Privilege.WRITE_VITALS, MetadataBundleUtils._Privilege.GET_VISITS)));
+
+        install(role(MetadataBundleUtils._Role.POC_RECEPTIONIST,
+                "Will have access to Registration, Vitals and Social app but he can not change or delete some records ",
+                idSet(), idSet(MetadataBundleUtils._Privilege.READ_PATIENT,
+                        MetadataBundleUtils._Privilege.READ_PATIENT_PROGRAM,
+                        MetadataBundleUtils._Privilege.READ_SOCIAL, MetadataBundleUtils._Privilege.READ_VITALS,
+                        MetadataBundleUtils._Privilege.WRITE_PATIENT, MetadataBundleUtils._Privilege.WRITE_PATIENT_PROGRAM,
+                        MetadataBundleUtils._Privilege.WRITE_SOCIAL, MetadataBundleUtils._Privilege.WRITE_VITALS,
+                        MetadataBundleUtils._Privilege.WRITE_VISIT)));
 
 		// install the Health facility code here and make sure it exists all the
 		// time

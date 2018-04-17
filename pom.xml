@@ -4,7 +4,7 @@
 
 	<groupId>org.openmrs.module</groupId>
 	<artifactId>esaudemetadata</artifactId>
-	<version>1.5.10-SNAPSHOT</version>
+	<version>1.6.4-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>eSaude Metadata Module</name>
 	<description>Helps in loading prerequisite metadata for the poc project</description>
@@ -209,9 +209,9 @@
 		</repository>
 
 		<repository>
-			<id>bintray-ningosi-maven</id>
-			<name>ningosi-maven</name>
-			<url>https://dl.bintray.com/ningosi/maven</url>
+			<id>bintray-esaude-maven</id>
+			<name>esaude-maven</name>
+			<url>https://dl.bintray.com/esaude/maven</url>
 		</repository>
 	</repositories>
 
@@ -228,16 +228,16 @@
 			<snapshots>
 				<enabled>false</enabled>
 			</snapshots>
-			<id>bintray-ningosi-maven</id>
+			<id>bintray-esaude-maven</id>
 			<name>bintray-plugins</name>
-			<url>https://dl.bintray.com/ningosi/maven</url>
+			<url>https://dl.bintray.com/esaude/maven</url>
 		</pluginRepository>
 	</pluginRepositories>
 	<distributionManagement>
 		<repository>
-			<id>bintray-ningosi-maven</id>
-			<name>ningosi-maven</name>
-			<url>https://api.bintray.com/maven/ningosi/maven/openmrs-module-esaudemetadata/;publish=1</url>
+			<id>bintray-esaude-maven</id>
+			<name>esaude-maven</name>
+			<url>https://api.bintray.com/maven/esaude/maven/openmrs-module-esaudemetadata/;publish=1</url>
 		</repository>
 	</distributionManagement>
 
