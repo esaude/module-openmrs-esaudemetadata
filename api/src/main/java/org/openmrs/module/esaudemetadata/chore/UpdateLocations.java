@@ -4,6 +4,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.openmrs.Location;
 import org.openmrs.LocationAttribute;
 import org.openmrs.LocationAttributeType;
+import org.openmrs.api.AdministrationService;
 import org.openmrs.api.LocationService;
 import org.openmrs.api.context.Context;
 import org.openmrs.util.OpenmrsClassLoader;
@@ -85,6 +86,8 @@ public class UpdateLocations extends AbstractChore {
         catch (IOException e) {
             e.printStackTrace();
         }
+        //delete unwanted locations
+        removeNonMatchingLocations();
     }
     LocationAttribute setLocationAttribute(String facilityCode, Location location){
         LocationService locationService = Context.getLocationService();
@@ -127,6 +130,13 @@ public class UpdateLocations extends AbstractChore {
         }
 
         return attribute;
+    }
+
+    private void removeNonMatchingLocations(){
+        AdministrationService as = Context.getAdministrationService();
+        String locations_in_attributes_table = "SELECT location_id FROM location_attribute";
+        String locations_to_remove = "UPDATE location SET retired=1, retire_reason='Not used' WHERE location_id NOT IN("+locations_in_attributes_table+")";
+        as.executeSQL(locations_to_remove, false);
     }
 
 

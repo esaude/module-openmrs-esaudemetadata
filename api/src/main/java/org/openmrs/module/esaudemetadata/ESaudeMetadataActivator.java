@@ -216,7 +216,7 @@ public class ESaudeMetadataActivator implements ModuleActivator {
 		HealthFacilities.assignFacilityCodeToUnKownLocation("Local Desconhecido");
 		//HealthFacilities.uploadLocations();
 		//removing unwanted locations that do not have unique code
-		HealthFacilities.removeNonMatchingLocations();
+		//HealthFacilities.removeNonMatchingLocations();
 		log.info("Installing commonly used metadata");
 		deployService.installBundle(Context.getRegisteredComponents(CommonMetadataBundle.class).get(0));
 		log.info("Done installing commonly used metadata");

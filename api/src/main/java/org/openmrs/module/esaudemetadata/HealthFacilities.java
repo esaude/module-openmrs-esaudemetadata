@@ -112,10 +112,4 @@ public class HealthFacilities {
         }
     }
 
-    public static void removeNonMatchingLocations(){
-        AdministrationService as = Context.getAdministrationService();
-        String locations_in_attributes_table = "SELECT location_id FROM location_attribute";
-        String locations_to_remove = "UPDATE location SET retired=1 WHERE location_id NOT IN("+locations_in_attributes_table+")";
-        as.executeSQL(locations_to_remove, false);
-    }
 }
