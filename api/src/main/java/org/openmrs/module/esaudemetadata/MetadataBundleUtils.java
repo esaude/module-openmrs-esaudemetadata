@@ -32,6 +32,7 @@ public class MetadataBundleUtils {
 		public static final String EDIT_PATIENT = "Edit Patient";
 		public static final String EDIT_PATIENT_PROGRAM = "Edit Patient Program";
 		public static final String EDIT_SOCIAL = "Edit Social";
+		public static final String DELETE_VISIT = "Delete Visit";
 
 
 	}

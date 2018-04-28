@@ -165,7 +165,7 @@ public class CommonMetadataBundle extends AbstractMetadataBundle {
                         MetadataBundleUtils._Privilege.READ_SOCIAL, MetadataBundleUtils._Privilege.READ_VITALS,
                         MetadataBundleUtils._Privilege.WRITE_PATIENT, MetadataBundleUtils._Privilege.WRITE_PATIENT_PROGRAM,
                         MetadataBundleUtils._Privilege.WRITE_SOCIAL, MetadataBundleUtils._Privilege.WRITE_VITALS,
-                        MetadataBundleUtils._Privilege.WRITE_VISIT,
+                        MetadataBundleUtils._Privilege.WRITE_VISIT, MetadataBundleUtils._Privilege.DELETE_VISIT,
 						MetadataBundleUtils._Privilege.GET_CONCEPTS)));
 
 		install(role(MetadataBundleUtils._Role.POC_RECEPTIONIST_ADMIN,
