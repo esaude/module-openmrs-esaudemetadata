@@ -190,6 +190,7 @@ public class ESaudeMetadataActivator implements ModuleActivator {
 		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_OCCUPATIONS_AS_LIST_FORM_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_OCCUPATIONS_AS_LIST_FORM);
 		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_SEXUAL_PARTNER_INFO_CONCEPT_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_SEXUAL_PARTNER_INFO_CONCEPT);
 		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_ADD_UNEMPLOYED_OCCUPATION_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_ADD_UNEMPLOYED_OCCUPATION);
+		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_UPDATE_SUPER_USER_PROVIDER_IDENTIFIER_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_UPDATE_SUPER_USER_PROVIDER_IDENTIFIER);
 
 		return anyChanges;
 	}

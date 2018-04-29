@@ -47,6 +47,7 @@ public class EsaudeMetadataUtils {
 		public static final String METADATA_OCCUPATIONS_AS_LIST_FORM = "POCOccupationField-1.zip";
 		public static final String METADATA_ADD_UNEMPLOYED_OCCUPATION = "AddUnemployedOccupationConcept-1.zip";
 		public static final String METADATA_SEXUAL_PARTNER_INFO_CONCEPT = "Sexual_Partner_Information-1.zip";
+		public static final String METADATA_UPDATE_SUPER_USER_PROVIDER_IDENTIFIER = "UpdateSuperUserProviderIdentifier-1.zip";
 	}
 
 	public static final class _PackageUuids {
@@ -71,7 +72,6 @@ public class EsaudeMetadataUtils {
 		public static final String METADATA_TREATMENT_PRESCRIBED_UPDATED_GROUP_UUID = "7b30660c-35c6-4c13-82b3-53401e6aa3d5";
 		public static final String METADATA_PHAMARCY_GROUP_UUID = "f0dc5830-4c92-4266-91b2-3f4028c193d4";
 		public static final String METADATA_POC_COHORT_QUERY_GROUP_UUID = "f0dc5830-4c92-4266-91b2-3f4028c193d4";
-
 		public static final String METADATA_PRESCRIPTION_CONVSET_UPDATED_GROUP_UUID = "7864ba84-39a6-4edb-9152-4d3d3b4abb7b";
 		public static final String METADATA_IMPORT_CONCEPT_DICTIONARY_FOR_DRUGS_GROUP_UUID = "c1ae523a-8114-49f8-ba5f-4ddba4b568d1";
 		public static final String METADATA_FIX_CONCEPT_WITH_STOP_WORDS_GROUP_UUID = "19a09fdb-601e-48a3-bfea-3e5d327059bb";
@@ -83,15 +83,14 @@ public class EsaudeMetadataUtils {
 		public static final String METADATA_DURATION_UNITS_UPDATED_GROUP_UUID = "a3330d2e-a05c-4241-8b5f-31697fe98b2f";
 		public static final String METADATA_RETIRE_DRUGS_GROUP_UUID = "caa59c55-f358-4d3c-b75b-0e2d4bae568f";
 		public static final String METADATA_ESAUDE_ROLES_GROUP_UUID = "2f1866ad-161b-4769-b148-8b417151c071";
-
 		public static final String METADATA_PREGNANCY_GROUP_UUID = "dc51083d-1c96-481d-b8b7-755b65c76158";
 		public static final String METADATA_CONCEITO_GROUP_UUID = "88bd4671-41dd-4780-8e5a-de0eccd84ef9";
 		public static final String METADATA_HIV_TYPE_OF_TEST_GROUP_UUID = "398df755-01db-48d0-a68f-cdf2abfef623";
-
 		public static final String METADATA_INE_CONCEPT_SOURCE_GROUP_UUID = "a460aa7b-a8cb-4386-91a3-3ea194251b65";
 		public static final String METADATA_OCCUPATIONS_AS_LIST_FORM_GROUP_UUID = "92c856ab-4183-401f-a8a5-5e55c3243394";
 		public static final String METADATA_SEXUAL_PARTNER_INFO_CONCEPT_GROUP_UUID = "774b08f5-3d8a-4101-a184-0df73e672b92";
 		public static final String METADATA_ADD_UNEMPLOYED_OCCUPATION_GROUP_UUID = "74ce7d57-e31a-424a-914c-5e9e5fb3992f";
+		public static final String METADATA_UPDATE_SUPER_USER_PROVIDER_IDENTIFIER_GROUP_UUID = "81189fd1-b768-4d96-8906-67287796ea22";
 	}
 
 	public static final class _GlobalProperties {
