@@ -49,6 +49,7 @@ public class EsaudeMetadataUtils {
 		public static final String METADATA_SEXUAL_PARTNER_INFO_CONCEPT = "Sexual_Partner_Information-1.zip";
 		public static final String METADATA_UPDATE_SUPER_USER_PROVIDER_IDENTIFIER = "UpdateSuperUserProviderIdentifier-1.zip";
 		public static final String METADATA_MAKE_OCCUPATION_FIELD_MANDATORY = "MakeOccupationFieldMandatory-1.zip";
+		public static final String METADATA_RAPID_HIV_TEST_RENAMED = "rapid_hiv_test_renamed-1.zip";
 	}
 
 	public static final class _PackageUuids {
@@ -93,6 +94,7 @@ public class EsaudeMetadataUtils {
 		public static final String METADATA_ADD_UNEMPLOYED_OCCUPATION_GROUP_UUID = "74ce7d57-e31a-424a-914c-5e9e5fb3992f";
 		public static final String METADATA_UPDATE_SUPER_USER_PROVIDER_IDENTIFIER_GROUP_UUID = "81189fd1-b768-4d96-8906-67287796ea22";
 		public static final String METADATA_MAKE_OCCUPATION_FIELD_MANDATORY_GROUP_UUID = "edf5570c-3db0-461f-b9a4-76d4caa6c233";
+        public static final String METADATA_RAPID_HIV_TEST_RENAMED_GROUP_UUID = "61139e51-ffe7-43a4-a325-0a3e8ebbc060";
 	}
 
 	public static final class _GlobalProperties {

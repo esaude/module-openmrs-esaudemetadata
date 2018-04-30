@@ -192,6 +192,7 @@ public class ESaudeMetadataActivator implements ModuleActivator {
 		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_ADD_UNEMPLOYED_OCCUPATION_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_ADD_UNEMPLOYED_OCCUPATION);
 		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_UPDATE_SUPER_USER_PROVIDER_IDENTIFIER_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_UPDATE_SUPER_USER_PROVIDER_IDENTIFIER);
 		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_MAKE_OCCUPATION_FIELD_MANDATORY_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_MAKE_OCCUPATION_FIELD_MANDATORY);
+		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_RAPID_HIV_TEST_RENAMED_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_RAPID_HIV_TEST_RENAMED);
 
 		return anyChanges;
 	}

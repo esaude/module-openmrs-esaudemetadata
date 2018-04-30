@@ -216,6 +216,9 @@ public class CommonMetadataBundle extends AbstractMetadataBundle {
 		install(personAttributeType("Tipo de teste HIV", "", Concept.class,
 				Dictionary.getConcept("c7ac119c-d59d-474d-8334-0c5bdd2e9863").getConceptId(), false, 7.0,
 				MetadataBundleUtils._PersonAttributeType.Tipo_de_teste_HIV));
+		install(personAttributeType("Resultado do Teste HIV", "As respostas para o resultado do teste HIV", Concept.class,
+				Dictionary.getConcept("e1d800dc-1d5f-11e0-b929-000c29ad1d07").getConceptId(), false, 8.0,
+				MetadataBundleUtils._PersonAttributeType.Resultado_do_Teste_HIV));
 
 		// install programs
 		// need to include work flows before activating them
