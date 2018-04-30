@@ -145,6 +145,7 @@ public class CommonMetadataBundle extends AbstractMetadataBundle {
 		install(privilege(MetadataBundleUtils._Privilege.GET_VISITS, MetadataBundleUtils._Privilege.GET_VISITS));
         install(privilege(MetadataBundleUtils._Privilege.WRITE_VISIT, MetadataBundleUtils._Privilege.WRITE_VISIT));
         install(privilege(MetadataBundleUtils._Privilege.READ_PATIENT_PROGRAM, MetadataBundleUtils._Privilege.READ_PATIENT_PROGRAM));
+		install(privilege(MetadataBundleUtils._Privilege.DELETE_VISIT, MetadataBundleUtils._Privilege.DELETE_VISIT));
 
 		// Tying roles to privileges
 		install(role(MetadataBundleUtils._Role.POC_CLINICIAN, "Creates test orders", idSet(), idSet(
