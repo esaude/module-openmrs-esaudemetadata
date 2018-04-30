@@ -165,7 +165,16 @@ public class CommonMetadataBundle extends AbstractMetadataBundle {
                         MetadataBundleUtils._Privilege.READ_SOCIAL, MetadataBundleUtils._Privilege.READ_VITALS,
                         MetadataBundleUtils._Privilege.WRITE_PATIENT, MetadataBundleUtils._Privilege.WRITE_PATIENT_PROGRAM,
                         MetadataBundleUtils._Privilege.WRITE_SOCIAL, MetadataBundleUtils._Privilege.WRITE_VITALS,
-                        MetadataBundleUtils._Privilege.WRITE_VISIT)));
+                        MetadataBundleUtils._Privilege.WRITE_VISIT, MetadataBundleUtils._Privilege.DELETE_VISIT,
+						MetadataBundleUtils._Privilege.GET_CONCEPTS)));
+
+		install(role(MetadataBundleUtils._Role.POC_RECEPTIONIST_ADMIN,
+                "Will have  full access to Registration, Vitals and Social app",
+                idSet(MetadataBundleUtils._Role.POC_RECEPTIONIST),
+                idSet(MetadataBundleUtils._Privilege.DELETE_PATIENT, MetadataBundleUtils._Privilege.DELETE_PATIENT_PROGRAM,
+                        MetadataBundleUtils._Privilege.DELETE_SOCIAL, MetadataBundleUtils._Privilege.DELETE_VITALS,
+                        MetadataBundleUtils._Privilege.EDIT_PATIENT, MetadataBundleUtils._Privilege.EDIT_PATIENT_PROGRAM,
+                        MetadataBundleUtils._Privilege.EDIT_SOCIAL, MetadataBundleUtils._Privilege.EDIT_VITALS)));
 
 		// install the Health facility code here and make sure it exists all the
 		// time

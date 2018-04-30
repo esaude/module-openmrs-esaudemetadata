@@ -25,11 +25,22 @@ public class MetadataBundleUtils {
 		public static final String WRITE_VISIT = "Write Visit";
 		public static final String WRITE_PATIENT = "Write Patient";
 		public static final String WRITE_PATIENT_PROGRAM = "Write Patient Program";
+		public static final String GET_CONCEPTS = "Get Concepts";
+		public static final String DELETE_PATIENT = "Delete Patient";
+		public static final String DELETE_PATIENT_PROGRAM = "Delete Patient Program";
+		public static final String DELETE_SOCIAL = "Delete Social";
+		public static final String EDIT_PATIENT = "Edit Patient";
+		public static final String EDIT_PATIENT_PROGRAM = "Edit Patient Program";
+		public static final String EDIT_SOCIAL = "Edit Social";
+		public static final String DELETE_VISIT = "Delete Visit";
+
+
 	}
 
 	public static class _Role {
 		public static final String POC_CLINICIAN = "POC: Clinician";
 		public static final String POC_RECEPTIONIST = "POC: Receptionist";
+		public static final String POC_RECEPTIONIST_ADMIN = "POC: Receptionist";
 
 	}
 
