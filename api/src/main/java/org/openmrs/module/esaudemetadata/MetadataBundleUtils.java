@@ -40,7 +40,7 @@ public class MetadataBundleUtils {
 	public static class _Role {
 		public static final String POC_CLINICIAN = "POC: Clinician";
 		public static final String POC_RECEPTIONIST = "POC: Receptionist";
-		public static final String POC_RECEPTIONIST_ADMIN = "POC: Receptionist";
+		public static final String POC_RECEPTIONIST_ADMIN = "POC: Receptionist (Admin)";
 
 	}
 
