@@ -53,9 +53,23 @@ public class MetadataBundleUtils {
 		public static final String READ_TEST_RESULT = "Read Test Result";
 		public static final String WRITE_TEST_RESULT = "Write Test Result";
 		public static final String EDIT_TEST_RESULT = "Edit Test Result";
+		public static final String GET_PATIENTS = "Get Patients";
+		public static final String GET_OBSERVATIONS = "Get Observations";
+		public static final String GET_PROGRAMS = "Get Programs";
+		public static final String GET_PATIENT_PROGRAMS = "Get Patient Programs";
+		public static final String GET_ENCOUNTERS = "Get Encounters";
+		public static final String GET_VISIT_TYPES = "Get Visit Types";
+		public static final String GET_VISIT_ATTRIBUTE_TYPES = "Get Visit Attribute Types";
+		public static final String EDIT_VISITS = "Edit Visits";
+		public static final String ADD_VISITS = "Add Visits";
+		public static final String GET_PEOPLE = "Get People";
+		public static final String GET_ENCOUNTER_ROLES = "Get Encounter Roles";
+		public static final String EDIT_ENCOUNTERS = "Edit Encounters";
+		public static final String ADD_ENCOUNTERS = "Add Encounters";
 	}
 
 	public static class _Role {
+		public static final String POC_USER = "POC: User";
 		public static final String POC_CLINICIAN = "POC: Clinician";
 		public static final String POC_CLINICIAN_ADMIN = "POC: Clinician (Admin)";
 		public static final String POC_RECEPTIONIST = "POC: Receptionist";

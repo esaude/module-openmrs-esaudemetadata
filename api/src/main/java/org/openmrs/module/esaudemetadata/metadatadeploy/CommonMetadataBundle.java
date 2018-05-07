@@ -150,7 +150,6 @@ public class CommonMetadataBundle extends AbstractMetadataBundle {
 				MetadataBundleUtils._Privilege.WRITE_DRUG_PRESCRIPTION));
 		install(privilege(MetadataBundleUtils._Privilege.WRITE_SOCIAL, MetadataBundleUtils._Privilege.WRITE_SOCIAL));
 		install(privilege(MetadataBundleUtils._Privilege.WRITE_VITALS, MetadataBundleUtils._Privilege.WRITE_VITALS));
-		install(privilege(MetadataBundleUtils._Privilege.GET_VISITS, MetadataBundleUtils._Privilege.GET_VISITS));
         install(privilege(MetadataBundleUtils._Privilege.WRITE_VISIT, MetadataBundleUtils._Privilege.WRITE_VISIT));
         install(privilege(MetadataBundleUtils._Privilege.READ_PATIENT_PROGRAM, MetadataBundleUtils._Privilege.READ_PATIENT_PROGRAM));
 		install(privilege(MetadataBundleUtils._Privilege.DELETE_VISIT, MetadataBundleUtils._Privilege.DELETE_VISIT));
@@ -178,9 +177,37 @@ public class CommonMetadataBundle extends AbstractMetadataBundle {
 
 
 		// Tying roles to privileges
+		install(role(MetadataBundleUtils._Role.POC_USER,
+				"Holds all core OpenMRS privileges required for a POC user",
+				idSet(),
+				idSet(MetadataBundleUtils._Privilege.GET_CONCEPTS,
+						// Patient search
+						MetadataBundleUtils._Privilege.GET_PATIENTS,
+						MetadataBundleUtils._Privilege.GET_OBSERVATIONS,
+                        // --
+                        // Programs
+						MetadataBundleUtils._Privilege.GET_PROGRAMS,
+						MetadataBundleUtils._Privilege.GET_PATIENT_PROGRAMS,
+						// --
+                        // Visits / Check-in
+						MetadataBundleUtils._Privilege.GET_VISITS,
+						MetadataBundleUtils._Privilege.GET_ENCOUNTERS,
+						MetadataBundleUtils._Privilege.GET_VISIT_TYPES,
+						MetadataBundleUtils._Privilege.GET_VISIT_ATTRIBUTE_TYPES,
+                        MetadataBundleUtils._Privilege.EDIT_VISITS,
+                        MetadataBundleUtils._Privilege.ADD_VISITS,
+                        // --
+                        // Clinical Services
+                        MetadataBundleUtils._Privilege.GET_PEOPLE,
+                        MetadataBundleUtils._Privilege.GET_ENCOUNTER_ROLES,
+                        MetadataBundleUtils._Privilege.EDIT_ENCOUNTERS,
+                        MetadataBundleUtils._Privilege.ADD_ENCOUNTERS
+                        // --
+                        )));
+
 		install(role(MetadataBundleUtils._Role.POC_CLINICIAN,
 				"Creates test orders",
-				idSet(),
+				idSet(MetadataBundleUtils._Role.POC_USER),
 				idSet(MetadataBundleUtils._Privilege.READ_TEST_ORDER, MetadataBundleUtils._Privilege.EDIT_TEST_ORDER,
 						MetadataBundleUtils._Privilege.WRITE_TEST_ORDER,
 						MetadataBundleUtils._Privilege.EDIT_VITALS, MetadataBundleUtils._Privilege.READ_ANAMNESIS,
@@ -189,8 +216,7 @@ public class CommonMetadataBundle extends AbstractMetadataBundle {
 						MetadataBundleUtils._Privilege.READ_RELEVANT_ASPECTS, MetadataBundleUtils._Privilege.READ_SOCIAL,
 						MetadataBundleUtils._Privilege.READ_VITALS, MetadataBundleUtils._Privilege.WRITE_DIAGNOSIS,
 						MetadataBundleUtils._Privilege.WRITE_DRUG_PRESCRIPTION,
-						MetadataBundleUtils._Privilege.WRITE_VITALS, MetadataBundleUtils._Privilege.GET_VISITS,
-						MetadataBundleUtils._Privilege.GET_CONCEPTS,
+						MetadataBundleUtils._Privilege.WRITE_VITALS,
 						MetadataBundleUtils._Privilege.DELETE_TEST_ORDER,
 						MetadataBundleUtils._Privilege.WRITE_ANAMNESIS,
 						MetadataBundleUtils._Privilege.EDIT_ANAMNESIS,
@@ -214,14 +240,13 @@ public class CommonMetadataBundle extends AbstractMetadataBundle {
 
         install(role(MetadataBundleUtils._Role.POC_RECEPTIONIST,
                 "Will have access to Registration, Vitals and Social app but he can not change or delete some records ",
-                idSet(),
+                idSet(MetadataBundleUtils._Role.POC_USER),
 				idSet(MetadataBundleUtils._Privilege.READ_PATIENT,
 						MetadataBundleUtils._Privilege.READ_PATIENT_PROGRAM,
 						MetadataBundleUtils._Privilege.READ_SOCIAL, MetadataBundleUtils._Privilege.READ_VITALS,
 						MetadataBundleUtils._Privilege.WRITE_PATIENT, MetadataBundleUtils._Privilege.WRITE_PATIENT_PROGRAM,
 						MetadataBundleUtils._Privilege.WRITE_SOCIAL, MetadataBundleUtils._Privilege.WRITE_VITALS,
 						MetadataBundleUtils._Privilege.WRITE_VISIT, MetadataBundleUtils._Privilege.DELETE_VISIT,
-						MetadataBundleUtils._Privilege.GET_CONCEPTS,
 						MetadataBundleUtils._Privilege.READ_TEST_RESULT,
 						MetadataBundleUtils._Privilege.WRITE_TEST_RESULT,
 						MetadataBundleUtils._Privilege.EDIT_TEST_RESULT,
@@ -238,17 +263,15 @@ public class CommonMetadataBundle extends AbstractMetadataBundle {
 
 		install(role(MetadataBundleUtils._Role.POC_NURSE,
 				"Will have access to Clinical, Vitals and Social app but he can not change or delete some records",
-				idSet(),
+				idSet(MetadataBundleUtils._Role.POC_USER),
 				idSet(MetadataBundleUtils._Privilege.READ_VITALS,
-						MetadataBundleUtils._Privilege.WRITE_VITALS,
-						MetadataBundleUtils._Privilege.GET_CONCEPTS)));
+						MetadataBundleUtils._Privilege.WRITE_VITALS)));
 
 		install(role(MetadataBundleUtils._Role.POC_PHARMACIST,
 				"Will have access to pharmacy app but can not change or delete some records",
-				idSet(),
+				idSet(MetadataBundleUtils._Role.POC_USER),
 				idSet(MetadataBundleUtils._Privilege.READ_DRUG_DISPENSATION,
-						MetadataBundleUtils._Privilege.WRITE_DRUG_DISPENSATION,
-						MetadataBundleUtils._Privilege.GET_CONCEPTS)));
+						MetadataBundleUtils._Privilege.WRITE_DRUG_DISPENSATION)));
 
 		install(role(MetadataBundleUtils._Role.POC_PHARMACIST_ADMIN,
 				"Will have full access to pharmacy app",
@@ -258,12 +281,11 @@ public class CommonMetadataBundle extends AbstractMetadataBundle {
 
 		install(role(MetadataBundleUtils._Role.POC_PHARMACIST_INDEPENDENT,
 				"Will have access to Registration and Pharmacy app  but he can not change or delete some records",
-				idSet(),
+				idSet(MetadataBundleUtils._Role.POC_USER),
 				idSet(MetadataBundleUtils._Privilege.READ_DRUG_DISPENSATION,
 						MetadataBundleUtils._Privilege.WRITE_DRUG_DISPENSATION,
 						MetadataBundleUtils._Privilege.READ_DRUG_PRESCRIPTION,
-						MetadataBundleUtils._Privilege.WRITE_DRUG_PRESCRIPTION,
-						MetadataBundleUtils._Privilege.GET_CONCEPTS)));
+						MetadataBundleUtils._Privilege.WRITE_DRUG_PRESCRIPTION)));
 
 		install(role(MetadataBundleUtils._Role.POC_PHARMACIST_INDEPENDENT_ADMIN,
 				"Will have  full access to Registration and Pharmacy app",
@@ -275,11 +297,10 @@ public class CommonMetadataBundle extends AbstractMetadataBundle {
 
 		install(role(MetadataBundleUtils._Role.POC_PSYCHOLOGIST,
 				"Will have  full access to Social app",
-				idSet(),
+				idSet(MetadataBundleUtils._Role.POC_USER),
 				idSet(MetadataBundleUtils._Privilege.READ_PATIENT,
 						MetadataBundleUtils._Privilege.READ_SOCIAL,
-						MetadataBundleUtils._Privilege.WRITE_SOCIAL,
-						MetadataBundleUtils._Privilege.GET_CONCEPTS)));
+						MetadataBundleUtils._Privilege.WRITE_SOCIAL)));
 
 		install(role(MetadataBundleUtils._Role.POC_PSYCHOLOGIST_ADMIN,
 				"Will have  full access to Social app",
@@ -289,9 +310,8 @@ public class CommonMetadataBundle extends AbstractMetadataBundle {
 
 		install(role(MetadataBundleUtils._Role.POC_LAB_TECHNICIAN,
 				"Will have full access to Laboratory app ",
-				idSet(),
-				idSet(MetadataBundleUtils._Privilege.GET_CONCEPTS,
-						MetadataBundleUtils._Privilege.READ_TEST_ORDER,
+				idSet(MetadataBundleUtils._Role.POC_USER),
+				idSet(MetadataBundleUtils._Privilege.READ_TEST_ORDER,
 						MetadataBundleUtils._Privilege.WRITE_TEST_ORDER,
 						MetadataBundleUtils._Privilege.READ_TEST_RESULT,
 						MetadataBundleUtils._Privilege.WRITE_TEST_RESULT,
