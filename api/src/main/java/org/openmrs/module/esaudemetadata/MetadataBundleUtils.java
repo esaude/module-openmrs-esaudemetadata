@@ -5,20 +5,31 @@ public class MetadataBundleUtils {
 	public static class _Privilege {
 		public static final String WRITE_TEST_ORDER = "Write Test Order";
 		public static final String READ_TEST_ORDER = "Read Test Order";
-		public static final String UPDATE_TEST_ORDER = "Update Test Order";
+		public static final String EDIT_TEST_ORDER = "Edit Test Order";
+		public static final String DELETE_TEST_ORDER = "Edit Test Order";
 		public static final String DELETE_VITALS = "Delete Vitals";
 		public static final String EDIT_VITALS = "Edit Vitals";
 		public static final String READ_ANAMNESIS = "Read Anamnesis";
 		public static final String READ_DIAGNOSIS = "Read Diagnosis";
 		public static final String READ_OMS_STADIUM = "Read OMS Stadium";
+		public static final String WRITE_OMS_STADIUM = "Write OMS Stadium";
+		public static final String EDIT_OMS_STADIUM = "Edit OMS Stadium";
+		public static final String DELETE_OMS_STADIUM = "Delete OMS Stadium";
 		public static final String READ_PATIENT = "Read Patient";
 		public static final String READ_PATIENT_PROGRAM = "Read Patient Program";
 		public static final String READ_DRUG_PRESCRIPTION = "Read Drug Prescription";
+		public static final String EDIT_DRUG_PRESCRIPTION = "Edit Drug Prescription";
 		public static final String READ_RELEVANT_ASPECTS = "Read Relevant Aspects";
+		public static final String WRITE_RELEVANT_ASPECTS = "Write Relevant Aspects";
+		public static final String EDIT_RELEVANT_ASPECTS = "Edit Relevant Aspects";
+		public static final String DELETE_RELEVANT_ASPECTS = "Delete Relevant Aspects";
 		public static final String READ_SOCIAL = "Read Social";
 		public static final String READ_VITALS = "Read Vitals";
 		public static final String WRITE_DIAGNOSIS = "Write Diagnosis";
+		public static final String DELETE_DIAGNOSIS = "Delete Diagnosis";
+		public static final String EDIT_DIAGNOSIS = "Edit Diagnosis";
 		public static final String WRITE_DRUG_PRESCRIPTION = "Write Drug Prescription";
+		public static final String DELETE_DRUG_PRESCRIPTION = "Delete Drug Prescription";
 		public static final String WRITE_SOCIAL = "Write Social";
 		public static final String WRITE_VITALS = "Write Vitals";
 		public static final String GET_VISITS = "Get Visits";
@@ -33,14 +44,45 @@ public class MetadataBundleUtils {
 		public static final String EDIT_PATIENT_PROGRAM = "Edit Patient Program";
 		public static final String EDIT_SOCIAL = "Edit Social";
 		public static final String DELETE_VISIT = "Delete Visit";
-
-
+		public static final String WRITE_ANAMNESIS = "Write Anamnesis";
+		public static final String EDIT_ANAMNESIS = "Edit Anamnesis";
+		public static final String READ_DRUG_DISPENSATION = "Read Drug Dispensation";
+		public static final String WRITE_DRUG_DISPENSATION = "Write Drug Dispensation";
+		public static final String EDIT_DRUG_DISPENSATION = "Edit Drug Dispensation";
+		public static final String DELETE_DRUG_DISPENSATION = "Delete Drug Dispensation";
+		public static final String READ_TEST_RESULT = "Read Test Result";
+		public static final String WRITE_TEST_RESULT = "Write Test Result";
+		public static final String EDIT_TEST_RESULT = "Edit Test Result";
+		public static final String GET_PATIENTS = "Get Patients";
+		public static final String GET_OBSERVATIONS = "Get Observations";
+		public static final String GET_PROGRAMS = "Get Programs";
+		public static final String GET_PATIENT_PROGRAMS = "Get Patient Programs";
+		public static final String GET_ENCOUNTERS = "Get Encounters";
+		public static final String GET_VISIT_TYPES = "Get Visit Types";
+		public static final String GET_VISIT_ATTRIBUTE_TYPES = "Get Visit Attribute Types";
+		public static final String EDIT_VISITS = "Edit Visits";
+		public static final String ADD_VISITS = "Add Visits";
+		public static final String GET_PEOPLE = "Get People";
+		public static final String GET_ENCOUNTER_ROLES = "Get Encounter Roles";
+		public static final String EDIT_ENCOUNTERS = "Edit Encounters";
+		public static final String ADD_ENCOUNTERS = "Add Encounters";
+		public static final String GET_CARE_SETTINGS = "Get Care Settings";
 	}
 
 	public static class _Role {
+		public static final String POC_USER = "POC: User";
 		public static final String POC_CLINICIAN = "POC: Clinician";
+		public static final String POC_CLINICIAN_ADMIN = "POC: Clinician (Admin)";
 		public static final String POC_RECEPTIONIST = "POC: Receptionist";
 		public static final String POC_RECEPTIONIST_ADMIN = "POC: Receptionist (Admin)";
+		public static final String POC_NURSE = "POC: Nurse";
+		public static final String POC_PHARMACIST = "POC: Pharmacist";
+		public static final String POC_PHARMACIST_ADMIN = "POC: Pharmacist (Admin)";
+		public static final String POC_PHARMACIST_INDEPENDENT = "POC: Pharmacist - Independent";
+		public static final String POC_PHARMACIST_INDEPENDENT_ADMIN = "POC: Pharmacist - Independent (Admin)";
+		public static final String POC_PSYCHOLOGIST = "POC: Psychologist - social worker";
+		public static final String POC_PSYCHOLOGIST_ADMIN = "POC: Psychologist - social worker (Admin)";
+		public static final String POC_LAB_TECHNICIAN = "POC: Lab technician";
 
 	}
 

@@ -39,7 +39,6 @@ public class EsaudeMetadataUtils {
 		public static final String METADATA_ARV_REGIMENS = "ARV_Regimens-1.zip";
 		public static final String METADATA_DURATION_UNITS_UPDATED = "duration_units_updated-1.zip";
 		public static final String METADATA_RETIRE_DRUGS = "RetiredDrugs-1.zip";
-		public static final String METADATA_ESAUDE_ROLES = "eSaude_Roles-1.zip";
 		public static final String METADATA_PREGNANCY = "pregnancy_fields-1.zip";
 		public static final String METADATA_CONCEITO = "conceito_22771-1.zip";
 		public static final String METADATA_HIV_TYPE_OF_TEST = "hiv_type_of_test-1.zip";
@@ -85,7 +84,6 @@ public class EsaudeMetadataUtils {
 		public static final String METADATA_ARV_REGIMENS_GROUP_UUID = "353d1931-2959-4cb0-bc8e-4025dcaf9d21";
 		public static final String METADATA_DURATION_UNITS_UPDATED_GROUP_UUID = "a3330d2e-a05c-4241-8b5f-31697fe98b2f";
 		public static final String METADATA_RETIRE_DRUGS_GROUP_UUID = "caa59c55-f358-4d3c-b75b-0e2d4bae568f";
-		public static final String METADATA_ESAUDE_ROLES_GROUP_UUID = "2f1866ad-161b-4769-b148-8b417151c071";
 		public static final String METADATA_PREGNANCY_GROUP_UUID = "dc51083d-1c96-481d-b8b7-755b65c76158";
 		public static final String METADATA_CONCEITO_GROUP_UUID = "88bd4671-41dd-4780-8e5a-de0eccd84ef9";
 		public static final String METADATA_HIV_TYPE_OF_TEST_GROUP_UUID = "398df755-01db-48d0-a68f-cdf2abfef623";
