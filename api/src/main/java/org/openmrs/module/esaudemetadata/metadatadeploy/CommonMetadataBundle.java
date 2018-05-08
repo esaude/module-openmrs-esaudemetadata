@@ -177,23 +177,23 @@ public class CommonMetadataBundle extends AbstractMetadataBundle {
 
 
 		// Tying roles to privileges
-		install(role(MetadataBundleUtils._Role.POC_USER,
-				"Holds all core OpenMRS privileges required for a POC user",
-				idSet(),
-				idSet(MetadataBundleUtils._Privilege.GET_CONCEPTS,
-						// Patient search
-						MetadataBundleUtils._Privilege.GET_PATIENTS,
-						MetadataBundleUtils._Privilege.GET_OBSERVATIONS,
+        install(role(MetadataBundleUtils._Role.POC_USER,
+                "Holds all core OpenMRS privileges required for a POC user",
+                idSet(),
+                idSet(MetadataBundleUtils._Privilege.GET_CONCEPTS,
+                        // Patient search
+                        MetadataBundleUtils._Privilege.GET_PATIENTS,
+                        MetadataBundleUtils._Privilege.GET_OBSERVATIONS,
                         // --
                         // Programs
-						MetadataBundleUtils._Privilege.GET_PROGRAMS,
-						MetadataBundleUtils._Privilege.GET_PATIENT_PROGRAMS,
-						// --
+                        MetadataBundleUtils._Privilege.GET_PROGRAMS,
+                        MetadataBundleUtils._Privilege.GET_PATIENT_PROGRAMS,
+                        // --
                         // Visits / Check-in
-						MetadataBundleUtils._Privilege.GET_VISITS,
-						MetadataBundleUtils._Privilege.GET_ENCOUNTERS,
-						MetadataBundleUtils._Privilege.GET_VISIT_TYPES,
-						MetadataBundleUtils._Privilege.GET_VISIT_ATTRIBUTE_TYPES,
+                        MetadataBundleUtils._Privilege.GET_VISITS,
+                        MetadataBundleUtils._Privilege.GET_ENCOUNTERS,
+                        MetadataBundleUtils._Privilege.GET_VISIT_TYPES,
+                        MetadataBundleUtils._Privilege.GET_VISIT_ATTRIBUTE_TYPES,
                         MetadataBundleUtils._Privilege.EDIT_VISITS,
                         MetadataBundleUtils._Privilege.ADD_VISITS,
                         // --
@@ -201,9 +201,12 @@ public class CommonMetadataBundle extends AbstractMetadataBundle {
                         MetadataBundleUtils._Privilege.GET_PEOPLE,
                         MetadataBundleUtils._Privilege.GET_ENCOUNTER_ROLES,
                         MetadataBundleUtils._Privilege.EDIT_ENCOUNTERS,
-                        MetadataBundleUtils._Privilege.ADD_ENCOUNTERS
+                        MetadataBundleUtils._Privilege.ADD_ENCOUNTERS,
                         // --
-                        )));
+                        // Test Order
+                        MetadataBundleUtils._Privilege.GET_CARE_SETTINGS
+                        // --
+                )));
 
 		install(role(MetadataBundleUtils._Role.POC_CLINICIAN,
 				"Creates test orders",

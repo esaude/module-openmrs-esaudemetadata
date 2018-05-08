@@ -66,6 +66,7 @@ public class MetadataBundleUtils {
 		public static final String GET_ENCOUNTER_ROLES = "Get Encounter Roles";
 		public static final String EDIT_ENCOUNTERS = "Edit Encounters";
 		public static final String ADD_ENCOUNTERS = "Add Encounters";
+		public static final String GET_CARE_SETTINGS = "Get Care Settings";
 	}
 
 	public static class _Role {
