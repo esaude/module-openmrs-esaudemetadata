@@ -172,6 +172,8 @@ public class CommonMetadataBundle extends AbstractMetadataBundle {
 		install(privilege(MetadataBundleUtils._Privilege.EDIT_TEST_RESULT, MetadataBundleUtils._Privilege.EDIT_TEST_RESULT));
 		install(privilege(MetadataBundleUtils._Privilege.DELETE_RELEVANT_ASPECTS, MetadataBundleUtils._Privilege.DELETE_RELEVANT_ASPECTS));
 		install(privilege(MetadataBundleUtils._Privilege.DELETE_OMS_STADIUM, MetadataBundleUtils._Privilege.DELETE_OMS_STADIUM));
+		install(privilege(MetadataBundleUtils._Privilege.DELETE_TEST_ORDER, MetadataBundleUtils._Privilege.DELETE_TEST_ORDER));
+		install(privilege(MetadataBundleUtils._Privilege.DELETE_TEST_RESULT, MetadataBundleUtils._Privilege.DELETE_TEST_RESULT));
 
 
 
@@ -204,12 +206,15 @@ public class CommonMetadataBundle extends AbstractMetadataBundle {
                         MetadataBundleUtils._Privilege.ADD_ENCOUNTERS,
                         // --
                         // Test Order
-                        MetadataBundleUtils._Privilege.GET_CARE_SETTINGS
+                        MetadataBundleUtils._Privilege.GET_CARE_SETTINGS,
                         // --
+						// Prescription
+						MetadataBundleUtils._Privilege.GET_ORDER_FREQUENCIES
+						// --
                 )));
 
 		install(role(MetadataBundleUtils._Role.POC_CLINICIAN,
-				"Creates test orders",
+				"Will have access to clinical app but he can not change or delete some records",
 				idSet(MetadataBundleUtils._Role.POC_USER),
 				idSet(MetadataBundleUtils._Privilege.READ_TEST_ORDER, MetadataBundleUtils._Privilege.EDIT_TEST_ORDER,
 						MetadataBundleUtils._Privilege.WRITE_TEST_ORDER,
@@ -220,7 +225,6 @@ public class CommonMetadataBundle extends AbstractMetadataBundle {
 						MetadataBundleUtils._Privilege.READ_VITALS, MetadataBundleUtils._Privilege.WRITE_DIAGNOSIS,
 						MetadataBundleUtils._Privilege.WRITE_DRUG_PRESCRIPTION,
 						MetadataBundleUtils._Privilege.WRITE_VITALS,
-						MetadataBundleUtils._Privilege.DELETE_TEST_ORDER,
 						MetadataBundleUtils._Privilege.WRITE_ANAMNESIS,
 						MetadataBundleUtils._Privilege.EDIT_ANAMNESIS,
 						MetadataBundleUtils._Privilege.WRITE_OMS_STADIUM,
@@ -239,7 +243,8 @@ public class CommonMetadataBundle extends AbstractMetadataBundle {
 						MetadataBundleUtils._Privilege.WRITE_RELEVANT_ASPECTS,
 						MetadataBundleUtils._Privilege.DELETE_VITALS,
 						MetadataBundleUtils._Privilege.DELETE_RELEVANT_ASPECTS,
-						MetadataBundleUtils._Privilege.DELETE_OMS_STADIUM)));
+						MetadataBundleUtils._Privilege.DELETE_OMS_STADIUM,
+						MetadataBundleUtils._Privilege.DELETE_TEST_ORDER)));
 
         install(role(MetadataBundleUtils._Role.POC_RECEPTIONIST,
                 "Will have access to Registration, Vitals and Social app but he can not change or delete some records ",
@@ -319,6 +324,12 @@ public class CommonMetadataBundle extends AbstractMetadataBundle {
 						MetadataBundleUtils._Privilege.READ_TEST_RESULT,
 						MetadataBundleUtils._Privilege.WRITE_TEST_RESULT,
 						MetadataBundleUtils._Privilege.EDIT_TEST_RESULT)));
+
+		install(role(MetadataBundleUtils._Role.POC_LAB_TECHNICIAN_ADMIN,
+				"Will have full access to Laboratory app ",
+				idSet(MetadataBundleUtils._Role.POC_LAB_TECHNICIAN),
+				idSet(MetadataBundleUtils._Privilege.DELETE_TEST_ORDER,
+						MetadataBundleUtils._Privilege.DELETE_TEST_RESULT)));
 
 
 
