@@ -12,8 +12,8 @@ public class EsaudeMetadataUtils {
 		public static final String METADATA_CONSULTATION_CURRENT_STORY = "consultation_current_story-1.zip";
 		public static final String METADATA_DIAGNOSIS_CONCEPTS = "Diagnosis_Concepts-1.zip";
 		public static final String METADATA_DIAGNOSIS_FORM_FIELDS_ADULT = "Diagnosis_Adult_Schema-1.zip";
-		public static final String METADATA_PERSON_ATTRIBUTE_TYPE = "person_attributes-1.zip";
-		public static final String METADATA_PATIENT_IDENTIFIER_TYPES = "patient_identifiers-1.zip";
+		//public static final String METADATA_PERSON_ATTRIBUTE_TYPE = "person_attributes-1.zip";
+		//public static final String METADATA_PATIENT_IDENTIFIER_TYPES = "patient_identifiers-1.zip";
 		public static final String METADATA_FORM_FIELDS = "form_fields-1.zip";
 		public static final String METADATA_DIAGNOSIS_FORM_FIELDS_CHILD = "Diagnosis_Child_Schema-1.zip";
 		public static final String METADATA_WHO_FIELDS = "WHO_FIELDS-1.zip";
