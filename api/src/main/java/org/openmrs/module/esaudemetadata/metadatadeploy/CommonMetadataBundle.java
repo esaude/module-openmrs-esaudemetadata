@@ -186,11 +186,9 @@ public class CommonMetadataBundle extends AbstractMetadataBundle {
                         // Patient search
                         MetadataBundleUtils._Privilege.GET_PATIENTS,
                         MetadataBundleUtils._Privilege.GET_OBSERVATIONS,
-                        // --
                         // Programs
                         MetadataBundleUtils._Privilege.GET_PROGRAMS,
                         MetadataBundleUtils._Privilege.GET_PATIENT_PROGRAMS,
-                        // --
                         // Visits / Check-in
                         MetadataBundleUtils._Privilege.GET_VISITS,
                         MetadataBundleUtils._Privilege.GET_ENCOUNTERS,
@@ -198,19 +196,15 @@ public class CommonMetadataBundle extends AbstractMetadataBundle {
                         MetadataBundleUtils._Privilege.GET_VISIT_ATTRIBUTE_TYPES,
                         MetadataBundleUtils._Privilege.EDIT_VISITS,
                         MetadataBundleUtils._Privilege.ADD_VISITS,
-                        // --
                         // Clinical Services
                         MetadataBundleUtils._Privilege.GET_PEOPLE,
                         MetadataBundleUtils._Privilege.GET_ENCOUNTER_ROLES,
                         MetadataBundleUtils._Privilege.EDIT_ENCOUNTERS,
                         MetadataBundleUtils._Privilege.ADD_ENCOUNTERS,
-                        // --
                         // Test Order
                         MetadataBundleUtils._Privilege.GET_CARE_SETTINGS,
-                        // --
 						// Prescription
 						MetadataBundleUtils._Privilege.GET_ORDER_FREQUENCIES
-						// --
                 )));
 
 		install(role(MetadataBundleUtils._Role.POC_CLINICIAN,
