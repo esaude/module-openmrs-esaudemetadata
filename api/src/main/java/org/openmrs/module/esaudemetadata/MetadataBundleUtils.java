@@ -6,7 +6,7 @@ public class MetadataBundleUtils {
 		public static final String WRITE_TEST_ORDER = "Write Test Order";
 		public static final String READ_TEST_ORDER = "Read Test Order";
 		public static final String EDIT_TEST_ORDER = "Edit Test Order";
-		public static final String DELETE_TEST_ORDER = "Edit Test Order";
+		public static final String DELETE_TEST_ORDER = "Delete Test Order";
 		public static final String DELETE_VITALS = "Delete Vitals";
 		public static final String EDIT_VITALS = "Edit Vitals";
 		public static final String READ_ANAMNESIS = "Read Anamnesis";
@@ -53,6 +53,7 @@ public class MetadataBundleUtils {
 		public static final String READ_TEST_RESULT = "Read Test Result";
 		public static final String WRITE_TEST_RESULT = "Write Test Result";
 		public static final String EDIT_TEST_RESULT = "Edit Test Result";
+		public static final String DELETE_TEST_RESULT = "Delete Test Result";
 		public static final String GET_PATIENTS = "Get Patients";
 		public static final String GET_OBSERVATIONS = "Get Observations";
 		public static final String GET_PROGRAMS = "Get Programs";
@@ -67,6 +68,8 @@ public class MetadataBundleUtils {
 		public static final String EDIT_ENCOUNTERS = "Edit Encounters";
 		public static final String ADD_ENCOUNTERS = "Add Encounters";
 		public static final String GET_CARE_SETTINGS = "Get Care Settings";
+		public static final String GET_ORDER_FREQUENCIES = "Get Order Frequencies";
+
 	}
 
 	public static class _Role {
@@ -83,6 +86,7 @@ public class MetadataBundleUtils {
 		public static final String POC_PSYCHOLOGIST = "POC: Psychologist - social worker";
 		public static final String POC_PSYCHOLOGIST_ADMIN = "POC: Psychologist - social worker (Admin)";
 		public static final String POC_LAB_TECHNICIAN = "POC: Lab technician";
+		public static final String POC_LAB_TECHNICIAN_ADMIN = "POC: Lab technician (Admin)";
 
 	}
 
