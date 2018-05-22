@@ -137,8 +137,8 @@ public class UpdateLocations extends AbstractChore {
         LocationService locationService = Context.getLocationService();
         LocationAttributeType locationAttributeType = locationService.getLocationAttributeTypeByUuid("132895aa-1c88-11e8-b6fd-7395830b63f3");
 
-        String locations_with_no_code_set = "SELECT l.location_id FROM location l inner join location_attribute la ON l.location_id=l.location_id where l.retired=0 AND la.value_reference is null AND la.attribute_type_id="+locationAttributeType.getLocationAttributeTypeId();
-        String locations_to_remove = "UPDATE location SET retired=1, retire_reason='Not used' WHERE location_id IN("+locations_with_no_code_set+")";
+        String locations_with_code_set = "SELECT locia.location_id FROM location_attribute locia where locia.attribute_type_id=1 AND locia.value_reference is not null";
+        String locations_to_remove = "UPDATE location SET retired=1, retire_reason='Not used' WHERE location_id NOT IN("+locations_with_code_set+")";
         as.executeSQL(locations_to_remove, false);
     }
 

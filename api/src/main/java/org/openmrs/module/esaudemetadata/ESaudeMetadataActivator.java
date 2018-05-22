@@ -216,7 +216,7 @@ public class ESaudeMetadataActivator implements ModuleActivator {
 		log.info("Installing metadata");
 		log.info("Installing locations and its associated metadata");
 		HealthFacilities.createLocationAttributeType();
-		HealthFacilities.assignFacilityCodeToUnKownLocation("Local Desconhecido");
+		HealthFacilities.assignFacilityCodeToUnKownLocation("8d6c993e-c2cc-11de-8d13-0010c6dffd0f");
 		//HealthFacilities.uploadLocations();
 		//removing unwanted locations that do not have unique code
 		//HealthFacilities.removeNonMatchingLocations();
