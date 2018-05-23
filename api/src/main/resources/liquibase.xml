@@ -2258,4 +2258,16 @@
         </sql>
     </changeSet>
 
+    <changeSet id="esaude-metadata-230520181200" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+        </preConditions>
+        <comment>Making sure all locations are not retired for any installation</comment>
+        <sql>
+            SET FOREIGN_KEY_CHECKS=0;
+            UPDATE location SET retired=0 WHERE retired=1;
+            SET FOREIGN_KEY_CHECKS=1;
+        </sql>
+    </changeSet>
+
 </databaseChangeLog>

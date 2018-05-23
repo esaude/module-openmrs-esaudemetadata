@@ -1,6 +1,8 @@
 package org.openmrs.module.esaudemetadata.chore;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.openmrs.Location;
 import org.openmrs.LocationAttribute;
 import org.openmrs.LocationAttributeType;
@@ -20,7 +22,7 @@ import java.util.Date;
 
 @Component("esaudemetadata.chore.updateLocations")
 public class UpdateLocations extends AbstractChore {
-
+    protected Log log = LogFactory.getLog(getClass());
     /**
      * @see org.openmrs.module.esaudemetadata.chore.AbstractChore#perform(java.io.PrintWriter)
      */
@@ -70,7 +72,7 @@ public class UpdateLocations extends AbstractChore {
                     //get the location and check if the health facility code is set
                     //check for location attribute for this location, if it exists means we already set it up
                     //No need to repeat the process
-                    if(location != null) {
+                    else {
                         setLocationAttribute(health_facility_code, location);
                         location.setCountyDistrict(district);
                         location.setStateProvince(province);
