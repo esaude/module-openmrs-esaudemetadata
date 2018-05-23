@@ -2243,4 +2243,19 @@
         <sqlFile path="sql/social/insert-poc-occupation-field.sql" />
     </changeSet>
 
+    <changeSet id="esaude-metadata-230520181041" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+            <sqlCheck expectedResult="1">
+                SELECT COUNT(*) FROM location WHERE uuid='8d6c993e-c2cc-11de-8d13-0010c6dffd0f';
+            </sqlCheck>
+        </preConditions>
+        <comment>Making sure the unkown location is NOT retired for any installation</comment>
+        <sql>
+            SET FOREIGN_KEY_CHECKS=0;
+            UPDATE location SET retired=0 WHERE uuid='8d6c993e-c2cc-11de-8d13-0010c6dffd0f';
+            SET FOREIGN_KEY_CHECKS=1;
+        </sql>
+    </changeSet>
+
 </databaseChangeLog>

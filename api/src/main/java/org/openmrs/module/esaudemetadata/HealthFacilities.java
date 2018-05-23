@@ -99,9 +99,9 @@ public class HealthFacilities {
         return attribute;
     }
 
-    public static void assignFacilityCodeToUnKownLocation(String uuid){
+    public static void assignFacilityCodeToUnKownLocation(String name){
         LocationService locationService = Context.getLocationService();
-        Location location = locationService.getLocationByUuid(uuid);
+        Location location = locationService.getLocation(name);
         if(location != null){
             setLocationAttribute("0000001", location);
             location.setCountyDistrict("Desconhecido");
