@@ -12,8 +12,6 @@ public class EsaudeMetadataUtils {
 		public static final String METADATA_CONSULTATION_CURRENT_STORY = "consultation_current_story-1.zip";
 		public static final String METADATA_DIAGNOSIS_CONCEPTS = "Diagnosis_Concepts-1.zip";
 		public static final String METADATA_DIAGNOSIS_FORM_FIELDS_ADULT = "Diagnosis_Adult_Schema-1.zip";
-		//public static final String METADATA_PERSON_ATTRIBUTE_TYPE = "person_attributes-1.zip";
-		//public static final String METADATA_PATIENT_IDENTIFIER_TYPES = "patient_identifiers-1.zip";
 		public static final String METADATA_FORM_FIELDS = "form_fields-1.zip";
 		public static final String METADATA_DIAGNOSIS_FORM_FIELDS_CHILD = "Diagnosis_Child_Schema-1.zip";
 		public static final String METADATA_WHO_FIELDS = "WHO_FIELDS-1.zip";
@@ -94,7 +92,7 @@ public class EsaudeMetadataUtils {
 		public static final String METADATA_UPDATE_SUPER_USER_PROVIDER_IDENTIFIER_GROUP_UUID = "81189fd1-b768-4d96-8906-67287796ea22";
 		public static final String METADATA_MAKE_OCCUPATION_FIELD_MANDATORY_GROUP_UUID = "edf5570c-3db0-461f-b9a4-76d4caa6c233";
         public static final String METADATA_RAPID_HIV_TEST_RENAMED_GROUP_UUID = "61139e51-ffe7-43a4-a325-0a3e8ebbc060";
-		public static final String METADATA_FIX_TEST_CONCEPT_UNIT_GROUP_UUID = "17098ad1-d158-4155-8b01-7c1b376d8ee7";
+		public static final String METADATA_FIX_TEST_CONCEPT_UNIT_GROUP_UUID = "e2ce530a-f683-474e-a3ab-f19e881cc93f";
 	}
 
 	public static final class _GlobalProperties {

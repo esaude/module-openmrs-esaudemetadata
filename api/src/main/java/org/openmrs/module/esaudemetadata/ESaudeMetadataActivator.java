@@ -186,6 +186,7 @@ public class ESaudeMetadataActivator implements ModuleActivator {
 		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_CONCEITO_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_CONCEITO);
 		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_HIV_TYPE_OF_TEST_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_HIV_TYPE_OF_TEST);
 		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_INE_CONCEPT_SOURCE_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_INE_CONCEPT_SOURCE);
+
 		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_OCCUPATIONS_AS_LIST_FORM_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_OCCUPATIONS_AS_LIST_FORM);
 		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_SEXUAL_PARTNER_INFO_CONCEPT_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_SEXUAL_PARTNER_INFO_CONCEPT);
 		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_ADD_UNEMPLOYED_OCCUPATION_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_ADD_UNEMPLOYED_OCCUPATION);
@@ -193,6 +194,7 @@ public class ESaudeMetadataActivator implements ModuleActivator {
 		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_MAKE_OCCUPATION_FIELD_MANDATORY_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_MAKE_OCCUPATION_FIELD_MANDATORY);
 		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_RAPID_HIV_TEST_RENAMED_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_RAPID_HIV_TEST_RENAMED);
 		anyChanges |= installMetadataPackageIfNecessary(EsaudeMetadataUtils._PackageUuids.METADATA_FIX_TEST_CONCEPT_UNIT_GROUP_UUID, EsaudeMetadataUtils._PackageNames.METADATA_FIX_TEST_CONCEPT_UNIT);
+
 
 		return anyChanges;
 	}

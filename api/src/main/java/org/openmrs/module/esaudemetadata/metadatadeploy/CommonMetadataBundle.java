@@ -174,7 +174,30 @@ public class CommonMetadataBundle extends AbstractMetadataBundle {
 		install(privilege(MetadataBundleUtils._Privilege.DELETE_OMS_STADIUM, MetadataBundleUtils._Privilege.DELETE_OMS_STADIUM));
 		install(privilege(MetadataBundleUtils._Privilege.DELETE_TEST_ORDER, MetadataBundleUtils._Privilege.DELETE_TEST_ORDER));
 		install(privilege(MetadataBundleUtils._Privilege.DELETE_TEST_RESULT, MetadataBundleUtils._Privilege.DELETE_TEST_RESULT));
-
+		install(privilege(MetadataBundleUtils._Privilege.DELETE_SOCIAL, MetadataBundleUtils._Privilege.DELETE_SOCIAL));
+		install(privilege(MetadataBundleUtils._Privilege.EDIT_SOCIAL, MetadataBundleUtils._Privilege.EDIT_SOCIAL));
+        install(privilege(MetadataBundleUtils._Privilege.EDIT_SOCIAL, MetadataBundleUtils._Privilege.EDIT_SOCIAL));
+        install(privilege(MetadataBundleUtils._Privilege.WRITE_PATIENT, MetadataBundleUtils._Privilege.WRITE_PATIENT));
+        install(privilege(MetadataBundleUtils._Privilege.WRITE_PATIENT_PROGRAM, MetadataBundleUtils._Privilege.WRITE_PATIENT_PROGRAM));
+		install(privilege(MetadataBundleUtils._Privilege.DELETE_PATIENT, MetadataBundleUtils._Privilege.DELETE_PATIENT));
+		install(privilege(MetadataBundleUtils._Privilege.DELETE_PATIENT_PROGRAM, MetadataBundleUtils._Privilege.DELETE_PATIENT_PROGRAM));
+		install(privilege(MetadataBundleUtils._Privilege.EDIT_PATIENT, MetadataBundleUtils._Privilege.EDIT_PATIENT));
+		install(privilege(MetadataBundleUtils._Privilege.EDIT_PATIENT_PROGRAM, MetadataBundleUtils._Privilege.EDIT_PATIENT_PROGRAM));
+		install(privilege(MetadataBundleUtils._Privilege.GET_PATIENTS, MetadataBundleUtils._Privilege.GET_PATIENTS));
+		install(privilege(MetadataBundleUtils._Privilege.GET_OBSERVATIONS, MetadataBundleUtils._Privilege.GET_OBSERVATIONS));
+		install(privilege(MetadataBundleUtils._Privilege.GET_PROGRAMS, MetadataBundleUtils._Privilege.GET_PROGRAMS));
+		install(privilege(MetadataBundleUtils._Privilege.GET_PATIENT_PROGRAMS, MetadataBundleUtils._Privilege.GET_PATIENT_PROGRAMS));
+		install(privilege(MetadataBundleUtils._Privilege.GET_ENCOUNTERS, MetadataBundleUtils._Privilege.GET_ENCOUNTERS));
+		install(privilege(MetadataBundleUtils._Privilege.GET_VISIT_TYPES, MetadataBundleUtils._Privilege.GET_VISIT_TYPES));
+		install(privilege(MetadataBundleUtils._Privilege.GET_VISIT_ATTRIBUTE_TYPES, MetadataBundleUtils._Privilege.GET_VISIT_ATTRIBUTE_TYPES));
+		install(privilege(MetadataBundleUtils._Privilege.EDIT_VISITS, MetadataBundleUtils._Privilege.EDIT_VISITS));
+		install(privilege(MetadataBundleUtils._Privilege.ADD_VISITS, MetadataBundleUtils._Privilege.ADD_VISITS));
+		install(privilege(MetadataBundleUtils._Privilege.GET_PEOPLE, MetadataBundleUtils._Privilege.GET_PEOPLE));
+		install(privilege(MetadataBundleUtils._Privilege.GET_ENCOUNTER_ROLES, MetadataBundleUtils._Privilege.GET_ENCOUNTER_ROLES));
+		install(privilege(MetadataBundleUtils._Privilege.EDIT_ENCOUNTERS, MetadataBundleUtils._Privilege.EDIT_ENCOUNTERS));
+		install(privilege(MetadataBundleUtils._Privilege.ADD_ENCOUNTERS, MetadataBundleUtils._Privilege.ADD_ENCOUNTERS));
+		install(privilege(MetadataBundleUtils._Privilege.GET_CARE_SETTINGS, MetadataBundleUtils._Privilege.GET_CARE_SETTINGS));
+		install(privilege(MetadataBundleUtils._Privilege.GET_ORDER_FREQUENCIES, MetadataBundleUtils._Privilege.GET_ORDER_FREQUENCIES));
 
 
 
