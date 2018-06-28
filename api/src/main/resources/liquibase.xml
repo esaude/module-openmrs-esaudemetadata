@@ -2280,4 +2280,14 @@
         </sql>
     </changeSet>
 
+    <changeSet id="esaude-metadata-201806281510" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+        </preConditions>
+        <comment>Drop the chunking_history if it exists such that it be created by the atom module</comment>
+        <sql>
+            DROP TABLE chunking_history;
+        </sql>
+    </changeSet>
+
 </databaseChangeLog>
