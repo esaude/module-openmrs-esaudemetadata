@@ -2270,4 +2270,14 @@
         </sql>
     </changeSet>
 
+    <changeSet id="esaude-metadata-201806281455" author="ningosi">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <dbms type="mysql"/>
+        </preConditions>
+        <comment>Drop the event_records if it exists such that it be created by the atom module</comment>
+        <sql>
+            DROP TABLE event_records;
+        </sql>
+    </changeSet>
+
 </databaseChangeLog>
