@@ -2274,20 +2274,9 @@
         <preConditions onFail="MARK_RAN" onError="WARN">
             <dbms type="mysql"/>
         </preConditions>
-        <comment>Drop the event_records if it exists such that it be created by the atom module</comment>
-        <sql>
-            DROP TABLE event_records;
-        </sql>
+        <comment>Drop all tables provided by old atom feed if they exists such that they  be created a fresh by the new atom module</comment>
+        <sqlFile path="sql/clean_atom_feed_tables.sql" />
     </changeSet>
 
-    <changeSet id="esaude-metadata-201806281510" author="ningosi">
-        <preConditions onFail="MARK_RAN" onError="WARN">
-            <dbms type="mysql"/>
-        </preConditions>
-        <comment>Drop the chunking_history if it exists such that it be created by the atom module</comment>
-        <sql>
-            DROP TABLE chunking_history;
-        </sql>
-    </changeSet>
 
 </databaseChangeLog>
